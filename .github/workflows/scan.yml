@@ -1,0 +1,29 @@
+name: Scan direct-company ATS APIs
+
+on:
+  schedule:
+    # Runs at 19:30 UTC daily = 3:30am Taipei, ~30min before the main
+    # dashboard routine (which runs at 20:00 UTC = 4am Taipei), so its
+    # fresh data.json is ready in time to be read.
+    - cron: "30 19 * * *"
+  workflow_dispatch: {} # allows manual trigger from the Actions tab too
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run scraper
+        run: python3 scan.py
+
+      - name: Commit and push if data.json changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git diff --staged --quiet || git commit -m "Update data.json ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+          git push
