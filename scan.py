@@ -166,8 +166,16 @@ def main():
         req = urllib.request.Request(
             "https://careers.tsmc.com/zh_TW/careers/SearchJobs",
             data=body.encode(), method="POST",
-            headers={"User-Agent": "leo-internship-scraper/1.0",
-                     "Content-Type": "application/x-www-form-urlencoded"},
+            headers={
+                "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                                "Chrome/128.0.0.0 Safari/537.36"),
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Accept-Language": "zh-TW,zh;q=0.9,en;q=0.8",
+                "Referer": "https://careers.tsmc.com/zh_TW/careers",
+                "Origin": "https://careers.tsmc.com",
+            },
         )
         with urllib.request.urlopen(req, timeout=30) as r:
             html = r.read().decode("utf-8", errors="replace")
