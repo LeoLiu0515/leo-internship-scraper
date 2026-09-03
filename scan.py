@@ -33,24 +33,26 @@ content/eligibility filtering, which stays in daily_scan.py): only rows
 with 美國 (US) in the location span and 實習 (Internship) as the
 employment-type span are kept.
 
-2026-09-04: added HiringCafe (hiringcafe.com). Its search results are
-embedded as JSON in the page's own __NEXT_DATA__ script tag -- no separate
-API. daily_scan.py's own direct attempt at this (source 9 there) works
-fine locally/manually but the *dashboard routine's* cloud sandbox rejects
-the connection outright at its egress-proxy level ("organization policy")
--- a block on that sandbox specifically, confirmed by a live cloud run,
-NOT a hiringcafe.com-side IP/ASN block like TSMC's (TSMC's WAF also
-blocked GitHub Actions' IPs when tried here; this is a different kind of
-block that has nothing to do with GitHub's network, so worth trying here
-even though TSMC's relay attempt failed). Uses curl via subprocess, not
-urllib -- hiringcafe.com sits behind a Cloudflare bot-challenge that 403s
-plain urllib even with full browser headers, while curl's own TLS
-fingerprint passes cleanly (verified repeatedly, both locally and here).
-Structural filtering done here (masters_degree_requirement == "Required",
-workplace_countries not containing "US", commitment not Internship/Co-op)
--- content/eligibility filtering (title keywords, season/year, ITAR
-company list) stays in daily_scan.py via the normal src != "direct-tsmc"
-path, same as every other relay source.
+2026-09-04: TRIED adding HiringCafe (hiringcafe.com) here, same as TSMC's
+relay fix -- did NOT work, reverted. Reasoning it seemed worth trying: the
+dashboard routine's own cloud sandbox blocks HiringCafe at its
+egress-proxy level ("organization policy", a block on that sandbox
+specifically, confirmed by a live cloud run) -- a different failure mode
+than TSMC's (TSMC's WAF gives an actual HTTP 403 from Cloudflare, meaning
+it reaches hiringcafe.com's/TSMC's server and gets rejected there by IP
+reputation). Since the dashboard sandbox's block looked like it might be
+Anthropic-side rather than hiringcafe.com-side, GitHub Actions' totally
+different network seemed worth a real test rather than assuming it would
+fail the same way TSMC's relay attempt did. Pushed a version using curl
+via subprocess (hiringcafe.com Cloudflare-challenges plain urllib even
+with full browser headers; curl's TLS fingerprint passes it locally), ran
+the workflow live, and got: `HTTP_STATUS:403` from Cloudflare on every
+query -- so it turns out to be the same story as TSMC after all:
+Cloudflare's bot-challenge itself flags GitHub Actions' IP ranges,
+independent of which HTTP client makes the request. Removed the code
+(kept as this note, not as an inert stub, so a future attempt doesn't
+have to rediscover this) -- HiringCafe stays a manual/local-only source
+via daily_scan.py's own source 9, same as TSMC.
 
 2026-09-02 (later same day): broad sweep after Leo asked to add every
 company we could think of. Verified and added: Flex, Waymo, Lucid Motors,
@@ -73,7 +75,7 @@ software lane. "national" Greenhouse board exists but is a small,
 identity-ambiguous company (6 jobs, no interns) -- skipped.
 """
 
-import json, re, time, urllib.request, urllib.parse, subprocess, datetime as dt
+import json, re, time, urllib.request
 
 NOW = time.time()
 
@@ -103,27 +105,6 @@ LEVER_BOARDS = {
 # Amazon runs its own jobs API (not Greenhouse/Workday/Lever) -- public, no auth.
 AMAZON_QUERY = "intern"
 AMAZON_COUNTRY = "USA"
-
-# HiringCafe (source 9 in daily_scan.py) -- see module docstring above.
-HIRINGCAFE_US_LOCATION = {
-    "id": "FxY1yZQBoEtHp_8UEq7V", "types": ["country"],
-    "address_components": [{"long_name": "United States", "short_name": "US", "types": ["country"]}],
-    "formatted_address": "United States", "population": 327167434,
-    "workplace_types": [], "options": {"flexible_regions": ["anywhere_in_continent", "anywhere_in_world"]},
-}
-HIRINGCAFE_QUERIES = [
-    "embedded firmware hardware engineer intern",
-    "ASIC VLSI silicon chip design intern",
-    "electrical engineer hardware intern co-op",
-    "robotics controls systems engineer intern",
-    "computer architecture PCB board design validation intern",
-]
-HIRINGCAFE_HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Referer": "https://hiringcafe.com/",
-}
 
 
 def fetch_json(url, method="GET", body=None):
@@ -198,61 +179,6 @@ def main():
             })
     except Exception as e:
         print("! amazon failed:", e)
-
-    for q in HIRINGCAFE_QUERIES:
-        try:
-            search_state = {"locations": [HIRINGCAFE_US_LOCATION], "searchQuery": q}
-            url = "https://hiringcafe.com/?searchState=" + urllib.parse.quote(json.dumps(search_state))
-            cmd = ["curl", "-s", "-w", "\\nHTTP_STATUS:%{http_code}", "--max-time", "30", url]
-            for k, v in HIRINGCAFE_HEADERS.items():
-                cmd += ["-H", f"{k}: {v}"]
-            m = None
-            for attempt in range(2):
-                result = subprocess.run(cmd, capture_output=True, timeout=35)
-                html = result.stdout.decode("utf-8", errors="replace")
-                m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', html, re.S)
-                if m:
-                    break
-            if not m:
-                # diagnostic only: curl's returncode/stderr and the response's
-                # tail (where -w appends HTTP_STATUS) explain WHY it failed
-                # without dumping the full (possibly large) HTML body.
-                print(f"  hiringcafe debug ({q}): curl_rc={result.returncode} "
-                      f"stderr={result.stderr.decode('utf-8', errors='replace')[:200]!r} "
-                      f"resp_tail={html[-120:]!r} resp_len={len(html)}")
-                continue
-            data = json.loads(m.group(1))
-            hits = data["props"]["pageProps"]["ssrHits"]
-            for h in hits:
-                ji = h.get("job_information") or {}
-                v5 = h.get("v5_processed_job_data") or {}
-                title = ji.get("title", "")
-                if v5.get("masters_degree_requirement") == "Required":
-                    continue
-                countries = v5.get("workplace_countries") or []
-                if countries and "US" not in countries:
-                    continue
-                commitment = v5.get("commitment") or []
-                if commitment and not ({"Internship", "Co-op"} & set(commitment)):
-                    continue
-                posted = v5.get("estimated_publish_date")
-                posted_at = None
-                for fmt in ("%Y-%m-%dT%H:%M:%S.%fZ", "%Y-%m-%dT%H:%M:%SZ"):
-                    try:
-                        posted_at = dt.datetime.strptime(posted, fmt).replace(tzinfo=dt.timezone.utc).timestamp()
-                        break
-                    except Exception:
-                        continue
-                states = v5.get("workplace_states") or []
-                out.append({
-                    "company": v5.get("company_name", ""), "title": title,
-                    "loc": "; ".join(states)[:60],
-                    "url": h.get("apply_url", ""),
-                    "posted_at": posted_at,
-                    "src": "hiringcafe", "fetched_at": NOW,
-                })
-        except Exception as e:
-            print(f"! hiringcafe query failed: {q}", e)
 
     try:
         body = ("jobSort=&jobSortDirection=&listFilterMode=true&search=intern"
