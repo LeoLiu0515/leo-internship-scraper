@@ -203,7 +203,7 @@ def main():
         try:
             search_state = {"locations": [HIRINGCAFE_US_LOCATION], "searchQuery": q}
             url = "https://hiringcafe.com/?searchState=" + urllib.parse.quote(json.dumps(search_state))
-            cmd = ["curl", "-s", "--max-time", "30", url]
+            cmd = ["curl", "-s", "-w", "\\nHTTP_STATUS:%{http_code}", "--max-time", "30", url]
             for k, v in HIRINGCAFE_HEADERS.items():
                 cmd += ["-H", f"{k}: {v}"]
             m = None
@@ -213,6 +213,14 @@ def main():
                 m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', html, re.S)
                 if m:
                     break
+            if not m:
+                # diagnostic only: curl's returncode/stderr and the response's
+                # tail (where -w appends HTTP_STATUS) explain WHY it failed
+                # without dumping the full (possibly large) HTML body.
+                print(f"  hiringcafe debug ({q}): curl_rc={result.returncode} "
+                      f"stderr={result.stderr.decode('utf-8', errors='replace')[:200]!r} "
+                      f"resp_tail={html[-120:]!r} resp_len={len(html)}")
+                continue
             data = json.loads(m.group(1))
             hits = data["props"]["pageProps"]["ssrHits"]
             for h in hits:
