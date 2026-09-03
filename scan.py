@@ -18,6 +18,21 @@ companies (Cisco, TSMC, Amazon, Tesla) aren't missed. TSMC and Tesla were
 checked but no working public API endpoint was found in the time available
 -- see this repo's README for status.
 
+2026-09-03: added TSMC (careers.tsmc.com). daily_scan.py's own direct
+attempt at this (source 8 there) works fine locally/manually but 403s from
+the dashboard's cloud sandbox -- same egress-allowlist problem as
+Greenhouse/Workday/Lever, confirmed by an actual cloud run. Same fix as
+those: fetch it here instead (unrestricted egress), tag src "tsmc",
+daily_scan.py's load_relay() re-applies the TSMC-specific eligibility
+checks (title exclusions, Masters-degree exclusion, season/year) before
+folding it in as "relay-tsmc". Endpoint: POST to
+https://careers.tsmc.com/zh_TW/careers/SearchJobs (classic Avature
+server-rendered portal, no CSRF token or session/cookie needed --
+verified with a bare curl POST). Structural filtering done here (not
+content/eligibility filtering, which stays in daily_scan.py): only rows
+with 美國 (US) in the location span and 實習 (Internship) as the
+employment-type span are kept.
+
 2026-09-02 (later same day): broad sweep after Leo asked to add every
 company we could think of. Verified and added: Flex, Waymo, Lucid Motors,
 Roku (Greenhouse), and Micron, Intel, Analog Devices (Workday, site
@@ -39,7 +54,7 @@ software lane. "national" Greenhouse board exists but is a small,
 identity-ambiguous company (6 jobs, no interns) -- skipped.
 """
 
-import json, time, urllib.request
+import json, re, time, urllib.request
 
 NOW = time.time()
 
@@ -143,6 +158,37 @@ def main():
             })
     except Exception as e:
         print("! amazon failed:", e)
+
+    try:
+        body = ("jobSort=&jobSortDirection=&listFilterMode=true&search=intern"
+                 "&4177=&1277=&4178=&4178_hidden=1&558=&147=&542="
+                 "&timeZone=Asia%2FTaipei")
+        req = urllib.request.Request(
+            "https://careers.tsmc.com/zh_TW/careers/SearchJobs",
+            data=body.encode(), method="POST",
+            headers={"User-Agent": "leo-internship-scraper/1.0",
+                     "Content-Type": "application/x-www-form-urlencoded"},
+        )
+        with urllib.request.urlopen(req, timeout=30) as r:
+            html = r.read().decode("utf-8", errors="replace")
+        pattern = re.compile(
+            r'JobDetail\?jobId=(\d+)[^"]*">\s*([^<]+?)\s*</a>.*?'
+            r'list-item-location">\s*([^<]*?)\s*</span>.*?'
+            r'list-item-employmentType">\s*([^<]*?)\s*</span>',
+            re.S,
+        )
+        for jid, title, loc, etype in pattern.findall(html):
+            title, loc = title.strip(), loc.strip()
+            if "美國" not in loc or "實習" not in etype:
+                continue  # structural only -- eligibility filtering happens in daily_scan.py
+            out.append({
+                "company": "TSMC", "title": title,
+                "loc": loc.replace("美國-", "US-"),
+                "url": f"https://careers.tsmc.com/zh_TW/careers/JobDetail?jobId={jid}",
+                "src": "tsmc", "fetched_at": NOW,
+            })
+    except Exception as e:
+        print("! tsmc failed:", e)
 
     result = {
         "generated_at": NOW,
