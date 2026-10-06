@@ -18,7 +18,7 @@ KNOWN GAPS (do not claim coverage): 104.com.tw / 1111 (Cloudflare/blocked), TSMC
 Quanta, ASE, Realtek and most Taiwan-native company portals (own sites, bot-blocked or no
 public API), Japanese new-grad portals (Mynavi/Rikunabi), mainland China portals.
 """
-import json, re, sys, time, html, urllib.request, urllib.parse, datetime as dt
+import json, re, sys, time, html as htmllib, urllib.request, urllib.parse, datetime as dt
 
 NOW = time.time()
 UA = {"User-Agent": "Mozilla/5.0 (asia-scan/1.0)"}
@@ -387,7 +387,7 @@ def load_linkedin():
                         continue
                     seen.add(u); new_here += 1
                     strip = lambda x: re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", x or "")).strip()
-                    title, comp, where = html.unescape(strip(m_t.group(1))), html.unescape(strip(m_c.group(1) if m_c else "")), html.unescape(strip(m_l.group(1) if m_l else ""))
+                    title, comp, where = htmllib.unescape(strip(m_t.group(1))), htmllib.unescape(strip(m_c.group(1) if m_c else "")), htmllib.unescape(strip(m_l.group(1) if m_l else ""))
                     try:
                         age = max(0, int((NOW - dt.datetime.strptime(m_d.group(1), "%Y-%m-%d").timestamp()) / 86400)) if m_d else 7
                     except Exception:
