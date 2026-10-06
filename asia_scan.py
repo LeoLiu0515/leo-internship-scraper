@@ -98,7 +98,7 @@ TECH_COMPANIES = re.compile(
     r"analog devices|microchip|keysight|teradyne|cadence|ansys|siemens|bosch|schneider|abb|honeywell|ericsson|nokia", re.I)
 
 
-def title_ok(title, company=""):
+def title_ok(title, company="", trusted=False):
     """Leo (2026-10-05): 'I do not pick, anything ECE-related is fine' -> broad: any intern/co-op title that looks
     technical, minus obvious business/finance/HR/mechanical roles."""
     t = title.lower()
@@ -108,7 +108,7 @@ def title_ok(title, company=""):
         return False
     if re.search(r"master'?s", t) and not re.search(r"bachelor", t):
         return False
-    return TECH_RE.search(title) is not None or TECH_COMPANIES.search(company or "") is not None
+    return trusted or TECH_RE.search(title) is not None or TECH_COMPANIES.search(company or "") is not None
 
 
 def term_ok(title):
@@ -407,10 +407,97 @@ def load_linkedin():
     return out
 
 
+# ---------------------------------------------------------------- source 7: 104 job bank (Taiwan's biggest local board)
+# The public JSON API answers from GitHub's network (it 403s residential/other IPs). Restricted to tech-relevant
+# 104 job categories so keyword "實習" does not drag in restaurant part-time jobs.
+J104_CATS = [("2007000000", "資訊軟體系統"), ("2008000000", "研發"), ("2009000000", "生產製造/品管"), ("2010000000", "操作/技術/維修")]
+J104_KWS = ["實習", "intern", "暑期實習"]
+J104_MAX_PAGES = 45
+
+
+def _104_api(params):
+    url = "https://www.104.com.tw/jobs/search/api/jobs?" + urllib.parse.urlencode(params)
+    return http_json(url, headers={"Referer": "https://www.104.com.tw/jobs/search/", "Accept": "application/json, text/plain, */*",
+                                   "Accept-Language": "zh-TW,zh;q=0.9"})
+
+
+def load_104():
+    out, seen = [], set()
+    for cat, cat_name in J104_CATS:
+        n_cat = 0
+        for kw in J104_KWS:
+            old_streak = 0
+            for page in range(1, J104_MAX_PAGES + 1):
+                try:
+                    d = _104_api({"keyword": kw, "page": page, "order": 15, "jobcat": cat, "mode": "s", "jobsource": "index_s"})
+                except Exception as e:
+                    print(f"  ! 104 {cat_name}/{kw}/p{page} failed: {e}", file=sys.stderr)
+                    break
+                rows = d.get("data", [])
+                if not rows:
+                    break
+                n_old = 0
+                for r in rows:
+                    link = ((r.get("link") or {}).get("job") or "").split("?")[0]
+                    if not link or link in seen:
+                        continue
+                    seen.add(link)
+                    try:
+                        age = max(0, int((NOW - dt.datetime.strptime(str(r.get("appearDate")), "%Y%m%d").timestamp()) / 86400))
+                    except Exception:
+                        age = 7
+                    if age > 75:
+                        n_old += 1
+                    out.append({"company": r.get("custName") or "", "title": r.get("jobName") or "",
+                                "loc": ((r.get("jobAddrNoDesc") or "") + " " + (r.get("jobAddress") or ""))[:60].strip(),
+                                "country": "Taiwan", "url": link, "age": age, "src": "104", "trusted": True})
+                    n_cat += 1
+                old_streak = old_streak + 1 if n_old >= len(rows) - 1 else 0
+                if old_streak >= 2:
+                    break
+                time.sleep(0.35)
+        print(f"  104 {cat_name}: {n_cat} raw rows", file=sys.stderr)
+    return out
+
+
+# ---------------------------------------------------------------- source 8: university career-center announcements (Taiwan)
+SCHOOL_BOARDS = [("NCU", "https://careercenter.ncu.edu.tw/internship")]
+
+
+def load_school_boards():
+    out = []
+    for name, url in SCHOOL_BOARDS:
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA["User-Agent"], "Accept-Language": "zh-TW,zh;q=0.9"})
+            with urllib.request.urlopen(req, timeout=40) as r:
+                h = r.read().decode("utf-8", "replace")
+            seen = set()
+            for m in re.finditer(r'<a href="(https://careercenter\.ncu\.edu\.tw/internship/show/\d+)">(.*?)</a>', h, re.S):
+                u, inner = m.group(1), m.group(2)
+                if u in seen:
+                    continue
+                seen.add(u)
+                t = re.search(r'card-title[^>]*>(.*?)</h5>', inner, re.S)
+                d = re.search(r'(\d{4}-\d{2}-\d{2})', inner)
+                title = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", t.group(1) if t else "")).strip()
+                if not title:
+                    continue
+                try:
+                    age = max(0, int((NOW - dt.datetime.strptime(d.group(1), "%Y-%m-%d").timestamp()) / 86400)) if d else 7
+                except Exception:
+                    age = 7
+                out.append({"company": "(" + name + " 職涯中心公告)", "title": htmllib.unescape(title), "loc": "Taiwan",
+                            "country": "Taiwan", "url": u, "age": age, "src": "school-" + name.lower(), "school": True})
+            print(f"  school {name}: {len(seen)} announcements", file=sys.stderr)
+        except Exception as e:
+            print(f"  ! school {name} failed: {e}", file=sys.stderr)
+    return out
+
+
 # ---------------------------------------------------------------- main
 def main():
     rows = []
-    for fn in (load_workday, load_dell, load_yourator, load_appier, load_sg_trackers, load_linkedin):
+    for fn in (load_workday, load_dell, load_yourator, load_appier, load_sg_trackers, load_linkedin, load_104, load_school_boards):
         rows += fn()
     kept, seen = [], set()
     for r in rows:
@@ -419,7 +506,7 @@ def main():
         r["loc"] = str(r.get("loc") or "")
         if not r.get("url") or not r["title"]:
             continue
-        if not title_ok(r["title"], r["company"]) or not term_ok(r["title"]):
+        if not title_ok(r["title"], r["title"] if r.get("school") else r["company"], trusted=r.get("trusted", False)) or not term_ok(r["title"]):
             continue
         key = (r["company"].lower().strip(), r["title"].lower().strip(), r["country"])
         ukey = r["url"].split("?")[0]
