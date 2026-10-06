@@ -412,7 +412,10 @@ def main():
         rows += fn()
     kept, seen = [], set()
     for r in rows:
-        if not r["url"] or not r["title"]:
+        r["company"] = str(r.get("company") or "")
+        r["title"] = str(r.get("title") or "")
+        r["loc"] = str(r.get("loc") or "")
+        if not r.get("url") or not r["title"]:
             continue
         if not title_ok(r["title"], r["company"]) or not term_ok(r["title"]):
             continue
