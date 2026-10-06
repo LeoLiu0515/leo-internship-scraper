@@ -18,7 +18,7 @@ KNOWN GAPS (do not claim coverage): 104.com.tw / 1111 (Cloudflare/blocked), TSMC
 Quanta, ASE, Realtek and most Taiwan-native company portals (own sites, bot-blocked or no
 public API), Japanese new-grad portals (Mynavi/Rikunabi), mainland China portals.
 """
-import json, re, sys, time, urllib.request, urllib.parse, datetime as dt
+import json, re, sys, time, html, urllib.request, urllib.parse, datetime as dt
 
 NOW = time.time()
 UA = {"User-Agent": "Mozilla/5.0 (asia-scan/1.0)"}
@@ -42,9 +42,9 @@ ASIA_RE = [(n, re.compile(p, re.I)) for n, p in ASIA_COUNTRIES]
 TITLE_EXCLUDE = ["phd", "ph.d", "mba", "sales", "marketing", "recruit", "legal", "supply chain",
                  "product manager", "product management", "program manager", "project manager",
                  "accounting", "accountant", "audit", "finance", "financial", "hr ", "human resources",
-                 "talent", "procurement", "purchasing", "customer service", "weapon", "business",
-                 "consult", "communications", "design (ux)", "ux ", "brand", "content", "analyst",
-                 "administrat", "legal", "tax",
+                 "talent", "procurement", "purchasing", "customer service", "weapon", 
+                  
+                 "administrat", "legal", 
                  "rdss", "研發替代役"]  # RDSS = Taiwan military-service substitute program (grad students with service obligation) -- not for Leo
 TITLE_INCLUDE_EN = ["embedded", "firmware", "hardware", "fpga", "verilog", "rtl", "asic", "silicon",
                     "digital design", "analog", "mixed signal", "mixed-signal", "soc", "robot", "controls",
@@ -71,17 +71,42 @@ def wb(needle, hay):
     return re.search(r"\b" + re.escape(needle) + r"\b", hay) is not None
 
 
-def title_ok(title):
+TECH_RE = re.compile(
+    r"engineer|engineering|developer|software|firmware|hardware|embedded|data|ai|ml|machine learning|algorithm|"
+    r"research|r&d|ic|chip|silicon|semiconductor|electr|circuit|fpga|asic|soc|rtl|verif|valid|test|system|network|"
+    r"cloud|security|cyber|iot|automation|robot|device|sensor|power|photon|optic|rf|wireless|analog|digital|process|"
+    r"equipment|yield|reliab|packag|fab|manufactur|npi|devops|backend|frontend|full.?stack|mobile|ios|android|sre|"
+    r"infrastructure|compiler|gpu|cuda|simulation|control|mechatron|programmer|programming|computer|it|information|"
+    r"scientist|technolog|"
+    r"工程|研發|研究|軟體|韌體|硬體|演算法|數據|資料|資訊|電機|電子|半導體|晶片|測試|製程|設備|系統|網路|雲端|資安|人工智慧|機器學習|自動化|機器人|光電|封裝|良率|嵌入式|程式|"
+    r"エンジニア|開発|研究|ソフト|ハード|組込|半導体|回路|データ", re.I)
+NON_ECE = ["mechanical engineer", "civil", "chemical engineer", "biomedical", "industrial engineer", "機構", "土木", "化工",
+           "investment", "banking", "analyst, finance", "financial analyst", "business analyst", "business development",
+           "customer success", "customer service", "public relations", "social media", "graphic", "copywrit", "legal",
+           "paralegal", "esg", "sustainability", "quant", "trading", "risk", "clinical", "pharma", "mba", "accelerator program"]
+
+
+TECH_COMPANIES = re.compile(
+    r"tsmc|台積|mediatek|聯發科|realtek|瑞昱|novatek|聯詠|nvidia|qualcomm|intel|micron|amd|arm|marvell|broadcom|"
+    r"texas instruments|nxp|infineon|asml|applied materials|lam research|kla|synopsys|cadence|delta|台達|foxconn|鴻海|"
+    r"quanta|廣達|asus|華碩|acer|宏碁|compal|仁寶|wistron|緯創|pegatron|和碩|inventec|英業達|ase|日月光|phison|群聯|"
+    r"macronix|旺宏|winbond|華邦|nuvoton|新唐|alchip|世芯|guc|創意電子|andes|晶心|hynix|samsung|apple|google|microsoft|"
+    r"amazon|meta|cisco|dell|hp|lenovo|synology|群暉|moxa|gogoro|appier|garmin|sony|panasonic|toshiba|renesas|"
+    r"rohm|hitachi|nec|fujitsu|tokyo electron|kioxia|canon|globalfoundries|umc|聯電|vanguard|世界先進|powerchip|力積電|"
+    r"analog devices|microchip|keysight|teradyne|cadence|ansys|siemens|bosch|schneider|abb|honeywell|ericsson|nokia", re.I)
+
+
+def title_ok(title, company=""):
+    """Leo (2026-10-05): 'I do not pick, anything ECE-related is fine' -> broad: any intern/co-op title that looks
+    technical, minus obvious business/finance/HR/mechanical roles."""
     t = title.lower()
     if not INTERN_STRICT.search(title):
         return False
-    if any(b in t for b in TITLE_EXCLUDE):
+    if any(b in t for b in TITLE_EXCLUDE) or any(b in t for b in NON_ECE):
         return False
-    if re.search(r"\bmaster'?s\b", t) and not re.search(r"bachelor", t):
+    if re.search(r"master'?s", t) and not re.search(r"bachelor", t):
         return False
-    if any(wb(g.strip(), t) if g.strip() == g and " " not in g else (g in t) for g in TITLE_INCLUDE_EN):
-        return True
-    return any(g in title for g in TITLE_INCLUDE_LOCAL)
+    return TECH_RE.search(title) is not None or TECH_COMPANIES.search(company or "") is not None
 
 
 def term_ok(title):
@@ -226,7 +251,7 @@ def load_yourator():
                     if j["id"] in seen:
                         continue
                     seen.add(j["id"])
-                    out.append({"company": (j.get("company") or {}).get("brand", ""), "title": j.get("name", ""),
+                    out.append({"company": (j.get("company") or {}).get(""), "title": j.get("name", ""),
                                 "loc": (j.get("location") or "")[:60], "country": "Taiwan",
                                 "url": "https://www.yourator.co" + j.get("path", ""), "age": 7, "src": "yourator"})
                 if not d.get("hasMore"):
@@ -297,16 +322,99 @@ def _age_iso(s):
         return 7
 
 
+# ---------------------------------------------------------------- source 6: LinkedIn public guest search
+# LinkedIn indexes Taiwanese/Asian company postings whose own portals block bots (TSMC, MediaTek, Compal, ...).
+# Public guest endpoint, no login. f_JT=I = Internship job type, f_TPR=r2592000 = last 30 days.
+LI_QUERIES = {
+    # location string -> keywords (Taiwan gets the deepest coverage)
+    "Taiwan": ["intern", "internship", "實習", "實習生", "2027 intern", "summer intern", "engineer intern",
+               "software engineer intern", "hardware intern", "firmware intern", "IC design intern",
+               "semiconductor intern", "data intern", "AI intern", "電機 實習", "工程師 實習", "研發 實習",
+               "暑期實習", "韌體 實習", "硬體 實習", "軟體 實習"],
+    "Singapore": ["intern", "internship", "2027 intern", "engineer intern", "software intern", "hardware intern"],
+    "Japan": ["intern", "internship", "インターン", "2027 intern", "engineer intern", "software intern"],
+    "Hong Kong": ["intern", "internship", "2027 intern", "engineer intern", "software intern"],
+    "South Korea": ["intern", "internship", "2027 intern", "engineer intern", "software intern"],
+    "China": ["intern", "internship", "2027 intern", "engineer intern", "software intern"],
+    "Malaysia": ["intern", "internship", "engineer intern"],
+    "Thailand": ["intern", "internship", "engineer intern"],
+    "Vietnam": ["intern", "internship", "engineer intern"],
+}
+LI_BASE = "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search"
+
+
+def _li_fetch(params):
+    url = LI_BASE + "?" + urllib.parse.urlencode(params)
+    for attempt in range(4):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",
+                                                       "Accept-Language": "en-US,en;q=0.9"})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return r.read().decode("utf-8", "replace")
+        except urllib.error.HTTPError as e:
+            if e.code in (429, 999, 503):
+                time.sleep(15 + attempt * 20)
+                continue
+            return ""
+        except Exception:
+            time.sleep(3)
+    return ""
+
+
+def load_linkedin():
+    out, seen = [], set()
+    stats = {}
+    for loc, kws in LI_QUERIES.items():
+        n_loc = 0
+        for kw in kws:
+            empty_streak = 0
+            for start in range(0, 100, 10):  # up to 10 pages of 10
+                html = _li_fetch({"keywords": kw, "location": loc, "f_JT": "I", "f_TPR": "r2592000", "start": start})
+                cards = re.findall(r"<li>(.*?)</li>", html, re.S)
+                if not cards:
+                    break
+                new_here = 0
+                for c in cards:
+                    m_url = re.search(r'href="(https://[a-z.]*linkedin\.com/jobs/view/[^"?]+)', c)
+                    m_t = re.search(r'base-search-card__title[^>]*>\s*(.*?)\s*</h3>', c, re.S)
+                    m_c = re.search(r'base-search-card__subtitle[^>]*>(.*?)</h4>', c, re.S)
+                    m_l = re.search(r'job-search-card__location[^>]*>\s*(.*?)\s*</span>', c, re.S)
+                    m_d = re.search(r'datetime="(\d{4}-\d{2}-\d{2})"', c)
+                    if not (m_url and m_t):
+                        continue
+                    u = m_url.group(1)
+                    if u in seen:
+                        continue
+                    seen.add(u); new_here += 1
+                    strip = lambda x: re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", x or "")).strip()
+                    title, comp, where = html.unescape(strip(m_t.group(1))), html.unescape(strip(m_c.group(1) if m_c else "")), html.unescape(strip(m_l.group(1) if m_l else ""))
+                    try:
+                        age = max(0, int((NOW - dt.datetime.strptime(m_d.group(1), "%Y-%m-%d").timestamp()) / 86400)) if m_d else 7
+                    except Exception:
+                        age = 7
+                    out.append({"company": comp, "title": title, "loc": where[:60], "country": country_of(where) or loc,
+                                "url": u, "age": age, "src": "linkedin"})
+                n_loc += new_here
+                empty_streak = empty_streak + 1 if new_here == 0 else 0
+                if empty_streak >= 2:
+                    break
+                time.sleep(1.2)
+            time.sleep(1.0)
+        stats[loc] = n_loc
+    print("  linkedin raw rows by query-location:", stats, file=sys.stderr)
+    return out
+
+
 # ---------------------------------------------------------------- main
 def main():
     rows = []
-    for fn in (load_workday, load_dell, load_yourator, load_appier, load_sg_trackers):
+    for fn in (load_workday, load_dell, load_yourator, load_appier, load_sg_trackers, load_linkedin):
         rows += fn()
     kept, seen = [], set()
     for r in rows:
         if not r["url"] or not r["title"]:
             continue
-        if not title_ok(r["title"]) or not term_ok(r["title"]):
+        if not title_ok(r["title"], r["company"]) or not term_ok(r["title"]):
             continue
         key = (r["company"].lower().strip(), r["title"].lower().strip(), r["country"])
         ukey = r["url"].split("?")[0]

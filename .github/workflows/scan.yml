@@ -6,6 +6,9 @@ on:
     # dashboard routine (which runs at 20:00 UTC = 4am Taipei), so its
     # fresh data.json is ready in time to be read.
     - cron: "30 19 * * *"
+    # Second daily run at 10:30 UTC = 3:30am Pacific (PDT) so the Asia dashboard routine
+    # (11:00 UTC = 4am Pacific) reads data that is ~30 min old. Leo is in Seattle now.
+    - cron: "30 10 * * *"
   workflow_dispatch: {} # allows manual trigger from the Actions tab too
 
 permissions:
