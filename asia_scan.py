@@ -42,7 +42,7 @@ ASIA_RE = [(n, re.compile(p, re.I)) for n, p in ASIA_COUNTRIES]
 TITLE_EXCLUDE = ["phd", "ph.d", "mba", "sales", "marketing", "recruit", "legal", "supply chain",
                  "product manager", "product management", "program manager", "project manager",
                  "accounting", "accountant", "audit", "finance", "financial", "hr ", "human resources",
-                 "talent", "procurement", "purchasing", "customer service", "weapon", 
+                 "procurement", "purchasing", "customer service", "weapon", 
                   
                  "administrat", "legal", 
                  "rdss", "研發替代役"]  # RDSS = Taiwan military-service substitute program (grad students with service obligation) -- not for Leo
@@ -115,7 +115,7 @@ def term_ok(title):
     t = title.lower()
     if BAD_TERM.search(t):
         return False
-    years = re.findall(r"\b(20\d{2})\b", t)
+    years = re.findall(r"(?<!\d)(20\d{2})(?!\d)", t)  # also catches 'Y2026', '2026實習' (no \b next to CJK)
     if years and "2027" not in years:
         return False
     return True
