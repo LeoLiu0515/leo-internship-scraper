@@ -83,7 +83,9 @@ TECH_RE = re.compile(
 NON_ECE = ["mechanical engineer", "civil", "chemical engineer", "biomedical", "industrial engineer", "機構", "土木", "化工",
            "investment", "banking", "analyst, finance", "financial analyst", "business analyst", "business development",
            "customer success", "customer service", "public relations", "social media", "graphic", "copywrit", "legal",
-           "paralegal", "esg", "sustainability", "quant", "trading", "risk", "clinical", "pharma", "mba", "accelerator program"]
+           "paralegal", "esg", "sustainability", "quant", "trading", "risk", "clinical", "pharma", "mba", "accelerator program",
+           "tax", "account operations", "campaign", "ehs", "business process", "business excellence", "業務", "顧問", "稅務",
+           "consultant", "strategy", "operations intern", "account manager", "web3", "crypto", "hr ", "人資", "行政"]
 
 
 TECH_COMPANIES = re.compile(
