@@ -44,7 +44,8 @@ TITLE_EXCLUDE = ["phd", "ph.d", "mba", "sales", "marketing", "recruit", "legal",
                  "accounting", "accountant", "audit", "finance", "financial", "hr ", "human resources",
                  "talent", "procurement", "purchasing", "customer service", "weapon", "business",
                  "consult", "communications", "design (ux)", "ux ", "brand", "content", "analyst",
-                 "administrat", "legal", "tax"]
+                 "administrat", "legal", "tax",
+                 "rdss", "研發替代役"]  # RDSS = Taiwan military-service substitute program (grad students with service obligation) -- not for Leo
 TITLE_INCLUDE_EN = ["embedded", "firmware", "hardware", "fpga", "verilog", "rtl", "asic", "silicon",
                     "digital design", "analog", "mixed signal", "mixed-signal", "soc", "robot", "controls",
                     "control system", "signal processing", "dsp", "pcb", "board design", "validation",
