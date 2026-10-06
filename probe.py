@@ -1,29 +1,29 @@
-import re, sys, json, urllib.request, urllib.parse
+import re, sys, json, urllib.request, urllib.parse, collections
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+H = {"User-Agent": UA, "Referer": "https://www.104.com.tw/jobs/search/", "Accept": "application/json, text/plain, */*", "Accept-Language": "zh-TW,zh;q=0.9"}
+def get(url):
+    return json.loads(urllib.request.urlopen(urllib.request.Request(url, headers=H), timeout=40).read().decode("utf-8", "replace"))
 def api(params):
-    url = "https://www.104.com.tw/jobs/search/api/jobs?" + urllib.parse.urlencode(params)
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Referer": "https://www.104.com.tw/jobs/search/", "Accept": "application/json, text/plain, */*", "Accept-Language": "zh-TW,zh;q=0.9"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read().decode("utf-8", "replace"))
-d = api({"keyword": "實習", "page": 1, "order": 15, "jobsource": "index_s", "mode": "s"})
-print("TOP KEYS", list(d.keys()))
-print("METADATA", json.dumps(d.get("metadata"), ensure_ascii=False)[:400])
-rows = d.get("data", [])
-print("ROWS", len(rows))
-print("ROW0 KEYS", sorted(rows[0].keys()))
-for r in rows[:3]:
-    print(json.dumps({k: r.get(k) for k in ("jobName", "custName", "jobAddrNoDesc", "appearDate", "link", "jobType", "jobRole", "salaryLow", "period", "optionEdu")}, ensure_ascii=False))
-print("--- totals per keyword ---")
-for kw in ["實習", "實習生", "暑期實習", "intern", "2027 實習", "韌體 實習", "硬體 實習", "IC 實習", "軟體 實習"]:
-    try:
-        dd = api({"keyword": kw, "page": 1, "order": 15, "jobsource": "index_s", "mode": "s"})
-        md = (dd.get("metadata") or {}).get("pagination") or {}
-        print(kw, "->", md.get("total"), "pages", md.get("lastPage"), "rows/page", len(dd.get("data", [])))
-    except Exception as e:
-        print(kw, "ERR", str(e)[:80])
-print("--- deep page test ---")
+    return get("https://www.104.com.tw/jobs/search/api/jobs?" + urllib.parse.urlencode(params, doseq=True))
+def show(label, d, n=4):
+    md = (d.get("metadata") or {}).get("pagination") or {}
+    print(f"[{label}] total={md.get('total')} lastPage={md.get('lastPage')} rows={len(d.get('data', []))}")
+    for r in d.get("data", [])[:n]:
+        print("    -", r.get("appearDate"), "|", (r.get("custName") or "")[:22], "|", (r.get("jobName") or "")[:46], "| jobType", r.get("jobType"), "ro", r.get("jobRo"), "| s9", r.get("s9"))
+print("== JobCat tree (top level) ==")
 try:
-    dd = api({"keyword": "實習", "page": 30, "order": 15, "jobsource": "index_s", "mode": "s"})
-    print("page30 rows", len(dd.get("data", [])), [x.get("jobName") for x in dd.get("data", [])[:2]])
+    cats = get("https://static.104.com.tw/category-tool/json/JobCat.json")
+    for c in cats:
+        nm = c.get("des", "")
+        if re.search(r"資訊|軟體|電子|電機|研發|半導體|工程|品保|生產|製造|機械", nm):
+            print(c.get("no"), nm, "| children:", [(x.get("no"), x.get("des")) for x in c.get("n", [])][:14])
 except Exception as e:
-    print("page30 ERR", str(e)[:100])
+    print("JobCat ERR", e)
+print("== ro (job nature) tests, keyword=實習 ==")
+for ro in range(0, 9):
+    try: show(f"ro={ro}", api({"keyword": "實習", "page": 1, "order": 15, "ro": ro, "mode": "s", "jobsource": "index_s"}), 2)
+    except Exception as e: print("ro", ro, "ERR", str(e)[:60])
+print("== jobcat tests, keyword=實習 ==")
+for jc in ["2007000000", "2013000000", "2008000000", "2009000000", "2010000000"]:
+    try: show(f"jobcat={jc}", api({"keyword": "實習", "page": 1, "order": 15, "jobcat": jc, "mode": "s", "jobsource": "index_s"}), 4)
+    except Exception as e: print(jc, "ERR", str(e)[:60])
