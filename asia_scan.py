@@ -104,9 +104,16 @@ def http_json(url, data=None, headers=None, timeout=40):
     h = dict(UA)
     if headers:
         h.update(headers)
-    req = urllib.request.Request(url, data=data, headers=h)
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return json.loads(r.read().decode("utf-8", "replace"))
+    last = None
+    for attempt in range(4):
+        try:
+            req = urllib.request.Request(url, data=data, headers=h)
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return json.loads(r.read().decode("utf-8", "replace"))
+        except Exception as e:  # transient 5xx / timeouts (e.g. Micron 520) -> retry
+            last = e
+            time.sleep(2 + attempt * 3)
+    raise last
 
 
 def parse_posted_days(s):
