@@ -64,7 +64,10 @@ TITLE_INCLUDE_LOCAL = ["嵌入式", "韌體", "固件", "硬體", "硬件", "電
                        "IC設計", "IC设计", "版圖", "FPGA", "ASIC", "RTL", "IC "]
 INTERN_RE = re.compile(r"\bintern(ship)?s?\b|co-?op\b|實習|实习|インターン|\bstudent\b|trainee|working student|university (hire|grad)|summer", re.I)
 INTERN_STRICT = re.compile(r"\bintern(ship)?s?\b|co-?op\b|實習|实习|インターン", re.I)
-BAD_TERM = re.compile(r"\b(spring|fall|winter|autumn)\b", re.I)
+BAD_TERM = re.compile(r"(spring|fall|winter|autumn)|co-?op|off-?cycle|semester|year-?long|academic year|"
+                      r"(6|12|9)[- ]?months?|(jan|feb|mar|aug|sep|oct|nov|dec)[a-z]*\.?\s*(to|-|–|~)\s*(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)|"
+                      r"學期|學年|長期|长期|學制|寒假|春季|秋季|冬季|全職|全职|兼職|兼职|半年|一年|雙週|每週\d|週[二三四五]|"
+                      r"シーズン|通年|長期インターン|[12]h|h[12]|q[1-4]", re.I)
 
 
 def wb(needle, hay):
@@ -85,7 +88,11 @@ NON_ECE = ["mechanical engineer", "civil", "chemical engineer", "biomedical", "i
            "customer success", "customer service", "public relations", "social media", "graphic", "copywrit", "legal",
            "paralegal", "esg", "sustainability", "quant", "trading", "risk", "clinical", "pharma", "mba", "accelerator program",
            "tax", "account operations", "campaign", "ehs", "business process", "business excellence", "業務", "顧問", "稅務",
-           "consultant", "strategy", "operations intern", "account manager", "web3", "crypto", "hr ", "人資", "行政"]
+           "consultant", "strategy", "operations intern", "talent acquisition", "advisory", "sap ", "tax ", "audit",
+           "統計", "biostat", "量化", "金融", "證券", "证券", "銀行", "银行", "保險", "保险", "行銷", "营销", "營銷", "企劃", "企划", "文案", "設計師", "设计师",
+           "美術", "美术", "視覺設計", "ui/ux", "會計", "会计", "財務", "财务", "法務", "法务", "採購", "采购", "招募", "人力", "倉儲", "仓储", "物流",
+           "客服", "護理", "护理", "醫", "医", "藥", "药", "教育", "翻譯", "翻译", "編輯", "编辑", "營運", "运营", "管培", "儲備幹部", "值班", "助理人員", "資訊助理", "印刷", "餐", "廚", "房務", "門市",
+           "人壽", "壽險", "機械", "戰略客戶", "mechanical", "資產管理", "资产管理", "股票", "基金", "投資", "投资", "公關", "公关", "社群", "短影音", "直播", "電商", "电商", "商業分析", "數據分析師", "account manager", "web3", "crypto", "hr ", "人資", "行政"]
 
 
 TECH_COMPANIES = re.compile(
