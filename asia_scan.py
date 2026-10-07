@@ -64,10 +64,10 @@ TITLE_INCLUDE_LOCAL = ["嵌入式", "韌體", "固件", "硬體", "硬件", "電
                        "IC設計", "IC设计", "版圖", "FPGA", "ASIC", "RTL", "IC "]
 INTERN_RE = re.compile(r"\bintern(ship)?s?\b|co-?op\b|實習|实习|インターン|\bstudent\b|trainee|working student|university (hire|grad)|summer", re.I)
 INTERN_STRICT = re.compile(r"\bintern(ship)?s?\b|co-?op\b|實習|实习|インターン", re.I)
-BAD_TERM = re.compile(r"(spring|fall|winter|autumn)|co-?op|off-?cycle|semester|year-?long|academic year|"
-                      r"(6|12|9)[- ]?months?|(jan|feb|mar|aug|sep|oct|nov|dec)[a-z]*\.?\s*(to|-|–|~)\s*(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)|"
-                      r"學期|學年|長期|长期|學制|寒假|春季|秋季|冬季|全職|全职|兼職|兼职|半年|一年|雙週|每週\d|週[二三四五]|"
-                      r"シーズン|通年|長期インターン|[12]h|h[12]|q[1-4]", re.I)
+BAD_TERM = re.compile(r"\b(spring|fall|winter|autumn)\b|co-?op\b|off-?cycle|semester|year-?long|academic year|"
+                      r"\b(6|12|9)[- ]?months?\b|\b(jan|feb|mar|aug|sep|oct|nov|dec)[a-z]*\.?\s*(to|-|–|~)\s*(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)|"
+                      r"學期|學年|長期|长期|學制|寒假|春季|秋季|冬季|全職|全职|兼職|兼职|半年|一年|雙週|每週\d|週[二三四五]|[一每]周|一年期|大四|碩[一二]|碩士|研究所|應屆畢業|"
+                      r"シーズン|通年|長期インターン|\b[12]h\b|\bh[12]\b|\bq[1-4]\b", re.I)
 
 
 def wb(needle, hay):
@@ -75,12 +75,12 @@ def wb(needle, hay):
 
 
 TECH_RE = re.compile(
-    r"engineer|engineering|developer|software|firmware|hardware|embedded|data|ai|ml|machine learning|algorithm|"
-    r"research|r&d|ic|chip|silicon|semiconductor|electr|circuit|fpga|asic|soc|rtl|verif|valid|test|system|network|"
-    r"cloud|security|cyber|iot|automation|robot|device|sensor|power|photon|optic|rf|wireless|analog|digital|process|"
-    r"equipment|yield|reliab|packag|fab|manufactur|npi|devops|backend|frontend|full.?stack|mobile|ios|android|sre|"
-    r"infrastructure|compiler|gpu|cuda|simulation|control|mechatron|programmer|programming|computer|it|information|"
-    r"scientist|technolog|"
+    r"engineer|engineering|developer|software|firmware|hardware|embedded|\bdata\b|\bai\b|\bml\b|machine learning|algorithm|"
+    r"research|r&d|\bic\b|chip|silicon|semiconductor|electr|circuit|fpga|asic|\bsoc\b|rtl|verif|valid|\btest|system|network|"
+    r"cloud|security|cyber|\biot\b|automation|robot|device|sensor|power|photon|optic|\brf\b|wireless|analog|digital|process|"
+    r"equipment|yield|reliab|packag|\bfab\b|manufactur|\bnpi\b|devops|backend|frontend|full.?stack|mobile|\bios\b|android|\bsre\b|"
+    r"infrastructure|compiler|\bgpu\b|cuda|simulation|control|mechatron|programmer|programming|computer|\bit\b|information|"
+    r"scientist|technolog|人工智能|人工智慧|智慧|設計|驗證|訊號|量測|電源|電路|實驗|ai[ -]?|"
     r"工程|研發|研究|軟體|韌體|硬體|演算法|數據|資料|資訊|電機|電子|半導體|晶片|測試|製程|設備|系統|網路|雲端|資安|人工智慧|機器學習|自動化|機器人|光電|封裝|良率|嵌入式|程式|"
     r"エンジニア|開発|研究|ソフト|ハード|組込|半導体|回路|データ", re.I)
 NON_ECE = ["mechanical engineer", "civil", "chemical engineer", "biomedical", "industrial engineer", "機構", "土木", "化工",
@@ -90,19 +90,25 @@ NON_ECE = ["mechanical engineer", "civil", "chemical engineer", "biomedical", "i
            "tax", "account operations", "campaign", "ehs", "business process", "business excellence", "業務", "顧問", "稅務",
            "consultant", "strategy", "operations intern", "talent acquisition", "advisory", "sap ", "tax ", "audit",
            "統計", "biostat", "量化", "金融", "證券", "证券", "銀行", "银行", "保險", "保险", "行銷", "营销", "營銷", "企劃", "企划", "文案", "設計師", "设计师",
-           "美術", "美术", "視覺設計", "ui/ux", "會計", "会计", "財務", "财务", "法務", "法务", "採購", "采购", "招募", "人力", "倉儲", "仓储", "物流",
+           "美術", "美术", "視覺設計", "ui/ux", "會計", "会计", "財務", "财务", "法務", "法务", "法規", "生物統計", "生醫", "採購", "采购", "招募", "人力", "倉儲", "仓储", "物流",
            "客服", "護理", "护理", "醫", "医", "藥", "药", "教育", "翻譯", "翻译", "編輯", "编辑", "營運", "运营", "管培", "儲備幹部", "值班", "助理人員", "資訊助理", "印刷", "餐", "廚", "房務", "門市",
-           "人壽", "壽險", "機械", "戰略客戶", "mechanical", "資產管理", "资产管理", "股票", "基金", "投資", "投资", "公關", "公关", "社群", "短影音", "直播", "電商", "电商", "商業分析", "數據分析師", "account manager", "web3", "crypto", "hr ", "人資", "行政"]
+           "人壽", "壽險", "機械設計", "機械實習", "車輛", "維修實習", "material management", "全週", "全周", "非短期", "supplier", "category manager", "buyer", "修護", "修車", "噴漆", "學徒", "技師", "cnc", "沖床", "射出", "堆高機", "鉗工", "焊", "冷凍", "空調", "水電", "洗濯", "水洗", "紡織", "警衛", "職業安全衛生", "工安", "總務", "生管", "灌充", "造粒", "配方", "領班", "內場", "外場", "實習幹部", "派駐科技大廠", "淨水", "廠務助理", "補習班", "不動產", "繪圖", "排版", "內容經營", "內容編輯", "doc review", "戰略客戶", "mechanical", "資產管理", "资产管理", "股票", "基金", "投資", "投资", "公關", "公关", "社群", "短影音", "直播", "電商", "电商", "商業分析", "數據分析師", "account manager", "web3", "crypto", "hr ", "人資", "行政"]
 
 
 TECH_COMPANIES = re.compile(
-    r"tsmc|台積|mediatek|聯發科|realtek|瑞昱|novatek|聯詠|nvidia|qualcomm|intel|micron|amd|arm|marvell|broadcom|"
-    r"texas instruments|nxp|infineon|asml|applied materials|lam research|kla|synopsys|cadence|delta|台達|foxconn|鴻海|"
-    r"quanta|廣達|asus|華碩|acer|宏碁|compal|仁寶|wistron|緯創|pegatron|和碩|inventec|英業達|ase|日月光|phison|群聯|"
-    r"macronix|旺宏|winbond|華邦|nuvoton|新唐|alchip|世芯|guc|創意電子|andes|晶心|hynix|samsung|apple|google|microsoft|"
-    r"amazon|meta|cisco|dell|hp|lenovo|synology|群暉|moxa|gogoro|appier|garmin|sony|panasonic|toshiba|renesas|"
-    r"rohm|hitachi|nec|fujitsu|tokyo electron|kioxia|canon|globalfoundries|umc|聯電|vanguard|世界先進|powerchip|力積電|"
-    r"analog devices|microchip|keysight|teradyne|cadence|ansys|siemens|bosch|schneider|abb|honeywell|ericsson|nokia", re.I)
+    r"tsmc|台積|mediatek|聯發科|realtek|瑞昱|novatek|聯詠|nvidia|qualcomm|intel\b|micron|\bamd\b|\barm\b|marvell|broadcom|"
+    r"texas instruments|nxp|infineon|asml|applied materials|lam research|\bkla\b|synopsys|cadence|delta|台達|foxconn|鴻海|"
+    r"quanta|廣達|asus|華碩|acer|宏碁|compal|仁寶|wistron|緯創|pegatron|和碩|inventec|英業達|\base\b|日月光|phison|群聯|"
+    r"macronix|旺宏|winbond|華邦|nuvoton|新唐|alchip|世芯|\bguc\b|創意電子|andes|晶心|hynix|samsung|apple|google|microsoft|"
+    r"amazon|\bmeta\b|cisco|\bdell\b|\bhp\b|lenovo|synology|群暉|moxa|gogoro|appier|garmin|sony|panasonic|toshiba|renesas|"
+    r"rohm|hitachi|\bnec\b|fujitsu|tokyo electron|kioxia|canon|globalfoundries|umc|聯電|vanguard|世界先進|powerchip|力積電|"
+    r"analog devices|microchip|keysight|teradyne|cadence|ansys|siemens|bosch|schneider|abb\b|honeywell|ericsson|nokia", re.I)
+
+
+COMPANY_EXCLUDE = re.compile(
+    r"屈臣氏|銀行|商銀|人壽|壽險|證券|金控|金融|保險|投信|博報堂|廣告|行銷|公關|企管|管理顧問|人事顧問|人力|飯店|大飯店|餐飲|百貨|補習班|"
+    r"汽車|揚昇|龍一|國瑞|營造|不動產|聯華林德|林德|氣體|食品|生技|藥|醫院|學校|高級中學|國小|國中|幼兒|"
+    r"bank|insurance|securities|advertis|marketing agency|restaurant|hotel", re.I)
 
 
 def title_ok(title, company="", trusted=False):
@@ -111,17 +117,26 @@ def title_ok(title, company="", trusted=False):
     t = title.lower()
     if not INTERN_STRICT.search(title):
         return False
-    if any(b in t for b in TITLE_EXCLUDE) or any(b in t for b in NON_ECE):
+    if any(b in t for b in TITLE_EXCLUDE) or any(b in t for b in NON_ECE) or re.search(r"\bCS\b", title):
         return False
-    if re.search(r"master'?s", t) and not re.search(r"bachelor", t):
+    if re.search(r"\bmaster'?s\b", t) and not re.search(r"bachelor", t):
+        return False
+    if COMPANY_EXCLUDE.search(company or ""):
         return False
     return trusted or TECH_RE.search(title) is not None or TECH_COMPANIES.search(company or "") is not None
 
 
+SUMMER_OK = re.compile(r"暑期|暑假|summer|寒暑假", re.I)
+SEMESTER_ONLY = re.compile(r"學期|學年|semester|academic year", re.I)
+
+
 def term_ok(title):
     t = title.lower()
-    if BAD_TERM.search(t):
-        return False
+    m = BAD_TERM.search(t)
+    if m:
+        # "暑期 & 學期實習" accepts summer interns -> a semester word alone must not kill it
+        if not (SUMMER_OK.search(t) and SEMESTER_ONLY.search(m.group(0))):
+            return False
     years = re.findall(r"(?<!\d)(20\d{2})(?!\d)", t)  # also catches 'Y2026', '2026實習' (no \b next to CJK)
     if years and "2027" not in years:
         return False
@@ -455,9 +470,11 @@ def load_104():
                         age = 7
                     if age > 75:
                         n_old += 1
+                    desc = " ".join(str(r.get(k) or "") for k in ("descWithoutHighlight", "description", "descSnippet"))[:1500]
                     out.append({"company": r.get("custName") or "", "title": r.get("jobName") or "",
                                 "loc": ((r.get("jobAddrNoDesc") or "") + " " + (r.get("jobAddress") or ""))[:60].strip(),
-                                "country": "Taiwan", "url": link, "age": age, "src": "104", "trusted": True})
+                                "country": "Taiwan", "url": link, "age": age, "src": "104",
+                                "trusted": cat in ("2007000000", "2008000000"), "desc": desc})
                     n_cat += 1
                 old_streak = old_streak + 1 if n_old >= len(rows) - 1 else 0
                 if old_streak >= 2:
@@ -501,6 +518,65 @@ def load_school_boards():
     return out
 
 
+# ---------------------------------------------------------------- Leo (2026-10-07): schedule + dedupe hardening
+# He can only intern in the summer break (US spring quarter ends 6/12, autumn starts 9/29). Anything that is a semester /
+# academic-year / long-term / 4-days-a-week programme conflicts with school, even if the title does not say so.
+DESC_BAD = re.compile(
+    r"學期制|學年制|學期實習|學年實習|一年制|一年期|一學期|全學年|下學期|上學期|大四.{0,4}學年|長期(實習|工讀|簽約|合作|實習生)|"
+    r"[一每]周|每週\s*(至少)?\s*[3-5三四五]\s*天|實習時間\s*[:：]?\s*(一年|半年|6\s*個月|六個月)|6\s*個月|六個月|半年|非短期|配合學校簽約|"
+    r"\b(6|six|9|nine|12|twelve)[- ]months?\b|year[- ]?long|one[- ]year|1[- ]year|academic year|semester|"
+    r"6\s*(months?)?\s*(to|-|–)\s*(1|one)\s*year", re.I)
+
+
+def desc_ok(title, desc):
+    blob = (title or "") + " " + (desc or "")
+    m = DESC_BAD.search(blob)
+    if not m:
+        return True
+    if SUMMER_OK.search(blob) and SEMESTER_ONLY.search(m.group(0)):
+        return True  # "summer or semester" programme
+    return False
+
+
+def li_description(url):
+    m = re.search(r"(\d{8,})/?$", url.split("?")[0])
+    if not m:
+        return ""
+    try:
+        req = urllib.request.Request("https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/" + m.group(1),
+                                     headers={"User-Agent": UA["User-Agent"], "Accept-Language": "en-US,en;q=0.9"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            h = r.read().decode("utf-8", "replace")
+        mm = re.search(r'show-more-less-html__markup[^>]*>(.*?)</div>', h, re.S)
+        return htmllib.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", mm.group(1) if mm else "")))[:3000]
+    except Exception:
+        return ""  # fail open: keep the job if the detail page can't be read
+
+
+_CO_SUFFIX = re.compile(r"股份有限公司|有限公司|股份|台灣分公司|分公司|公司|co\.?,? ?ltd\.?|inc\.?|corporation|corp\.?|limited", re.I)
+
+
+def norm_company(c):
+    c = _CO_SUFFIX.sub(" ", (c or "").lower())
+    latin = re.findall(r"[a-z0-9]+", c)
+    if latin:
+        return latin[0]
+    return re.sub(r"[^\w]", "", c)
+
+
+def norm_title(t):
+    t = (t or "").lower()
+    t = re.sub(r"[(（][^()（）]*(月薪制|時薪制|初階|中階|高階)[^()（）]*[)）]", "", t)
+    t = re.sub(r"[-－ ]*(初階|中階|高階)\s*$", "", t)
+    m = re.search(r"[(（]([^()（）]*[a-z]{3,}[^()（）]*)[)）]", t)
+    if m and len(re.findall(r"[a-z0-9]+", m.group(1))) >= 2:
+        t = m.group(1)
+    toks = re.findall(r"[a-z0-9]+", t)
+    if len(toks) >= 3:
+        return " ".join(toks)
+    return re.sub(r"[^\w]", "", t)
+
+
 # ---------------------------------------------------------------- main
 def main():
     rows = []
@@ -515,7 +591,9 @@ def main():
             continue
         if not title_ok(r["title"], r["title"] if r.get("school") else r["company"], trusted=r.get("trusted", False)) or not term_ok(r["title"]):
             continue
-        key = (r["company"].lower().strip(), r["title"].lower().strip(), r["country"])
+        if r.get("desc") and not desc_ok(r["title"], r["desc"]):
+            continue
+        key = (norm_company(r["company"]), norm_title(r["title"]), r["country"])
         ukey = r["url"].split("?")[0]
         if key in seen or ukey in seen:
             continue
@@ -523,6 +601,20 @@ def main():
         if r["age"] > 60 and r["age"] != 999:
             continue
         kept.append(r)
+    # LinkedIn cards carry no description -> read the posting for Taiwan rows and drop semester/long-term programmes
+    drop = 0
+    final = []
+    for r in kept:
+        if r["src"] == "linkedin" and r["country"] == "Taiwan":
+            d = li_description(r["url"])
+            time.sleep(0.8)
+            if d and not desc_ok(r["title"], d):
+                drop += 1
+                continue
+        r.pop("desc", None)
+        final.append(r)
+    print("linkedin-taiwan dropped by description:", drop)
+    kept = final
     kept.sort(key=lambda j: (j["country"] != "Taiwan", j["age"]))
     json.dump({"generated_at": NOW, "count": len(kept), "jobs": kept},
               open("asia.json", "w", encoding="utf-8"), ensure_ascii=False)
