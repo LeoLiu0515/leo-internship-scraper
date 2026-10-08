@@ -577,10 +577,83 @@ def norm_title(t):
     return re.sub(r"[^\w]", "", t)
 
 
+# ---------------------------------------------------------------- WATCH LIST (Leo, 2026-10-07)
+# Companies that deserve special attention: his uncle worked at Eaton / Applied Materials / ASML, plus every company where
+# someone can refer or recommend him (TSMC, Delta, Cisco via Toby, Amazon, Tesla). Rows from these companies are NEVER
+# dropped for schedule/duration reasons -- they are kept, starred, and labelled "long-term?" so Leo decides himself.
+WATCH_RE = re.compile(r"eaton|伊頓|applied materials|應用材料|應材|asml|艾司摩爾|愛斯莫爾|delta electronics|台達|tsmc|台積|cisco|amazon|tesla", re.I)
+WATCH_NAMES = ["Eaton", "ASML", "Applied Materials", "Delta Electronics", "TSMC", "Cisco", "Amazon", "Tesla"]
+WATCH_LOCS = ["Taiwan", "Japan", "Singapore", "China", "South Korea", "Hong Kong SAR", "Malaysia", "Vietnam", "Thailand", "Philippines"]
+
+
+def _flat(x):
+    return " ".join(re.sub(r"<[^>]+>", " ", x or "").split())
+
+
+def load_watch_linkedin():
+    out, seen = [], set()
+    for name in WATCH_NAMES:
+        rx = re.compile(re.escape(name.split()[0]), re.I)
+        for loc in WATCH_LOCS:
+            for start in (0, 10):
+                try:
+                    h = _li_fetch({"keywords": name + " intern", "location": loc, "start": start, "f_TPR": "r7776000"})
+                except Exception:
+                    break
+                cards = re.findall(r"<li>(.*?)</li>", h, re.S)
+                if not cards:
+                    break
+                for c in cards:
+                    m_url = re.search(r'href="(https://[a-z.]*linkedin[.]com/jobs/view/[^"?]+)', c)
+                    m_t = re.search(r'base-search-card__title[^>]*>(.*?)</h3>', c, re.S)
+                    m_c = re.search(r'base-search-card__subtitle[^>]*>(.*?)</h4>', c, re.S)
+                    m_l = re.search(r'job-search-card__location[^>]*>(.*?)</span>', c, re.S)
+                    m_d = re.search(r'datetime="([0-9-]{10})"', c)
+                    if not (m_url and m_t and m_c):
+                        continue
+                    comp = htmllib.unescape(_flat(m_c.group(1)))
+                    if not rx.search(comp) or m_url.group(1) in seen:
+                        continue
+                    seen.add(m_url.group(1))
+                    where = htmllib.unescape(_flat(m_l.group(1) if m_l else ""))
+                    try:
+                        age = max(0, int((NOW - dt.datetime.strptime(m_d.group(1), "%Y-%m-%d").timestamp()) / 86400)) if m_d else 7
+                    except Exception:
+                        age = 7
+                    out.append({"company": comp, "title": htmllib.unescape(_flat(m_t.group(1))), "loc": where[:60],
+                                "country": country_of(where) or loc, "url": m_url.group(1), "age": age, "src": "linkedin-watch"})
+                time.sleep(0.8)
+    print(f"  watch-list linkedin rows: {len(out)}", file=sys.stderr)
+    return out
+
+
+def load_eaton():
+    """Eaton's own career site (Eightfold 'pcsx' API, works without login). Keeps only Asian locations."""
+    out = []
+    try:
+        for start in range(0, 300, 10):
+            url = "https://eaton.eightfold.ai/api/pcsx/search?domain=eaton.com&query=intern&num=10&start=" + str(start)
+            d = http_json(url, headers={"Referer": "https://eaton.eightfold.ai/careers", "Accept": "application/json"})
+            ps = (d.get("data") or {}).get("positions", [])
+            if not ps:
+                break
+            for p in ps:
+                loc = p.get("location") or ", ".join(p.get("locations") or [])
+                ctry = country_of(loc)
+                if ctry:
+                    out.append({"company": "Eaton", "title": p.get("name") or "", "loc": str(loc)[:60], "country": ctry,
+                                "url": p.get("canonicalPositionUrl") or ("https://eaton.eightfold.ai/careers/job/" + str(p.get("id"))),
+                                "age": 7, "src": "eaton"})
+    except Exception as e:
+        print(f"  ! eaton failed: {e}", file=sys.stderr)
+    print(f"  eaton asia rows: {len(out)}", file=sys.stderr)
+    return out
+
+
 # ---------------------------------------------------------------- main
 def main():
     rows = []
-    for fn in (load_workday, load_dell, load_yourator, load_appier, load_sg_trackers, load_linkedin, load_104, load_school_boards):
+    for fn in (load_workday, load_dell, load_yourator, load_appier, load_sg_trackers, load_linkedin, load_104, load_school_boards, load_watch_linkedin, load_eaton):
         rows += fn()
     kept, seen = [], set()
     for r in rows:
@@ -589,10 +662,18 @@ def main():
         r["loc"] = str(r.get("loc") or "")
         if not r.get("url") or not r["title"]:
             continue
-        if not title_ok(r["title"], r["title"] if r.get("school") else r["company"], trusted=r.get("trusted", False)) or not term_ok(r["title"]):
-            continue
-        if r.get("desc") and not desc_ok(r["title"], r["desc"]):
-            continue
+        w = bool(WATCH_RE.search(r["company"]))
+        if w:
+            tl = r["title"].lower()
+            if (not INTERN_STRICT.search(r["title"])) or any(b in tl for b in TITLE_EXCLUDE) or any(b in tl for b in NON_ECE):
+                continue
+            r["watch"] = True
+            r["long"] = (not term_ok(r["title"])) or bool(r.get("desc") and not desc_ok(r["title"], r["desc"]))
+        else:
+            if not title_ok(r["title"], r["title"] if r.get("school") else r["company"], trusted=r.get("trusted", False)) or not term_ok(r["title"]):
+                continue
+            if r.get("desc") and not desc_ok(r["title"], r["desc"]):
+                continue
         key = (norm_company(r["company"]), norm_title(r["title"]), r["country"])
         ukey = r["url"].split("?")[0]
         if key in seen or ukey in seen:
@@ -605,7 +686,13 @@ def main():
     drop = 0
     final = []
     for r in kept:
-        if r["src"] == "linkedin" and r["country"] == "Taiwan":
+        if r.get("watch"):
+            if r["src"].startswith("linkedin") and not r.get("long"):
+                d = li_description(r["url"])
+                time.sleep(0.8)
+                if d and not desc_ok(r["title"], d):
+                    r["long"] = True
+        elif r["src"] == "linkedin" and r["country"] == "Taiwan":
             d = li_description(r["url"])
             time.sleep(0.8)
             if d and not desc_ok(r["title"], d):
@@ -615,7 +702,13 @@ def main():
         final.append(r)
     print("linkedin-taiwan dropped by description:", drop)
     kept = final
-    kept.sort(key=lambda j: (j["country"] != "Taiwan", j["age"]))
+    for r in kept:
+        if r.get("watch"):
+            r["loc"] = ("★ " + r["loc"])[:60]
+            if r.get("long") and "⚠" not in r["title"]:
+                r["title"] = r["title"] + "  ⚠ 可能是長期/學期制,先確認"
+    kept.sort(key=lambda j: (not j.get("watch"), j["country"] != "Taiwan", j["age"]))
+    print("watch-list rows kept:", sum(1 for j in kept if j.get("watch")), "| flagged long-term:", sum(1 for j in kept if j.get("long")))
     json.dump({"generated_at": NOW, "count": len(kept), "jobs": kept},
               open("asia.json", "w", encoding="utf-8"), ensure_ascii=False)
     from collections import Counter
