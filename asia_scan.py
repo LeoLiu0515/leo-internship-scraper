@@ -802,6 +802,61 @@ def learned_drop(title, company=""):
     return False
 
 
+
+# Leo (2026-10-08): skip companies too small to be worth the application. Not "tier 1 only" -- the floor is roughly:
+# listed in Taiwan (TWSE/TPEx), a known multinational / subsidiary of one, or a research institute / university.
+BIG_CO = re.compile(
+    r"apple|amazon|google|microsoft|\bmeta\b|airbus|bmw|bosch|siemens|\babb\b|rockwell|ericsson|nokia|rohde|signify|borgwarner|commscope|coherent|"
+    r"keysight|seagate|western digital|skyworks|monolithic|stmicro|onsemi|renesas|omnivision|infineon|nxp|cadence|synopsys|mediatek|aumovio|"
+    r"mann\+hummel|capgemini|凯捷|focaltech|敦泰|杭州迪普|迪普科技|宇视|宇視|贝岭|貝嶺|leybold|莱宝|atlas copco|syntegon|healthineers|hitachi|"
+    r"teradyne|泰瑞達|panasonic|松下|mitac|神達|ingrasys|鴻佰|hyve|海峰|foxconn|鴻海|富士康|coretronic|中光電|delta|台達|honeywell|schneider|"
+    r"intel|\bamd\b|\barm\b|qualcomm|broadcom|nvidia|輝達|micron|美光|marvell|邁威爾|tsmc|台積|asml|applied materials|lam research|\bkla\b|tokyo electron|"
+    r"samsung|sk hynix|toshiba|kioxia|\bsony\b|\bcanon\b|\bnikon\b|fujitsu|\bnec\b|\brohm\b|murata|\btdk\b|denso|toyota|honda|nissan|huawei|华为|華為|xiaomi|小米|"
+    r"lenovo|聯想|联想|\bdell\b|\bhp\b|hewlett|\bibm\b|oracle|cisco|juniper|intel|texas instruments|analog devices|microchip|wolfspeed|globalfoundries|"
+    r"united microelectronics|聯電|聯華電子|vanguard|世界先進|powerchip|力積|\base\b|日月光|矽品|siliconware|amkor|phison|群聯|realtek|瑞昱|novatek|聯詠|"
+    r"gogoro|appier|synology|群暉|moxa|qnap|威聯通|asustek|華碩|acer|宏碁|\bmsi\b|微星|gigabyte|技嘉|quanta|廣達|wistron|緯創|compal|仁寶|pegatron|和碩|inventec|英業達", re.I)
+INSTITUTE = re.compile(r"工研院|資策會|國家實驗室|國研院|財團法人|研究院|中科院|大學|university|institute|nsysu|ntu\b", re.I)
+_LISTED = None
+
+
+def _norm_co(c):
+    c = re.sub(r"[_\s]|股份有限公司|有限公司|股份|台灣分公司|臺灣分公司|分公司|\(.*?\)|（.*?）|co\.?,? ?ltd\.?|inc\.?|corp(oration)?\.?|limited", "", (c or "").lower())
+    return c.replace("臺", "台")
+
+
+def _load_listed():
+    """TWSE + TPEx listed company names (open data). Fail open: if unreachable, size filter keeps everything."""
+    global _LISTED
+    if _LISTED is not None:
+        return _LISTED
+    names = set()
+    try:
+        for r in http_json("https://openapi.twse.com.tw/v1/opendata/t187ap03_L"):
+            names |= {_norm_co(r.get("公司名稱")), _norm_co(r.get("公司簡稱")), _norm_co(r.get("英文簡稱"))}
+        for r in http_json("https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O"):
+            names |= {_norm_co(r.get("CompanyName")), _norm_co(r.get("CompanyAbbreviation"))}
+    except Exception as e:
+        print("  ! listed-company list unavailable, size filter disabled:", e, file=sys.stderr)
+        _LISTED = False
+        return _LISTED
+    _LISTED = {n for n in names if len(n) >= 2}
+    return _LISTED
+
+
+def size_ok(company, country, watch=False):
+    if watch:
+        return True
+    co = company or ""
+    if BIG_CO.search(co) or INSTITUTE.search(co):
+        return True
+    if country == "Taiwan":
+        listed = _load_listed()
+        if listed is False:
+            return True
+        return any(_norm_co(p) in listed for p in [co] + re.split(r"[_/|｜]", co))
+    return False  # outside Taiwan an unknown employer is treated as small
+
+
 def main():
     rows = []
     for fn in (load_workday, load_dell, load_yourator, load_appier, load_sg_trackers, load_linkedin, load_104, load_school_boards, load_watch_linkedin, load_eaton, load_google):
@@ -818,6 +873,8 @@ def main():
         if r.get("country") in ("Japan", "South Korea") and LOCAL_LANG_RE.search(r["title"]):
             continue  # Leo speaks no Japanese/Korean: local-language postings are wasted applications
         if learned_drop(r["title"], r["company"]):
+            continue
+        if not size_ok(r["company"], r.get("country"), bool(WATCH_RE.search(r["company"]))):
             continue
         w = bool(WATCH_RE.search(r["company"]))
         if w:
