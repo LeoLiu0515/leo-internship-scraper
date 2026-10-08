@@ -581,8 +581,8 @@ def norm_title(t):
 # Companies that deserve special attention: his uncle worked at Eaton / Applied Materials / ASML, plus every company where
 # someone can refer or recommend him (TSMC, Delta, Cisco via Toby, Amazon, Tesla). Rows from these companies are NEVER
 # dropped for schedule/duration reasons -- they are kept, starred, and labelled "long-term?" so Leo decides himself.
-WATCH_RE = re.compile(r"eaton|伊頓|applied materials|應用材料|應材|asml|艾司摩爾|愛斯莫爾|delta electronics|台達|tsmc|台積|cisco|amazon|tesla", re.I)
-WATCH_NAMES = ["Eaton", "ASML", "Applied Materials", "Delta Electronics", "TSMC", "Cisco", "Amazon", "Tesla"]
+WATCH_RE = re.compile(r"eaton|伊頓|applied materials|應用材料|應材|asml|艾司摩爾|愛斯莫爾|delta electronics|台達|tsmc|台積|cisco|amazon|tesla|mediatek|聯發科|airoha|達發|jentech|健策|\bhp\b|hewlett|google", re.I)
+WATCH_NAMES = ["Eaton", "ASML", "Applied Materials", "Delta Electronics", "TSMC", "Cisco", "Amazon", "Tesla", "MediaTek", "Airoha", "Jentech", "HP", "Google"]
 WATCH_LOCS = ["Taiwan", "Japan", "Singapore", "China", "South Korea", "Hong Kong SAR"]
 TARGET_COUNTRIES = {"Taiwan", "Japan", "Singapore", "Hong Kong", "South Korea", "China"}  # Leo 2026-10-07: advanced Asian economies only
 
@@ -594,7 +594,7 @@ def _flat(x):
 def load_watch_linkedin():
     out, seen = [], set()
     for name in WATCH_NAMES:
-        rx = re.compile(re.escape(name.split()[0]), re.I)
+        rx = re.compile((r"\b" + re.escape(name.split()[0]) + r"\b") if name == "HP" else re.escape(name.split()[0]), re.I)
         for loc in WATCH_LOCS:
             for start in (0, 10):
                 try:
