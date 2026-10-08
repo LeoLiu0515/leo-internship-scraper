@@ -126,45 +126,8 @@ def title_ok(title, company="", trusted=False):
     return trusted or TECH_RE.search(title) is not None or TECH_COMPANIES.search(company or "") is not None
 
 
-<<<<<<< Updated upstream
 SUMMER_OK = re.compile(r"暑期|暑假|summer|寒暑假", re.I)
 SEMESTER_ONLY = re.compile(r"學期|學年|semester|academic year", re.I)
-=======
-# Leo (2026-10-08): drop roles too far from ECE/CS major and his experience (embedded, CAN/firmware, PyTorch, C/C++, Python).
-ECE_CORE = re.compile(
-    r"embedded|firmware|hardware|software|fpga|asic|rtl|verilog|vlsi|ic|ic設計|ic设计|chip|silicon|soc|circuit|analog|digital|"
-    r"signal|rf|wireless|antenna|power (electronic|supply|management)|電源|电源|pcb|layout|dft|verification|validation|"
-    r"firmware|driver|kernel|linux|rtos|iot|sensor|robot|control|automation|mechatron|ai|ml|machine learning|deep learning|"
-    r"computer vision|vision|algorithm|data (engineer|scien)|backend|front-?end|full.?stack|developer|programmer|devops|sre|cloud|"
-    r"network|security|cyber|compiler|gpu|cuda|hpc|architecture|systems? (engineer|software|design|validation)|test (engineer|automation)|"
-    r"qa|sdet|software test|semiconductor|photonic|optical|memory|dram|nand|eda|"
-    r"軟體|软件|軟韌體|韌體|固件|硬體|硬件|電路|电路|電子|电子|晶片|芯片|半導體|半导体|驗證|验证|類比|模擬|射頻|機器人|控制|訊號|信号|光電|電機|电机|"
-    r"嵌入式|演算法|算法|人工智慧|人工智能|機器學習|深度學習|資訊|資安|網路|網络|雲端|云|後端|后端|前端|全端|程式|开发|開發|資料|数据|數據|"
-    r"組込|組み込み|ハードウェア|ファームウェア|ソフトウェア|エンジニア|回路|半導体|"
-    r"intern engineer|engineer intern|engineering intern|r&d|研發|研发|研究|電氣|电气|electrical|electronic|device|cmos|bios|research|scientist|"
-    r"information technology|design and technology|product engineering|applications? engineer|field application|system|physical design|"
-    r"llm|模塊|模組|模块|integration|reliability|fa|failure|test|測試|测试|simulation|模擬|機電整合|賦能|empower|develop|esd|npu|processing|technical|io|data|車用|应用工程|應用工程|technology|automotive|ai", re.I)
-OPS_ROLE = re.compile(
-    r"助理技師|助理工程師|助理人員|助理設備|技術員|技師|學徒|廠務|品保|品管|qc|ie|im|工安|環安|safety|ehs|氣體|灌充|維修|維護|"
-    r"保養|儲備|預聘|機電|冷凍|空調|施工|營造|土木|製程助理|設備助理|設備實習|生產|產線|倉|物料|採購|"
-    r"maintenance|facility|facilities|technician|operator|production|manufacturing (engineer|support)|supplier|category", re.I)
-
-
-NON_TECH_CO = re.compile(r"銀行|银行|金控|金融|保險|保险|人壽|證券|证券|媒體|media|tvbs|醫療器材|不動產|餐飲|百貨|飯店", re.I)
-
-
-def ece_relevant(title, company=""):
-    t = title or ""
-    if NON_TECH_CO.search(company or "") and not re.search(r"firmware|embedded|hardware|ic設計|硬體", t, re.I):
-        return False
-    if re.search(r"data analyst|數據分析|数据分析|資料分析", t, re.I):
-        return False
-    if OPS_ROLE.search(t) and not re.search(r"firmware|software|硬體研發|研發|驗證|verification|開發|develop|vision|視覺|ic|device", t, re.I):
-        return False
-    if ECE_CORE.search(t):
-        return True
-    return TECH_COMPANIES.search(company or "") is not None and not OPS_ROLE.search(t)
->>>>>>> Stashed changes
 
 
 def term_ok(title):
@@ -737,11 +700,7 @@ def main():
         r["loc"] = str(r.get("loc") or "")
         if not r.get("url") or not r["title"]:
             continue
-<<<<<<< Updated upstream
         if r.get("country") not in TARGET_COUNTRIES:
-=======
-        if not title_ok(r["title"], r["title"] if r.get("school") else r["company"], trusted=r.get("trusted", False)) or not term_ok(r["title"]) or not ece_relevant(r["title"], r["company"]):
->>>>>>> Stashed changes
             continue
         if r.get("country") in ("Japan", "South Korea") and LOCAL_LANG_RE.search(r["title"]):
             continue  # Leo speaks no Japanese/Korean: local-language postings are wasted applications
