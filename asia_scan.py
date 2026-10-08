@@ -806,6 +806,7 @@ def learned_drop(title, company=""):
 # Leo (2026-10-08): skip companies too small to be worth the application. Not "tier 1 only" -- the floor is roughly:
 # listed in Taiwan (TWSE/TPEx), a known multinational / subsidiary of one, or a research institute / university.
 BIG_CO = re.compile(
+    r"钧正|哈啰|hello inc|迪芬尼|tymphany|primax|致伸|bear robotics|innosilicon|芯动|"
     r"apple|amazon|google|microsoft|\bmeta\b|airbus|bmw|bosch|siemens|\babb\b|rockwell|ericsson|nokia|rohde|signify|borgwarner|commscope|coherent|"
     r"keysight|seagate|western digital|skyworks|monolithic|stmicro|onsemi|renesas|omnivision|infineon|nxp|cadence|synopsys|mediatek|aumovio|"
     r"mann\+hummel|capgemini|凯捷|focaltech|敦泰|杭州迪普|迪普科技|宇视|宇視|贝岭|貝嶺|leybold|莱宝|atlas copco|syntegon|healthineers|hitachi|"
