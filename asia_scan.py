@@ -745,6 +745,49 @@ def not_pure_software(title):
     return (not PURE_SW.search(t)) or HW_KEEP.search(t) is not None
 
 
+
+# Learned from Leo's dismissals (2026-10-08, 626 rows): fab/manufacturing/field-service roles, internet/finance employers,
+# civil-electrical infrastructure, generic "research" roles and non-technical program/admin interns are dropped. Applies to
+# watch-list rows too (he dismissed Applied Materials 23/24, TSMC EE/MFG/FAC/CPO).
+LEARN_TITLE = re.compile(
+    r"manufacturing|\bmfg\b|製造|assembly|組裝|装配|equipment engineer|equipment (operations|maintenance)|\bpee\b|\bpie\b|photo\b|dry etch|wet\b|\bcvd\b|\bpvd\b|diffusion|"
+    r"hybrid bonding|process (and|&) equipment|process engineer|process integration|process control|wafer fab|\bfab\b|probe (process|automation|control)|yield|contamination|particle|"
+    r"facility|facilities|廠務|logistics|物流|planning|規劃|corporate|capacity|supply|procurement|"
+    r"customer engineer|field (support|quality|service)|after.?sales|售後|service engineer|service intern|technical (support|trainer)|trainer|"
+    r"global support|"
+    r"equity research|research (intern|sciences|analyst)|lab (testing|research)|marketing|brand|business (planning|operations|analy)|operations intern|"
+    r"upskill|program support|digital transformation|content|design operations|"
+    r"人才|經營支援|產業學院|專利|智權|招募|行政|"
+    r"wiring|signalling|signaling|\bhv\b|transport|railway|solar|floating pv|marine|shipyard|"
+    r"\bie\b|\bpe助理|品保|\bqa\b助理|助理工程師|技術員|技師", re.I)
+LEARN_CO = re.compile(
+    r"tiktok|bytedance|字節|巨量移動|tencent|騰訊|腾讯|bybit|autodesk|shopback|shopee|stripe|manulife|mufg|tiger brokers|societe generale|fidelity|"
+    r"targetjobs|optiver|frost & sullivan|celine|adidas|mondel|christian dior|parfums|brand|razer|邑方|arup|sembcorp|hanwha|china railway|"
+    r"centre for strategic|marina bay|marinabay|ministry of|certis|hitachi energy|syensqo|qima|msd\b|mcc industrial|hp\b|hewlett|hpe\b", re.I)
+
+
+GENERIC_TITLE = re.compile(r"^[\s\W]*(college |university |engineering |graduate |technical )?(intern(ship)?|實習生?|研發|工讀)?[\s\W]*$", re.I)
+
+
+def learned_drop(title, company=""):
+    t = title or ""
+    if re.search(r"applied materials", company or "", re.I) and re.search(r"hardware|design|electrical", t, re.I):
+        pass
+    elif LEARN_CO.search(company or ""):
+        return True
+    core = re.sub(r"[【\[].*?[】\]]", " ", t)
+    core = re.sub(r"(?i)intern(ship)?|實習生?|研發|單位|總公司|汐止|中港廠|工讀生?|college|university|engineering|graduate|[-_/~\s]", "", core)
+    if len(core) <= 2 and not re.search(r"mediatek|聯發科|tsmc|台積|nvidia|輝達", company or "", re.I):
+        return True
+    if re.search(r"tsmc|台積", company or "", re.I) and not re.search(r"equipment|manufacturing|facility|corporate", t, re.I):
+        return False
+    if re.search(r"asml", company or "", re.I) and not re.search(r"global support", t, re.I):
+        return False
+    if LEARN_TITLE.search(t) and not re.search(r"design|verification|validation|firmware|embedded|asic|\bic\b|rtl|fpga|analog|circuit|silicon|soc\b", t, re.I):
+        return True
+    return False
+
+
 def main():
     rows = []
     for fn in (load_workday, load_dell, load_yourator, load_appier, load_sg_trackers, load_linkedin, load_104, load_school_boards, load_watch_linkedin, load_eaton, load_google):
@@ -760,6 +803,8 @@ def main():
             continue
         if r.get("country") in ("Japan", "South Korea") and LOCAL_LANG_RE.search(r["title"]):
             continue  # Leo speaks no Japanese/Korean: local-language postings are wasted applications
+        if learned_drop(r["title"], r["company"]):
+            continue
         w = bool(WATCH_RE.search(r["company"]))
         if w:
             tl = r["title"].lower()
