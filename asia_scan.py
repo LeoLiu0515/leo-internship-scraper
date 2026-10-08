@@ -584,6 +584,7 @@ def norm_title(t):
 WATCH_RE = re.compile(r"eaton|伊頓|applied materials|應用材料|應材|asml|艾司摩爾|愛斯莫爾|delta electronics|台達|tsmc|台積|cisco|amazon|tesla|mediatek|聯發科|airoha|達發|jentech|健策|\bhp\b|hewlett|google", re.I)
 WATCH_NAMES = ["Eaton", "ASML", "Applied Materials", "Delta Electronics", "TSMC", "Cisco", "Amazon", "Tesla", "MediaTek", "Airoha", "Jentech", "HP", "Google"]
 WATCH_LOCS = ["Taiwan", "Japan", "Singapore", "China", "South Korea", "Hong Kong SAR"]
+LOCAL_LANG_RE = re.compile(r"[\u3040-\u30ff\uac00-\ud7a3]|卒|\((korean|japanese)\)|native-level|\bfluent in (japanese|korean)", re.I)  # kana / hangul / 28卒 etc.
 TARGET_COUNTRIES = {"Taiwan", "Japan", "Singapore", "Hong Kong", "South Korea", "China"}  # Leo 2026-10-07: advanced Asian economies only
 
 
@@ -665,6 +666,8 @@ def main():
             continue
         if r.get("country") not in TARGET_COUNTRIES:
             continue
+        if r.get("country") in ("Japan", "South Korea") and LOCAL_LANG_RE.search(r["title"]):
+            continue  # Leo speaks no Japanese/Korean: local-language postings are wasted applications
         w = bool(WATCH_RE.search(r["company"]))
         if w:
             tl = r["title"].lower()
