@@ -725,6 +725,26 @@ def ece_relevant(title, company=""):
     return TECH_COMPANIES.search(company or "") is not None and not OPS_ROLE.search(t)
 
 
+
+# Leo (2026-10-08): pure-software roles are out; keep anything touching hardware / firmware / chips / systems close to hardware.
+PURE_SW = re.compile(
+    r"software|軟體|软件|backend|back-?end|後端|后端|front-?end|前端|full.?stack|全端|web|網站|网站|\bapp\b|android|ios\b|java\b|python|typescript|"
+    r"javascript|\.net|php|golang|developer|programmer|程式|程序|devops|\bsre\b|cloud|雲端|\bmis\b|資訊|資料|data|數據|(?<![a-z])ai(?![a-z])|\bml\b|llm|系統開發|系统开发|"
+    r"machine learning|deep learning|人工智慧|人工智能|機器學習|深度學習|演算法|算法|algorithm|\bit\b|information technology|資安|security|cyber|"
+    r"\bqa\b|sdet|軟體測試|unity|game|遊戲|網路工程|rag\b|prompt|nlp|scientist|analytics|analyst", re.I)
+HW_KEEP = re.compile(
+    r"firmware|韌體|軟韌體|固件|embedded|嵌入式|hardware|硬體|硬件|\bic\b|ic設計|ic设计|asic|fpga|rtl|verilog|vlsi|soc\b|chip|晶片|芯片|silicon|"
+    r"circuit|電路|电路|analog|類比|digital design|signal|訊號|信号|\brf\b|射頻|wireless|antenna|power (electronic|supply|management|ic)|電源|电源|pcb|layout|dft|verification|驗證|验证|"
+    r"bios|bmc|driver|kernel|rtos|iot|sensor|感測|robot|機器人|機電|mechatron|control|控制|automation|自動化控制|plc|gpu|cuda|\bnpu\b|hpc|"
+    r"compiler|architecture|semiconductor|半導體|半导体|photonic|optical|光|memory|dram|nand|\beda\b|device|cmos|electrical|電機|電氣|electronic|電子|"
+    r"edge|車用|automotive|5g|6g|網路晶片|switch|network(ing)? (hardware|device)|system software.*(gpu|soc)|(gpu|soc).*system software", re.I)
+
+
+def not_pure_software(title):
+    t = title or ""
+    return (not PURE_SW.search(t)) or HW_KEEP.search(t) is not None
+
+
 def main():
     rows = []
     for fn in (load_workday, load_dell, load_yourator, load_appier, load_sg_trackers, load_linkedin, load_104, load_school_boards, load_watch_linkedin, load_eaton, load_google):
@@ -752,7 +772,7 @@ def main():
             if (not term_ok(r["title"])) or bool(r.get("desc") and not desc_ok(r["title"], r["desc"])):
                 continue
         else:
-            if not title_ok(r["title"], r["title"] if r.get("school") else r["company"], trusted=r.get("trusted", False)) or not term_ok(r["title"]) or not ece_relevant(r["title"], r["company"]):
+            if not title_ok(r["title"], r["title"] if r.get("school") else r["company"], trusted=r.get("trusted", False)) or not term_ok(r["title"]) or not ece_relevant(r["title"], r["company"]) or not not_pure_software(r["title"]):
                 continue
             if r.get("desc") and not desc_ok(r["title"], r["desc"]):
                 continue
