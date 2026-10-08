@@ -652,10 +652,46 @@ def load_eaton():
     return out
 
 
+def load_google():
+    """Google careers (public results page embeds job data as JSON in AF_initDataCallback ds:1)."""
+    cc = {"TW": "Taiwan", "JP": "Japan", "SG": "Singapore", "HK": "Hong Kong", "KR": "South Korea", "CN": "China"}
+    out, seen = [], set()
+    for loc in ("Taiwan", "Japan", "Singapore", "Hong Kong", "South Korea", "China"):
+        for q in ("intern", "internship", "student", "apprentice", "early career"):
+            for page in (1, 2, 3):
+                try:
+                    u = "https://www.google.com/about/careers/applications/jobs/results/?" + urllib.parse.urlencode({"q": q, "location": loc, "page": page})
+                    h = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"}), timeout=30).read().decode("utf-8", "replace")
+                    m = re.search(r"AF_initDataCallback[(]{key: 'ds:1'.*?data:(.*?), sideChannel", h, re.S)
+                    d = json.loads(m.group(1))
+                except Exception as e:
+                    print(f"  ! google {loc}/{q}/{page} failed: {e}", file=sys.stderr)
+                    break
+                jobs = d[0] or []
+                for j in jobs:
+                    jid = str(j[0])
+                    if jid in seen:
+                        continue
+                    seen.add(jid)
+                    locs = j[9] if len(j) > 9 and isinstance(j[9], list) else []
+                    ctry = next((cc[l[5]] for l in locs if len(l) > 5 and l[5] in cc), None)
+                    if not ctry:
+                        continue
+                    title = str(j[1])
+                    if not re.search(r"intern|student|apprentic|co-op", title, re.I):
+                        continue
+                    out.append({"company": "Google", "title": title, "loc": str(locs[0][0])[:60], "country": ctry,
+                                "url": "https://www.google.com/about/careers/applications/jobs/results/" + jid, "age": 3, "src": "google"})
+                if len(jobs) < 20:
+                    break
+    print(f"  google asia rows: {len(out)}", file=sys.stderr)
+    return out
+
+
 # ---------------------------------------------------------------- main
 def main():
     rows = []
-    for fn in (load_workday, load_dell, load_yourator, load_appier, load_sg_trackers, load_linkedin, load_104, load_school_boards, load_watch_linkedin, load_eaton):
+    for fn in (load_workday, load_dell, load_yourator, load_appier, load_sg_trackers, load_linkedin, load_104, load_school_boards, load_watch_linkedin, load_eaton, load_google):
         rows += fn()
     kept, seen = [], set()
     for r in rows:
