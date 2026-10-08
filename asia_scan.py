@@ -65,7 +65,7 @@ TITLE_INCLUDE_LOCAL = ["嵌入式", "韌體", "固件", "硬體", "硬件", "電
 INTERN_RE = re.compile(r"\bintern(ship)?s?\b|co-?op\b|實習|实习|インターン|\bstudent\b|trainee|working student|university (hire|grad)|summer", re.I)
 INTERN_STRICT = re.compile(r"\bintern(ship)?s?\b|co-?op\b|實習|实习|インターン", re.I)
 BAD_TERM = re.compile(r"\b(spring|fall|winter|autumn)\b|co-?op\b|off-?cycle|semester|year-?long|academic year|"
-                      r"\b(6|12|9)[- ]?months?\b|\b(jan|feb|mar|aug|sep|oct|nov|dec)[a-z]*\.?\s*(to|-|–|~)\s*(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)|"
+                      r"\b(6|12|9)[- ]?months?\b|\b(one|1|2)[- ]?(year|yr)s?\b|\b(jan|feb|mar|aug|sep|oct|nov|dec)[a-z]*\.?\s*(to|-|–|~)\s*(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)|"
                       r"學期|學年|長期|长期|學制|寒假|春季|秋季|冬季|全職|全职|兼職|兼职|半年|一年|雙週|每週\d|週[二三四五]|[一每]周|一年期|非暑期|非短期|大四|碩[一二]|碩士|研究所|應屆畢業|"
                       r"シーズン|通年|長期インターン|\b[12]h\b|\bh[12]\b|\bq[1-4]\b", re.I)
 
@@ -583,7 +583,8 @@ def norm_title(t):
 # dropped for schedule/duration reasons -- they are kept, starred, and labelled "long-term?" so Leo decides himself.
 WATCH_RE = re.compile(r"eaton|伊頓|applied materials|應用材料|應材|asml|艾司摩爾|愛斯莫爾|delta electronics|台達|tsmc|台積|cisco|amazon|tesla", re.I)
 WATCH_NAMES = ["Eaton", "ASML", "Applied Materials", "Delta Electronics", "TSMC", "Cisco", "Amazon", "Tesla"]
-WATCH_LOCS = ["Taiwan", "Japan", "Singapore", "China", "South Korea", "Hong Kong SAR", "Malaysia", "Vietnam", "Thailand", "Philippines"]
+WATCH_LOCS = ["Taiwan", "Japan", "Singapore", "China", "South Korea", "Hong Kong SAR"]
+TARGET_COUNTRIES = {"Taiwan", "Japan", "Singapore", "Hong Kong", "South Korea", "China"}  # Leo 2026-10-07: advanced Asian economies only
 
 
 def _flat(x):
@@ -662,13 +663,16 @@ def main():
         r["loc"] = str(r.get("loc") or "")
         if not r.get("url") or not r["title"]:
             continue
+        if r.get("country") not in TARGET_COUNTRIES:
+            continue
         w = bool(WATCH_RE.search(r["company"]))
         if w:
             tl = r["title"].lower()
             if (not INTERN_STRICT.search(r["title"])) or any(b in tl for b in TITLE_EXCLUDE) or any(b in tl for b in NON_ECE):
                 continue
             r["watch"] = True
-            r["long"] = (not term_ok(r["title"])) or bool(r.get("desc") and not desc_ok(r["title"], r["desc"]))
+            if (not term_ok(r["title"])) or bool(r.get("desc") and not desc_ok(r["title"], r["desc"])):
+                continue  # confirmed long-term/semester -> delete
         else:
             if not title_ok(r["title"], r["title"] if r.get("school") else r["company"], trusted=r.get("trusted", False)) or not term_ok(r["title"]):
                 continue
@@ -687,11 +691,12 @@ def main():
     final = []
     for r in kept:
         if r.get("watch"):
-            if r["src"].startswith("linkedin") and not r.get("long"):
+            if r["src"].startswith("linkedin"):
                 d = li_description(r["url"])
                 time.sleep(0.8)
                 if d and not desc_ok(r["title"], d):
-                    r["long"] = True
+                    drop += 1
+                    continue
         elif r["src"] == "linkedin" and r["country"] == "Taiwan":
             d = li_description(r["url"])
             time.sleep(0.8)
@@ -705,10 +710,8 @@ def main():
     for r in kept:
         if r.get("watch"):
             r["loc"] = ("★ " + r["loc"])[:60]
-            if r.get("long") and "⚠" not in r["title"]:
-                r["title"] = r["title"] + "  ⚠ 可能是長期/學期制,先確認"
     kept.sort(key=lambda j: (not j.get("watch"), j["country"] != "Taiwan", j["age"]))
-    print("watch-list rows kept:", sum(1 for j in kept if j.get("watch")), "| flagged long-term:", sum(1 for j in kept if j.get("long")))
+    print("watch-list rows kept:", sum(1 for j in kept if j.get("watch")))
     json.dump({"generated_at": NOW, "count": len(kept), "jobs": kept},
               open("asia.json", "w", encoding="utf-8"), ensure_ascii=False)
     from collections import Counter
