@@ -689,6 +689,42 @@ def load_google():
 
 
 # ---------------------------------------------------------------- main
+# Leo (2026-10-08): drop roles too far from his ECE/CS major and experience (embedded, CAN/firmware, PyTorch, C/C++, Python).
+# Not applied to watch-list companies (those are always kept).
+ECE_CORE = re.compile(
+    r"embedded|firmware|hardware|software|fpga|asic|rtl|verilog|vlsi|\bic\b|ic設計|ic设计|chip|silicon|\bsoc\b|circuit|analog|digital|"
+    r"signal|\brf\b|wireless|antenna|power (electronic|supply|management)|電源|电源|pcb|layout|dft|verification|validation|"
+    r"driver|kernel|linux|rtos|iot|sensor|robot|control|automation|mechatron|\bai\b|\bml\b|machine learning|deep learning|"
+    r"computer vision|vision|algorithm|data (engineer|scien)|backend|front-?end|full.?stack|developer|programmer|devops|\bsre\b|cloud|"
+    r"network|security|cyber|compiler|gpu|cuda|hpc|architecture|systems? (engineer|software|design|validation)|test (engineer|automation)|"
+    r"\bqa\b|sdet|semiconductor|photonic|optical|memory|dram|nand|\beda\b|"
+    r"軟體|软件|軟韌體|韌體|固件|硬體|硬件|電路|电路|電子|电子|晶片|芯片|半導體|半导体|驗證|验证|類比|模擬|射頻|機器人|控制|訊號|信号|光電|電機|电机|"
+    r"嵌入式|演算法|算法|人工智慧|人工智能|機器學習|深度學習|資訊|資安|網路|网络|雲端|後端|后端|前端|全端|程式|开发|開發|資料|数据|數據|"
+    r"r&d|研發|研发|研究|電氣|电气|electrical|electronic|device|cmos|bios|research|scientist|information technology|"
+    r"design and technology|product engineering|applications? engineer|field application|system|physical design|"
+    r"llm|模塊|模組|模块|integration|reliability|\bfa\b|failure|test|測試|测试|simulation|機電整合|賦能|empower|develop|\besd\b|\bnpu\b|"
+    r"processing|technical|\bio\b|車用|應用工程|应用工程|technology|automotive", re.I)
+OPS_ROLE = re.compile(
+    r"助理技師|助理工程師|助理人員|助理設備|技術員|技師|學徒|廠務|品保|品管|\bqc\b|\bie\b|\bim\b|工安|環安|safety|\behs\b|氣體|灌充|維修|維護|"
+    r"保養|儲備|預聘|機電|冷凍|空調|施工|營造|土木|製程助理|設備助理|設備實習|生產|產線|倉|物料|採購|"
+    r"maintenance|facility|facilities|technician|operator|production|manufacturing (engineer|support)|supplier|category", re.I)
+NON_TECH_CO = re.compile(r"銀行|银行|金控|金融|保險|保险|人壽|證券|证券|媒體|media|tvbs|醫療器材|不動產|餐飲|百貨|飯店", re.I)
+OPS_EXCEPT = re.compile(r"firmware|software|硬體研發|研發|驗證|verification|開發|develop|vision|視覺|\bic\b|device", re.I)
+
+
+def ece_relevant(title, company=""):
+    t = title or ""
+    if NON_TECH_CO.search(company or "") and not re.search(r"firmware|embedded|hardware|ic設計|硬體", t, re.I):
+        return False
+    if re.search(r"data analyst|數據分析|数据分析|資料分析", t, re.I):
+        return False
+    if OPS_ROLE.search(t) and not OPS_EXCEPT.search(t):
+        return False
+    if ECE_CORE.search(t):
+        return True
+    return TECH_COMPANIES.search(company or "") is not None and not OPS_ROLE.search(t)
+
+
 def main():
     rows = []
     for fn in (load_workday, load_dell, load_yourator, load_appier, load_sg_trackers, load_linkedin, load_104, load_school_boards, load_watch_linkedin, load_eaton, load_google):
@@ -716,7 +752,7 @@ def main():
             if (not term_ok(r["title"])) or bool(r.get("desc") and not desc_ok(r["title"], r["desc"])):
                 continue
         else:
-            if not title_ok(r["title"], r["title"] if r.get("school") else r["company"], trusted=r.get("trusted", False)) or not term_ok(r["title"]):
+            if not title_ok(r["title"], r["title"] if r.get("school") else r["company"], trusted=r.get("trusted", False)) or not term_ok(r["title"]) or not ece_relevant(r["title"], r["company"]):
                 continue
             if r.get("desc") and not desc_ok(r["title"], r["desc"]):
                 continue
