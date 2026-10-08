@@ -199,6 +199,23 @@ WORKDAY = [
 ]
 
 
+def _wd_fill_desc(rows, tenant, wd, site):
+    """Fetch each Workday posting's description (schedule wording lives there, e.g. Micron 'Jan to May 2027')."""
+    import concurrent.futures as cf
+    base = f"https://{tenant}.wd{wd}.myworkdayjobs.com/wday/cxs/{tenant}/{site}"
+
+    def one(r):
+        try:
+            path = r["url"].split(f"/{site}", 1)[1]
+            d = http_json(base + path, timeout=30)
+            html_ = (d.get("jobPostingInfo") or {}).get("jobDescription", "") or ""
+            r["desc"] = htmllib.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html_)))[:6000]
+        except Exception:
+            pass  # fail open: keep the row if the description cannot be read
+    with cf.ThreadPoolExecutor(6) as ex:
+        list(ex.map(one, rows))
+
+
 def load_workday():
     out = []
     for tenant, wd, site, name in WORKDAY:
@@ -225,6 +242,7 @@ def load_workday():
                 out.append({"company": name, "title": title, "loc": loc[:60], "country": ctry,
                             "url": base + "/" + site + g.get("externalPath", ""),
                             "age": days if days is not None else 7, "src": "workday-" + tenant})
+            _wd_fill_desc(out[n_before:], tenant, wd, site)
             print(f"  workday {tenant}/{site}: scanned {len(got)}/{total}, asia intern-ish rows {len(out)-n_before}", file=sys.stderr)
         except Exception as e:
             print(f"  ! workday {tenant}/{site} failed: {e}", file=sys.stderr)
@@ -525,7 +543,8 @@ DESC_BAD = re.compile(
     r"學期制|學年制|學期實習|學年實習|一年制|一年期|一學期|全學年|下學期|上學期|大四.{0,4}學年|長期(實習|工讀|簽約|合作|實習生)|"
     r"實習時間\s*[:：]?\s*(一年|半年|6\s*個月|六個月)|6\s*個月|六個月|半年|非短期|配合學校簽約|"
     r"\b(6|six|9|nine|12|twelve)[- ]months?\b|year[- ]?long|one[- ]year|1[- ]year|academic year|semester|"
-    r"6\s*(months?)?\s*(to|-|–)\s*(1|one)\s*year", re.I)
+    r"6\s*(months?)?\s*(to|-|–)\s*(1|one)\s*year|"
+    r"\b(5|five)[- ]?months?\b|\b(2\d|3\d)[- ]?weeks?\b|\bjan(uary)?\b[^.]{0,25}\b(to|-|–|and|until|till)\b[^.]{0,12}\b(may|jun(e)?)\b|credit-bearing", re.I)
 
 
 def desc_ok(title, desc):
@@ -750,16 +769,13 @@ def not_pure_software(title):
 # civil-electrical infrastructure, generic "research" roles and non-technical program/admin interns are dropped. Applies to
 # watch-list rows too (he dismissed Applied Materials 23/24, TSMC EE/MFG/FAC/CPO).
 LEARN_TITLE = re.compile(
-    r"manufacturing|\bmfg\b|製造|assembly|組裝|装配|equipment engineer|equipment (operations|maintenance)|\bpee\b|\bpie\b|photo\b|dry etch|wet\b|\bcvd\b|\bpvd\b|diffusion|"
-    r"hybrid bonding|process (and|&) equipment|process engineer|process integration|process control|wafer fab|\bfab\b|probe (process|automation|control)|yield|contamination|particle|"
-    r"facility|facilities|廠務|logistics|物流|planning|規劃|corporate|capacity|supply|procurement|"
-    r"customer engineer|field (support|quality|service)|after.?sales|售後|service engineer|service intern|technical (support|trainer)|trainer|"
+    r"logistics|物流|corporate|customer engineer|field (support|quality|service)|after.?sales|售後|service engineer|service intern|technical trainer|trainer|"
     r"global support|"
     r"equity research|research (intern|sciences|analyst)|lab (testing|research)|marketing|brand|business (planning|operations|analy)|operations intern|"
     r"upskill|program support|digital transformation|content|design operations|"
     r"人才|經營支援|產業學院|專利|智權|招募|行政|"
     r"wiring|signalling|signaling|\bhv\b|transport|railway|solar|floating pv|marine|shipyard|"
-    r"\bie\b|\bpe助理|品保|\bqa\b助理|助理工程師|技術員|技師", re.I)
+    r"\bie\b|\bpe助理|品保|\bqa\b助理|助理工程師|技術員|技師|機械所|測試人員|寬頻|電信工程|電子商務|說明會|宣講|暑期\s*[&＆和]\s*學期|jan\s*(till|until)\s*jun", re.I)
 LEARN_CO = re.compile(
     r"tiktok|bytedance|字節|巨量移動|tencent|騰訊|腾讯|bybit|autodesk|shopback|shopee|stripe|manulife|mufg|tiger brokers|societe generale|fidelity|"
     r"targetjobs|optiver|frost & sullivan|celine|adidas|mondel|christian dior|parfums|brand|razer|邑方|arup|sembcorp|hanwha|china railway|"
@@ -771,9 +787,7 @@ GENERIC_TITLE = re.compile(r"^[\s\W]*(college |university |engineering |graduate
 
 def learned_drop(title, company=""):
     t = title or ""
-    if re.search(r"applied materials", company or "", re.I) and re.search(r"hardware|design|electrical", t, re.I):
-        pass
-    elif LEARN_CO.search(company or ""):
+    if LEARN_CO.search(company or ""):
         return True
     core = re.sub(r"[【\[].*?[】\]]", " ", t)
     core = re.sub(r"(?i)intern(ship)?|實習生?|研發|單位|總公司|汐止|中港廠|工讀生?|college|university|engineering|graduate|[-_/~\s]", "", core)
