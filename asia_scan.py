@@ -671,8 +671,9 @@ def main():
             if (not INTERN_STRICT.search(r["title"])) or any(b in tl for b in TITLE_EXCLUDE) or any(b in tl for b in NON_ECE):
                 continue
             r["watch"] = True
-            if (not term_ok(r["title"])) or bool(r.get("desc") and not desc_ok(r["title"], r["desc"])):
-                continue  # confirmed long-term/semester -> delete
+            # Leo 2026-10-07: ASML's own form lets him pick "<3 months", so a "long-term" label on a watched company is NOT
+            # proof he can't do it -> never delete these, only label (the label wording asks him to check the form).
+            r["long"] = (not term_ok(r["title"])) or bool(r.get("desc") and not desc_ok(r["title"], r["desc"]))
         else:
             if not title_ok(r["title"], r["title"] if r.get("school") else r["company"], trusted=r.get("trusted", False)) or not term_ok(r["title"]):
                 continue
@@ -695,8 +696,7 @@ def main():
                 d = li_description(r["url"])
                 time.sleep(0.8)
                 if d and not desc_ok(r["title"], d):
-                    drop += 1
-                    continue
+                    r["long"] = True
         elif r["src"] == "linkedin" and r["country"] == "Taiwan":
             d = li_description(r["url"])
             time.sleep(0.8)
@@ -710,6 +710,8 @@ def main():
     for r in kept:
         if r.get("watch"):
             r["loc"] = ("★ " + r["loc"])[:60]
+            if r.get("long") and "⚠" not in r["title"]:
+                r["title"] = r["title"] + "  ⚠ 標示偏長期,申請時看能否選短期"
     kept.sort(key=lambda j: (not j.get("watch"), j["country"] != "Taiwan", j["age"]))
     print("watch-list rows kept:", sum(1 for j in kept if j.get("watch")))
     json.dump({"generated_at": NOW, "count": len(kept), "jobs": kept},
