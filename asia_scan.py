@@ -66,7 +66,7 @@ INTERN_RE = re.compile(r"\bintern(ship)?s?\b|co-?op\b|實習|实习|インター
 INTERN_STRICT = re.compile(r"\bintern(ship)?s?\b|co-?op\b|實習|实习|インターン", re.I)
 BAD_TERM = re.compile(r"\b(spring|fall|winter|autumn)\b|co-?op\b|off-?cycle|semester|year-?long|academic year|"
                       r"\b(6|12|9)[- ]?months?\b|\b(one|1|2)[- ]?(year|yr)s?\b|\b(jan|feb|mar|aug|sep|oct|nov|dec)[a-z]*\.?\s*(to|-|–|~)\s*(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)|"
-                      r"學期|學年|長期|长期|學制|寒假|春季|秋季|冬季|全職|全职|兼職|兼职|半年|一年|雙週|每週\d|週[二三四五]|[一每]周|一年期|非暑期|非短期|大四|碩[一二]|碩士|研究所|應屆畢業|"
+                      r"學期|學年|長期|长期|學制|寒假|春季|秋季|冬季|全職|全职|兼職|兼职|半年|一年|雙週|一年期|非暑期|非短期|大四|碩[一二]|碩士|研究所|應屆畢業|"
                       r"シーズン|通年|長期インターン|\b[12]h\b|\bh[12]\b|\bq[1-4]\b", re.I)
 
 
@@ -523,7 +523,7 @@ def load_school_boards():
 # academic-year / long-term / 4-days-a-week programme conflicts with school, even if the title does not say so.
 DESC_BAD = re.compile(
     r"學期制|學年制|學期實習|學年實習|一年制|一年期|一學期|全學年|下學期|上學期|大四.{0,4}學年|長期(實習|工讀|簽約|合作|實習生)|"
-    r"[一每]周|每週\s*(至少)?\s*[3-5三四五]\s*天|實習時間\s*[:：]?\s*(一年|半年|6\s*個月|六個月)|6\s*個月|六個月|半年|非短期|配合學校簽約|"
+    r"實習時間\s*[:：]?\s*(一年|半年|6\s*個月|六個月)|6\s*個月|六個月|半年|非短期|配合學校簽約|"
     r"\b(6|six|9|nine|12|twelve)[- ]months?\b|year[- ]?long|one[- ]year|1[- ]year|academic year|semester|"
     r"6\s*(months?)?\s*(to|-|–)\s*(1|one)\s*year", re.I)
 
