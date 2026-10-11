@@ -2,13 +2,11 @@ name: Scan direct-company ATS APIs
 
 on:
   schedule:
-    # Runs at 19:30 UTC daily = 3:30am Taipei, ~30min before the main
-    # dashboard routine (which runs at 20:00 UTC = 4am Taipei), so its
-    # fresh data.json is ready in time to be read.
-    - cron: "30 19 * * *"
-    # Second daily run at 10:30 UTC = 3:30am Pacific (PDT) so the Asia dashboard routine
-    # (11:00 UTC = 4am Pacific) reads data that is ~30 min old. Leo is in Seattle now.
-    - cron: "30 10 * * *"
+    # 18:30 UTC = 11:30am Pacific, ~90 min before the US dashboard routine (20:00 UTC).
+    # The whole pipeline (scan + filter + Asia scan + description screening) can take ~60 min.
+    - cron: "30 18 * * *"
+    # 09:30 UTC = 2:30am Pacific, ~90 min before the Asia dashboard routine (11:00 UTC = 4am Pacific).
+    - cron: "30 9 * * *"
   workflow_dispatch: {} # allows manual trigger from the Actions tab too
 
 permissions:
@@ -22,25 +20,37 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      PYTHONIOENCODING: utf-8
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run scraper
+      - name: Run scraper (direct company APIs + LinkedIn + Google/Apple/Eightfold)
         run: python3 scan.py
 
+      # 2026-10-11: the US filter/dedupe (daily_scan.py) now runs here instead of in the cloud
+      # routine's sandbox, so it can reach every source; writes us_final.json (+ alerts/coverage).
+      - name: Filter US list
+        continue-on-error: true
+        run: python3 daily_scan.py
+
       # Asia (Taiwan-first) internship scan. continue-on-error so a failure here
-      # never blocks the US data.json refresh above.
+      # never blocks the US refresh above.
       - name: Run Asia scraper
         continue-on-error: true
-        env:
-          PYTHONIOENCODING: utf-8
         run: python3 asia_scan.py
+
+      # 2026-10-11: read every posting's description and mark ok / no (with quoted evidence) / unread.
+      - name: Screen descriptions
+        continue-on-error: true
+        run: python3 screen.py us_final.json asia.json
 
       - name: Commit and push if data changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data.json asia.json
-          git diff --staged --quiet || git commit -m "Update data.json ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+          for f in data.json asia.json us_final.json screen_cache.json; do [ -f "$f" ] && git add "$f"; done
+          git diff --staged --quiet || git commit -m "Update data ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
           git pull --rebase -X theirs
           git push

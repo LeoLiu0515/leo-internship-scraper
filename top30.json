@@ -1,0 +1,142 @@
+[
+ {
+  "name": "Apple",
+  "match": "^apple$|^apple inc"
+ },
+ {
+  "name": "Google",
+  "match": "^google"
+ },
+ {
+  "name": "Microsoft",
+  "match": "^microsoft"
+ },
+ {
+  "name": "Amazon",
+  "match": "^amazon|^aws|annapurna"
+ },
+ {
+  "name": "Meta",
+  "match": "^meta$|^meta platforms|reality labs"
+ },
+ {
+  "name": "NVIDIA",
+  "match": "nvidia"
+ },
+ {
+  "name": "Intel",
+  "match": "^intel( corporation)?$"
+ },
+ {
+  "name": "AMD",
+  "match": "^amd$|advanced micro devices"
+ },
+ {
+  "name": "Qualcomm",
+  "match": "qualcomm"
+ },
+ {
+  "name": "Broadcom",
+  "match": "broadcom"
+ },
+ {
+  "name": "Texas Instruments",
+  "match": "texas instruments"
+ },
+ {
+  "name": "Analog Devices",
+  "match": "analog devices"
+ },
+ {
+  "name": "Micron",
+  "match": "micron"
+ },
+ {
+  "name": "Marvell",
+  "match": "marvell"
+ },
+ {
+  "name": "Cisco",
+  "match": "cisco"
+ },
+ {
+  "name": "Tesla",
+  "match": "^tesla"
+ },
+ {
+  "name": "IBM",
+  "match": "^ibm"
+ },
+ {
+  "name": "Hewlett Packard Enterprise",
+  "match": "hewlett packard enterprise|^hpe"
+ },
+ {
+  "name": "HP",
+  "match": "^hp$|^hp inc|hewlett[- ]packard(?! enterprise)"
+ },
+ {
+  "name": "Dell",
+  "match": "^dell"
+ },
+ {
+  "name": "Samsung",
+  "match": "samsung"
+ },
+ {
+  "name": "Applied Materials",
+  "match": "applied materials"
+ },
+ {
+  "name": "KLA",
+  "match": "^kla"
+ },
+ {
+  "name": "Lam Research",
+  "match": "lam research"
+ },
+ {
+  "name": "Synopsys",
+  "match": "synopsys"
+ },
+ {
+  "name": "Cadence",
+  "match": "cadence"
+ },
+ {
+  "name": "Arm",
+  "match": "^arm$|^arm ltd|^arm limited"
+ },
+ {
+  "name": "NXP",
+  "match": "^nxp"
+ },
+ {
+  "name": "Microchip Technology",
+  "match": "microchip"
+ },
+ {
+  "name": "Western Digital",
+  "match": "western digital|sandisk"
+ },
+ {
+  "name": "TSMC",
+  "match": "tsmc|taiwan semiconductor"
+ },
+ {
+  "name": "MediaTek",
+  "match": "mediatek"
+ },
+ {
+  "name": "Delta Electronics",
+  "match": "delta electronics"
+ },
+ {
+  "name": "ASML",
+  "match": "asml"
+ },
+ {
+  "name": "Eaton",
+  "match": "^eaton"
+ }
+]
