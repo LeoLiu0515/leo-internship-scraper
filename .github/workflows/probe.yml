@@ -1,0 +1,19 @@
+name: probe
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -s -H "Referer: https://www.104.com.tw/job/96flp" -H "User-Agent: Mozilla/5.0" -H "Accept: application/json" "https://www.104.com.tw/job/ajax/content/96flp" | python3 -c "
+          import sys,json
+          d=json.load(sys.stdin)['data']
+          h=d.get('header',{}); c=d.get('jobDetail',{}); r=d.get('condition',{})
+          print('TITLE',h.get('jobName'),'|',h.get('custName'))
+          print('PLACE',c.get('addressRegion'),c.get('addressDetail'))
+          print('SALARY',c.get('salary'),'|',c.get('salaryMin'),c.get('salaryMax'))
+          print('TYPE',c.get('jobType'),c.get('workPeriod'),c.get('vacationPolicy'),c.get('startWorkingDay'))
+          print('DESC',(c.get('jobDescription') or '')[:1500])
+          print('NEED',r.get('edu'),r.get('major'),r.get('workExp'),r.get('other'))
+          print('REQ',(r.get('other') or '')[:800])
+          "
