@@ -413,6 +413,7 @@ def _li_fetch(params):
                 _LI_STATE["streak"] += 1
                 if _LI_STATE["streak"] >= 6:
                     _LI_STATE["blocked_until"] = time.time() + 180
+                    _LI_STATE["tripped"] = True
                     _LI_STATE["streak"] = 0
                     return ""
                 time.sleep(8 + attempt * 8)
@@ -987,6 +988,25 @@ def main():
         final.append(r)
     print("linkedin-taiwan dropped by description:", drop)
     kept = final
+    # LinkedIn from GitHub's shared IPs gets throttled at times (10-14: only Taiwan page 1 came back, Hong Kong / Korea /
+    # China / Singapore were empty). Then carry yesterday's LinkedIn rows forward instead of silently shrinking the list.
+    if _LI_STATE.get("tripped"):
+        try:
+            prev = json.load(open("asia.json", encoding="utf-8"))
+            days = max(0, int((NOW - float(prev.get("generated_at") or NOW)) / 86400))
+            have = {r["url"].split("?")[0] for r in kept}
+            n_carry = 0
+            for r in prev.get("jobs", []):
+                if str(r.get("src", "")).startswith("linkedin") and r["url"].split("?")[0] not in have:
+                    r = dict(r)
+                    r["age"] = (r.get("age") or 0) + days
+                    if r["age"] <= 60:
+                        r["carried"] = True
+                        kept.append(r)
+                        n_carry += 1
+            print(f"  linkedin was rate-limited: carried {n_carry} rows forward from the previous run", file=sys.stderr)
+        except Exception as e:
+            print(f"  ! carry-forward failed: {e}", file=sys.stderr)
     for r in kept:
         if r.get("watch"):
             r["loc"] = ("★ " + r["loc"])[:60]
