@@ -600,9 +600,10 @@ def norm_title(t):
 # Companies that deserve special attention: his uncle worked at Eaton / Applied Materials / ASML, plus every company where
 # someone can refer or recommend him (TSMC, Delta, Cisco via Toby, Amazon, Tesla). Rows from these companies are NEVER
 # dropped for schedule/duration reasons -- they are kept, starred, and labelled "long-term?" so Leo decides himself.
-WATCH_RE = re.compile(r"eaton|伊頓|applied materials|應用材料|應材|asml|艾司摩爾|愛斯莫爾|delta electronics|台達|tsmc|台積|cisco|amazon|tesla|mediatek|聯發科|airoha|達發|jentech|健策|\bhp\b|hewlett|google", re.I)
-WATCH_NAMES = ["Eaton", "ASML", "Applied Materials", "Delta Electronics", "TSMC", "Cisco", "Amazon", "Tesla", "MediaTek", "Airoha", "Jentech", "HP", "Google"]
+WATCH_RE = re.compile(r"eaton|伊頓|applied materials|應用材料|應材|asml|艾司摩爾|愛斯莫爾|delta electronics|台達|tsmc|台積|cisco|amazon|tesla|mediatek|聯發科|airoha|達發|jentech|健策|\bhp\b|hewlett|google|\bibm\b|intel|\bamd\b|qualcomm|高通|apple|microsoft|samsung|三星|broadcom|\barm\b|texas instruments|huawei|華為|华为|nvidia|輝達", re.I)
+WATCH_NAMES = ["Eaton", "ASML", "Applied Materials", "Delta Electronics", "TSMC", "Cisco", "Amazon", "Tesla", "MediaTek", "Airoha", "Jentech", "HP", "Google", "IBM", "Intel", "AMD", "Qualcomm", "Apple", "Microsoft", "Samsung", "Broadcom", "Arm", "Texas Instruments", "Huawei", "NVIDIA"]
 WATCH_LOCS = ["Taiwan", "Japan", "Singapore", "China", "South Korea", "Hong Kong SAR"]
+MUST_RE = re.compile(r"\bibm\b|intel|\bamd\b|qualcomm|apple|microsoft|samsung|broadcom|\barm\b|texas instruments|huawei|華為|华为|nvidia", re.I)  # Leo 2026-10-13: IBM / Intel etc. must never be missed
 LOCAL_LANG_RE = re.compile(r"[\u3040-\u30ff\uac00-\ud7a3]|卒|\((korean|japanese)\)|native-level|\bfluent in (japanese|korean)", re.I)  # kana / hangul / 28卒 etc.
 TARGET_COUNTRIES = {"Taiwan", "Japan", "Singapore", "Hong Kong", "South Korea", "China"}  # Leo 2026-10-07: advanced Asian economies only
 
@@ -645,6 +646,38 @@ def load_watch_linkedin():
                                 "country": country_of(where) or loc, "url": m_url.group(1), "age": age, "src": "linkedin-watch"})
                 time.sleep(0.8)
     print(f"  watch-list linkedin rows: {len(out)}", file=sys.stderr)
+    return out
+
+
+def load_ibm():
+    """IBM careers search API (public). Keeps intern/student postings in target Asian countries."""
+    cmap = {"Taiwan": "Taiwan", "Japan": "Japan", "Singapore": "Singapore", "Hong Kong": "Hong Kong", "China": "China",
+            "Korea, Republic of": "South Korea", "South Korea": "South Korea"}
+    out, seen = [], set()
+    for q in ("intern", "internship", "student", "co-op"):
+        for frm in range(0, 600, 100):
+            try:
+                body = {"appId": "careers", "scopes": ["careers2"],
+                        "query": {"bool": {"must": [{"simple_query_string": {"query": q, "fields": ["keywords^1", "body^1", "url^2", "description^2", "h1s_content^2", "title^3", "field_keyword_05^2"]}}]}},
+                        "size": 100, "from": frm, "sort": [{"_score": "desc"}], "lang": "zz",
+                        "_source": ["title", "url", "field_keyword_05", "field_keyword_17"]}
+                d = http_json("https://www-api.ibm.com/search/api/v2", data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
+                hits = d["hits"]["hits"]
+            except Exception as e:
+                print(f"  ! ibm {q}/{frm} failed: {e}", file=sys.stderr)
+                break
+            if not hits:
+                break
+            for h in hits:
+                src = h.get("_source", {})
+                ctry = cmap.get(src.get("field_keyword_05") or "")
+                url = src.get("url") or ""
+                if not ctry or not url or url in seen:
+                    continue
+                seen.add(url)
+                out.append({"company": "IBM", "title": src.get("title") or "", "loc": (src.get("field_keyword_05") or "")[:60],
+                            "country": ctry, "url": url, "age": 7, "src": "ibm"})
+    print(f"  ibm asia rows: {len(out)}", file=sys.stderr)
     return out
 
 
@@ -860,7 +893,7 @@ def size_ok(company, country, watch=False):
 
 def main():
     rows = []
-    for fn in (load_workday, load_dell, load_yourator, load_appier, load_sg_trackers, load_linkedin, load_104, load_school_boards, load_watch_linkedin, load_eaton, load_google):
+    for fn in (load_workday, load_dell, load_yourator, load_appier, load_sg_trackers, load_linkedin, load_104, load_school_boards, load_watch_linkedin, load_eaton, load_google, load_ibm):
         rows += fn()
     kept, seen = [], set()
     for r in rows:
@@ -873,7 +906,7 @@ def main():
             continue
         if r.get("country") in ("Japan", "South Korea") and LOCAL_LANG_RE.search(r["title"]):
             continue  # Leo speaks no Japanese/Korean: local-language postings are wasted applications
-        if learned_drop(r["title"], r["company"]):
+        if learned_drop(r["title"], r["company"]) and not MUST_RE.search(r["company"]):
             continue
         if not size_ok(r["company"], r.get("country"), bool(WATCH_RE.search(r["company"]))):
             continue
