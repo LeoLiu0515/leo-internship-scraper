@@ -388,24 +388,34 @@ LI_QUERIES = {
     "Nanjing, China": ["intern", "engineer intern", "实习", "硬件 实习", "嵌入式 实习", "芯片 实习"],
     "Wuhan, China": ["intern", "engineer intern", "实习", "硬件 实习", "嵌入式 实习", "芯片 实习"],
     "Xi'an, China": ["intern", "engineer intern", "实习", "硬件 实习", "嵌入式 实习", "芯片 实习"],
-    "Malaysia": ["intern", "internship", "engineer intern"],
-    "Thailand": ["intern", "internship", "engineer intern"],
-    "Vietnam": ["intern", "internship", "engineer intern"],
 }
 LI_BASE = "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search"
 
 
+_LI_STATE = {"streak": 0, "blocked_until": 0.0}
+
+
 def _li_fetch(params):
+    """LinkedIn guest search with a circuit breaker: 6 rate-limit answers in a row pause all LinkedIn calls for 3 minutes
+    (the 2026-10-13 run hung for 2.5 h because every 429 slept up to 3 min x 4 attempts)."""
+    if time.time() < _LI_STATE["blocked_until"]:
+        return ""
     url = LI_BASE + "?" + urllib.parse.urlencode(params)
-    for attempt in range(4):
+    for attempt in range(2):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",
                                                        "Accept-Language": "en-US,en;q=0.9"})
             with urllib.request.urlopen(req, timeout=30) as r:
+                _LI_STATE["streak"] = 0
                 return r.read().decode("utf-8", "replace")
         except urllib.error.HTTPError as e:
             if e.code in (429, 999, 503):
-                time.sleep(15 + attempt * 20)
+                _LI_STATE["streak"] += 1
+                if _LI_STATE["streak"] >= 6:
+                    _LI_STATE["blocked_until"] = time.time() + 180
+                    _LI_STATE["streak"] = 0
+                    return ""
+                time.sleep(8 + attempt * 8)
                 continue
             return ""
         except Exception:
@@ -416,11 +426,17 @@ def _li_fetch(params):
 def load_linkedin():
     out, seen = [], set()
     stats = {}
+    deadline = time.time() + 35 * 60  # LinkedIn budget; Workday etc. already ran, watch-list search runs after this
     for loc, kws in LI_QUERIES.items():
         n_loc = 0
+        max_start = 30 if ", China" in loc else 100
         for kw in kws:
+            if time.time() > deadline:
+                break
             empty_streak = 0
-            for start in range(0, 100, 10):  # up to 10 pages of 10
+            for start in range(0, max_start, 10):  # up to 10 pages of 10 (3 for the per-city queries)
+                if time.time() > deadline:
+                    break
                 html = _li_fetch({"keywords": kw, "location": loc, "f_JT": "I", "f_TPR": "r2592000", "start": start})
                 cards = re.findall(r"<li>(.*?)</li>", html, re.S)
                 if not cards:
@@ -624,6 +640,8 @@ def _flat(x):
 
 def load_watch_linkedin():
     out, seen = [], set()
+    _LI_STATE["blocked_until"] = 0.0
+    _LI_STATE["streak"] = 0
     for name in WATCH_NAMES:
         rx = re.compile((r"\b" + re.escape(name.split()[0]) + r"\b") if name == "HP" else re.escape(name.split()[0]), re.I)
         for loc in WATCH_LOCS:

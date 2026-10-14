@@ -39,6 +39,7 @@ jobs:
       # never blocks the US refresh above.
       - name: Run Asia scraper
         continue-on-error: true
+        timeout-minutes: 80
         run: python3 asia_scan.py
 
       # 2026-10-11: read every posting's description and mark ok / no (with quoted evidence) / unread.
