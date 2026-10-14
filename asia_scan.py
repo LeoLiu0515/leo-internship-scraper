@@ -627,10 +627,10 @@ def norm_title(t):
 # Companies that deserve special attention: his uncle worked at Eaton / Applied Materials / ASML, plus every company where
 # someone can refer or recommend him (TSMC, Delta, Cisco via Toby, Amazon, Tesla). Rows from these companies are NEVER
 # dropped for schedule/duration reasons -- they are kept, starred, and labelled "long-term?" so Leo decides himself.
-WATCH_RE = re.compile(r"eaton|伊頓|applied materials|應用材料|應材|asml|艾司摩爾|愛斯莫爾|delta electronics|台達|tsmc|台積|cisco|amazon|tesla|mediatek|聯發科|airoha|達發|jentech|健策|\bhp\b|hewlett|google|\bibm\b|intel|\bamd\b|qualcomm|高通|apple|microsoft|samsung|三星|broadcom|\barm\b|texas instruments|huawei|華為|华为|nvidia|輝達", re.I)
-WATCH_NAMES = ["Eaton", "ASML", "Applied Materials", "Delta Electronics", "TSMC", "Cisco", "Amazon", "Tesla", "MediaTek", "Airoha", "Jentech", "HP", "Google", "IBM", "Intel", "AMD", "Qualcomm", "Apple", "Microsoft", "Samsung", "Broadcom", "Arm", "Texas Instruments", "Huawei", "NVIDIA"]
+WATCH_RE = re.compile(r"eaton|伊頓|applied materials|應用材料|應材|asml|艾司摩爾|愛斯莫爾|delta electronics|台達|tsmc|台積|cisco|amazon|tesla|mediatek|聯發科|airoha|達發|jentech|健策|\bhp\b|hewlett|google|\bibm\b|intel", re.I)
+WATCH_NAMES = ["Eaton", "ASML", "Applied Materials", "Delta Electronics", "TSMC", "Cisco", "Amazon", "Tesla", "MediaTek", "Airoha", "Jentech", "HP", "Google", "IBM", "Intel"]
 WATCH_LOCS = ["Taiwan", "Japan", "Singapore", "China", "South Korea", "Hong Kong SAR"]
-MUST_RE = re.compile(r"\bibm\b|intel|\bamd\b|qualcomm|apple|microsoft|samsung|broadcom|\barm\b|texas instruments|huawei|華為|华为|nvidia", re.I)  # Leo 2026-10-13: IBM / Intel etc. must never be missed
+MUST_RE = re.compile(r"\bibm\b|intel", re.I)  # Leo 2026-10-13: IBM / Intel etc. must never be missed
 LOCAL_LANG_RE = re.compile(r"[\u3040-\u30ff\uac00-\ud7a3]|卒|\((korean|japanese)\)|native-level|\bfluent in (japanese|korean)", re.I)  # kana / hangul / 28卒 etc.
 TARGET_COUNTRIES = {"Taiwan", "Japan", "Singapore", "Hong Kong", "South Korea", "China"}  # Leo 2026-10-07: advanced Asian economies only
 
