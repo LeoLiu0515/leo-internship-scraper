@@ -375,9 +375,19 @@ LI_QUERIES = {
                "暑期實習", "韌體 實習", "硬體 實習", "軟體 實習"],
     "Singapore": ["intern", "internship", "2027 intern", "engineer intern", "software intern", "hardware intern"],
     "Japan": ["intern", "internship", "インターン", "2027 intern", "engineer intern", "software intern"],
-    "Hong Kong": ["intern", "internship", "2027 intern", "engineer intern", "software intern"],
+    "Hong Kong": ["intern", "internship", "2027 intern", "engineer intern", "software intern", "electronic engineer intern", "hardware intern", "ASTRI", "Science Park intern", "实习"],
     "South Korea": ["intern", "internship", "2027 intern", "engineer intern", "software intern"],
-    "China": ["intern", "internship", "2027 intern", "engineer intern", "software intern"],
+    "China": ["intern", "internship", "2027 intern", "engineer intern", "software intern", "实习", "硬件 实习", "嵌入式 实习", "芯片 实习", "电子 实习", "FPGA 实习", "射频 实习"],
+    "Shanghai, China": ["intern", "engineer intern", "实习", "硬件 实习", "嵌入式 实习", "芯片 实习"],
+    "Beijing, China": ["intern", "engineer intern", "实习", "硬件 实习", "嵌入式 实习", "芯片 实习"],
+    "Shenzhen, China": ["intern", "engineer intern", "实习", "硬件 实习", "嵌入式 实习", "芯片 实习"],
+    "Hangzhou, China": ["intern", "engineer intern", "实习", "硬件 实习", "嵌入式 实习", "芯片 实习"],
+    "Suzhou, China": ["intern", "engineer intern", "实习", "硬件 实习", "嵌入式 实习", "芯片 实习"],
+    "Chengdu, China": ["intern", "engineer intern", "实习", "硬件 实习", "嵌入式 实习", "芯片 实习"],
+    "Guangzhou, China": ["intern", "engineer intern", "实习", "硬件 实习", "嵌入式 实习", "芯片 实习"],
+    "Nanjing, China": ["intern", "engineer intern", "实习", "硬件 实习", "嵌入式 实习", "芯片 实习"],
+    "Wuhan, China": ["intern", "engineer intern", "实习", "硬件 实习", "嵌入式 实习", "芯片 实习"],
+    "Xi'an, China": ["intern", "engineer intern", "实习", "硬件 实习", "嵌入式 实习", "芯片 实习"],
     "Malaysia": ["intern", "internship", "engineer intern"],
     "Thailand": ["intern", "internship", "engineer intern"],
     "Vietnam": ["intern", "internship", "engineer intern"],
@@ -755,7 +765,8 @@ ECE_CORE = re.compile(
     r"r&d|研發|研发|研究|電氣|电气|electrical|electronic|device|cmos|bios|research|scientist|information technology|"
     r"design and technology|product engineering|applications? engineer|field application|system|physical design|"
     r"llm|模塊|模組|模块|integration|reliability|\bfa\b|failure|test|測試|测试|simulation|機電整合|賦能|empower|develop|\besd\b|\bnpu\b|"
-    r"processing|technical|\bio\b|車用|應用工程|应用工程|technology|automotive", re.I)
+    r"processing|technical|\bio\b|車用|應用工程|应用工程|technology|automotive|"
+    r"机器人|传感|自动驾驶|自动化|单板|单片机|板级|驱动|仿真|版图|光通信|光模块|通信|通讯|固件|硬件|嵌入式|芯片|射频|模拟|数字|电路|电源|电气|电子|测试|验证|工艺", re.I)
 OPS_ROLE = re.compile(
     r"助理技師|助理工程師|助理人員|助理設備|技術員|技師|學徒|廠務|品保|品管|\bqc\b|\bie\b|\bim\b|工安|環安|safety|\behs\b|氣體|灌充|維修|維護|"
     r"保養|儲備|預聘|機電|冷凍|空調|施工|營造|土木|製程助理|設備助理|設備實習|生產|產線|倉|物料|採購|"
@@ -848,6 +859,9 @@ BIG_CO = re.compile(
     r"samsung|sk hynix|toshiba|kioxia|\bsony\b|\bcanon\b|\bnikon\b|fujitsu|\bnec\b|\brohm\b|murata|\btdk\b|denso|toyota|honda|nissan|huawei|华为|華為|xiaomi|小米|"
     r"lenovo|聯想|联想|\bdell\b|\bhp\b|hewlett|\bibm\b|oracle|cisco|juniper|intel|texas instruments|analog devices|microchip|wolfspeed|globalfoundries|"
     r"united microelectronics|聯電|聯華電子|vanguard|世界先進|powerchip|力積|\base\b|日月光|矽品|siliconware|amkor|phison|群聯|realtek|瑞昱|novatek|聯詠|"
+    r"schaeffler|corning|philips|飞利浦|\bzf\b|continental|valeo|emerson|danaher|medtronic|general electric|\bge\b|3m|dupont|saint-gobain|"
+    r"华为|小米|大疆|\bdji\b|阿里|alibaba|百度|baidu|比亚迪|\bbyd\b|中兴|\bzte\b|海康|hikvision|大华|dahua|紫光|中芯|\bsmic\b|华虹|hua hong|长江存储|\bymtc\b|兆易|韦尔|豪威|瑞芯微|rockchip|全志|地平线|horizon robotics|寒武纪|cambricon|海思|hisilicon|新华三|\bh3c\b|浪潮|inspur|长鑫|\bcxmt\b|蔚来|\bnio\b|小鹏|xpeng|理想汽车|li auto|商汤|sensetime|宇视|uniview|"
+    r"astri|应科院|應科院|hong kong applied science|hkstp|science park|cyberport|"
     r"gogoro|appier|synology|群暉|moxa|qnap|威聯通|asustek|華碩|acer|宏碁|\bmsi\b|微星|gigabyte|技嘉|quanta|廣達|wistron|緯創|compal|仁寶|pegatron|和碩|inventec|英業達", re.I)
 INSTITUTE = re.compile(r"工研院|資策會|國家實驗室|國研院|財團法人|研究院|中科院|大學|university|institute|nsysu|ntu\b", re.I)
 _LISTED = None
