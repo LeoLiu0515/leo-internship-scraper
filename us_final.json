@@ -1,7 +1,52 @@
 {
- "generated_at": 1794155292.2450361,
- "count": 965,
+ "generated_at": 1794178624.0734797,
+ "count": 951,
  "jobs": [
+  {
+   "url": "https://www.linkedin.com/jobs/view/design-verification-intern-ms-summer-2027-at-marvell-technology-4461438578",
+   "company": "Marvell Technology",
+   "title": "Design Verification Intern, MS - Summer 2027",
+   "loc": "Boise, ID",
+   "age": 0,
+   "lane": "embedded",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "限碩士/博士",
+     "quote": "Currently enrolled in a Master's Degree in Electrical Engineering, Computer Engineering, or a related field with an expected graduation date between Fall 2027 – Summer 2028"
+    }
+   ],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "Verilog/FPGA",
+    "signals"
+   ],
+   "gaps": [
+    "SystemVerilog/UVM",
+    "Cadence/Synopsys"
+   ]
+  },
+  {
+   "url": "https://www.linkedin.com/jobs/view/physical-design-engineer-intern-bs-summer-2027-at-marvell-technology-4461450062",
+   "company": "Marvell Technology",
+   "title": "Physical Design Engineer Intern, BS - Summer 2027",
+   "loc": "Burlington, VT",
+   "age": 0,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C",
+    "Python",
+    "Verilog/FPGA"
+   ],
+   "gaps": [
+    "SystemVerilog/UVM",
+    "Cadence/Synopsys"
+   ]
+  },
   {
    "url": "https://www.linkedin.com/jobs/view/summer-2027-engineering-internship-electrical-at-mach-industries-4470504658",
    "company": "Mach Industries",
@@ -9,9 +54,29 @@
    "loc": "Huntington Beach, CA",
    "age": 0,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "ITAR / 出口管制",
+     "quote": "ITAR Requirements"
+    },
+    {
+     "rule": "限美國公民/綠卡/US person",
+     "quote": "lawful, permanent resident (aka green card holder), (iii) Refugee under 8 U.S.C."
+    },
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "export control laws and regulations without sponsorship for an export license."
+    }
+   ],
+   "fit": [
+    "C",
+    "embedded",
+    "firmware",
+    "MCU",
+    "PCB",
+    "KiCad/EDA"
+   ],
    "gaps": []
   },
   {
@@ -33,9 +98,11 @@
    "loc": "Austin, TX",
    "age": 0,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "Verilog/FPGA"
+   ],
    "gaps": []
   },
   {
@@ -72,10 +139,15 @@
    "loc": "South San Francisco, CA",
    "age": 0,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "C++"
+   ],
+   "gaps": [
+    "Rust"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/electrical-engineer-intern-2027-at-veranex-4472077367",
@@ -96,10 +168,16 @@
    "loc": "Menlo Park, CA",
    "age": 0,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "Python",
+    "firmware",
+    "ML/PyTorch"
+   ],
+   "gaps": [
+    "Linux kernel/drivers"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/embedded-software-engineer-intern-1-at-cnh-4463614621",
@@ -135,10 +213,16 @@
    "loc": "Middlesex County, MA",
    "age": 1,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C++",
+    "Python",
+    "ML/PyTorch"
+   ],
+   "gaps": [
+    "Rust"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/physical-design-engineer-intern-ms-summer-2027-at-marvell-technology-4461436787",
@@ -147,10 +231,22 @@
    "loc": "Burlington, VT",
    "age": 1,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "screen": "no",
+   "why": [
+    {
+     "rule": "限碩士/博士",
+     "quote": "Currently enrolled in a Master's Degree in Electrical Engineering, Computer Engineering, or a related field with an expected graduation date between Fall 2027 – Summer 2028"
+    }
+   ],
+   "fit": [
+    "C",
+    "Python",
+    "Verilog/FPGA"
+   ],
+   "gaps": [
+    "SystemVerilog/UVM",
+    "Cadence/Synopsys"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/firmware-engineer-intern-bs-summer-2027-at-marvell-technology-4461455006",
@@ -215,9 +311,12 @@
    "loc": "Everett, WA",
    "age": 1,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "PCB",
+    "KiCad/EDA"
+   ],
    "gaps": []
   },
   {
@@ -227,10 +326,19 @@
    "loc": "Minneapolis, MN",
    "age": 1,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "The company is not able to sponsor visas or provide employment-based immigration sponsorship for this role now or in the future."
+    }
+   ],
+   "fit": [
+    "KiCad/EDA"
+   ],
+   "gaps": [
+    "analog IC"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/electrical-engineer-intern-labs-summer-2027-at-doordash-4477728547",
@@ -259,9 +367,11 @@
    "loc": "Lake Mary, FL",
    "age": 1,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "KiCad/EDA"
+   ],
    "gaps": []
   },
   {
@@ -271,7 +381,7 @@
    "loc": "Westminster, CO",
    "age": 1,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -324,9 +434,13 @@
    "loc": "Hoffman Estates, IL",
    "age": 1,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "firmware",
+    "PCB",
+    "Verilog/FPGA"
+   ],
    "gaps": []
   },
   {
@@ -400,6 +514,18 @@
    "gaps": []
   },
   {
+   "url": "https://www.linkedin.com/jobs/view/instrument-controls-engineering-intern-kansas-city-at-burns-mcdonnell-4461903482",
+   "company": "Burns & McDonnell",
+   "title": "Instrument & Controls Engineering Intern (Kansas City)",
+   "loc": "Kansas City, MO",
+   "age": 1,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [],
+   "gaps": []
+  },
+  {
    "url": "https://www.linkedin.com/jobs/view/electrical-computer-engineering-academic-part-time-intern-at-nasa-jet-propulsion-laboratory-4486462039",
    "company": "NASA Jet Propulsion Laboratory",
    "title": "Electrical & Computer Engineering Academic Part Time Intern",
@@ -428,10 +554,14 @@
    "loc": "El Segundo, CA",
    "age": 1,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C"
+   ],
+   "gaps": [
+    "RF"
+   ]
   },
   {
    "url": "https://jobs.lever.co/zoox/0c32245b-f51d-40d2-8e57-a0be1b744c5b/apply",
@@ -499,7 +629,7 @@
    "loc": "Austin, TX",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -511,7 +641,7 @@
    "loc": "Austin, TX",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -617,9 +747,16 @@
    "loc": "Houston, TX",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C",
+    "C++",
+    "embedded",
+    "firmware",
+    "MCU",
+    "lab tools"
+   ],
    "gaps": []
   },
   {
@@ -667,9 +804,20 @@
    "loc": "Niles, IL",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "Shure will not sponsor applicants for this position for work visas."
+    }
+   ],
+   "fit": [
+    "embedded",
+    "MCU",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools"
+   ],
    "gaps": []
   },
   {
@@ -679,9 +827,16 @@
    "loc": "Niles, IL",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "Shure will not sponsor applicants for this position for work visas."
+    }
+   ],
+   "fit": [
+    "lab tools"
+   ],
    "gaps": []
   },
   {
@@ -722,9 +877,11 @@
    "loc": "Chicago, IL",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "Verilog/FPGA"
+   ],
    "gaps": []
   },
   {
@@ -754,10 +911,22 @@
    "loc": "Niles, IL",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "Shure will not sponsor applicants for this position for work visas."
+    }
+   ],
+   "fit": [
+    "Python",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools"
+   ],
+   "gaps": [
+    "RF"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/electrical-engineer-intern-energy-industrial-group-summer-2027-at-sargent-lundy-4461350591",
@@ -766,8 +935,13 @@
    "loc": "Chicago, IL",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "We do not sponsor employees for work authorization in the U.S."
+    }
+   ],
    "fit": [],
    "gaps": []
   },
@@ -845,10 +1019,16 @@
    "loc": "Syracuse, NY",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "C++",
+    "Python"
+   ],
+   "gaps": [
+    "RF"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/system-verification-engineering-intern-at-shure-4461394441",
@@ -857,47 +1037,18 @@
    "loc": "Skokie, IL",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/system-test-engineer-co-op-full-time-intern-jan-june-2027-at-irhythm-technologies-inc-4469787590",
-   "company": "iRhythm Technologies, Inc.",
-   "title": "System Test Engineer Co-Op Full Time Intern Jan-June 2027",
-   "loc": "San Francisco, CA",
-   "age": 2,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/electrical-test-engineering-co-op-intern-january-june-2027-at-irhythm-technologies-inc-4470102145",
-   "company": "iRhythm Technologies, Inc.",
-   "title": "Electrical Test Engineering Co-op Intern January-June 2027",
-   "loc": "San Francisco, CA",
-   "age": 2,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/test-engineer-intern-at-paylocity-4488418159",
-   "company": "Paylocity",
-   "title": "Test Engineer Intern",
-   "loc": "Pittsford, NY",
-   "age": 2,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "Shure will not sponsor applicants for this position for work visas."
+    }
+   ],
    "fit": [
+    "C",
+    "C++",
     "Python",
-    "Git"
+    "embedded"
    ],
    "gaps": []
   },
@@ -924,28 +1075,36 @@
    "gaps": []
   },
   {
-   "url": "https://www.linkedin.com/jobs/view/hardware-engineer-intern-vehicle-systems-summer-2027-at-zoox-4486947567",
-   "company": "Zoox",
-   "title": "Hardware Engineer Intern, Vehicle Systems [Summer 2027]",
-   "loc": "Foster City, CA",
+   "url": "https://www.linkedin.com/jobs/view/system-test-engineer-co-op-full-time-intern-jan-june-2027-at-irhythm-technologies-inc-4469787590",
+   "company": "iRhythm Technologies, Inc.",
+   "title": "System Test Engineer Co-Op Full Time Intern Jan-June 2027",
+   "loc": "San Francisco, CA",
    "age": 2,
    "lane": "embedded",
    "screen": "no",
    "why": [
     {
      "rule": "不是暑期 / 長期",
-     "quote": "Interns on this team will have to be available for a 6-month internship."
+     "quote": "This is a full-time, six-month Engineering Internship / Cooperative Education (Co-op) assignment for a current student."
     }
    ],
    "fit": [
     "Python",
-    "firmware",
-    "CAN",
-    "UART/I2C/SPI",
-    "lab tools",
-    "ML/PyTorch",
-    "signals"
+    "embedded",
+    "lab tools"
    ],
+   "gaps": []
+  },
+  {
+   "url": "https://www.linkedin.com/jobs/view/electrical-test-engineering-co-op-intern-january-june-2027-at-irhythm-technologies-inc-4470102145",
+   "company": "iRhythm Technologies, Inc.",
+   "title": "Electrical Test Engineering Co-op Intern January-June 2027",
+   "loc": "San Francisco, CA",
+   "age": 2,
+   "lane": "embedded",
+   "screen": "unread",
+   "why": [],
+   "fit": [],
    "gaps": []
   },
   {
@@ -955,8 +1114,13 @@
    "loc": "Columbus, IN",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不是暑期 / 長期",
+     "quote": "Students are expected to work 40 hours per week for assignments 4, 6, or up to 12 months, often aligning with school semesters."
+    }
+   ],
    "fit": [],
    "gaps": []
   },
@@ -967,7 +1131,7 @@
    "loc": "Fargo, ND",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -982,6 +1146,21 @@
    "screen": "ok",
    "why": [],
    "fit": [],
+   "gaps": []
+  },
+  {
+   "url": "https://www.linkedin.com/jobs/view/test-engineer-intern-at-paylocity-4488418159",
+   "company": "Paylocity",
+   "title": "Test Engineer Intern",
+   "loc": "Pittsford, NY",
+   "age": 2,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "Python",
+    "Git"
+   ],
    "gaps": []
   },
   {
@@ -1014,9 +1193,18 @@
    "loc": "Los Angeles, CA",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "ITAR / 出口管制",
+     "quote": "ITAR Requirements"
+    }
+   ],
+   "fit": [
+    "C",
+    "C++",
+    "Python"
+   ],
    "gaps": []
   },
   {
@@ -1045,10 +1233,18 @@
    "loc": "Irvine, CA",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "CAN"
+   ],
+   "gaps": [
+    "MATLAB/Simulink"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/controls-engineer-intern-summer-2027-at-promach-4469694588",
@@ -1114,9 +1310,16 @@
    "loc": "Monaca, PA",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "It is ATI's policy to not provide immigration sponsorship for any of the company's positions."
+    }
+   ],
+   "fit": [
+    "KiCad/EDA"
+   ],
    "gaps": []
   },
   {
@@ -1126,10 +1329,25 @@
    "loc": "Niles, IL",
    "age": 2,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "Shure will not sponsor applicants for this position for work visas."
+    }
+   ],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "lab tools",
+    "ML/PyTorch",
+    "signals"
+   ],
+   "gaps": [
+    "RF"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/summer-2027-internship-in-digital-signal-processing-and-machine-learning-r148-at-expedition-technology-4477344458",
@@ -1265,9 +1483,12 @@
    "loc": "Towson, MD",
    "age": 3,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "embedded",
+    "firmware"
+   ],
    "gaps": []
   },
   {
@@ -1343,10 +1564,20 @@
    "loc": "New York, United States",
    "age": 3,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "Verilog/FPGA",
+    "ML/PyTorch",
+    "Git"
+   ],
+   "gaps": [
+    "SystemVerilog/UVM"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/intern-analog-mixed-signal-design-engineer-at-ametek-4487794433",
@@ -1370,8 +1601,13 @@
    "loc": "Lorain, OH",
    "age": 3,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "Individuals with temporary visas such as E, F-1, H-1, H-2, L, B, J, or TN or who need sponsorship for work authorization now or in the future, are not eligible for hire."
+    }
+   ],
    "fit": [],
    "gaps": []
   },
@@ -1402,9 +1638,27 @@
    "loc": "Boise, ID",
    "age": 3,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "Python"
+   ],
+   "gaps": [
+    "Cadence/Synopsys"
+   ]
+  },
+  {
+   "url": "https://www.linkedin.com/jobs/view/vehicle-thermal-integration-validation-engineering-intern-at-daimler-truck-north-america-4485573974",
+   "company": "Daimler Truck North America",
+   "title": "Vehicle Thermal Integration - Validation Engineering Intern",
+   "loc": "Portland, OR",
+   "age": 3,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "Python"
+   ],
    "gaps": []
   },
   {
@@ -1422,41 +1676,6 @@
     "firmware",
     "lab tools",
     "Git"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/audio-systems-engineering-intern-at-starkey-hearing-4487778182",
-   "company": "Starkey Hearing",
-   "title": "Audio Systems Engineering Intern",
-   "loc": "Eden Prairie, MN",
-   "age": 3,
-   "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "限碩士/博士",
-     "quote": "Pursuing a Maters’s or Phd degree in an Engineering, Audiology or related field"
-    }
-   ],
-   "fit": [
-    "Python",
-    "embedded",
-    "signals"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/vehicle-thermal-integration-validation-engineering-intern-at-daimler-truck-north-america-4485573974",
-   "company": "Daimler Truck North America",
-   "title": "Vehicle Thermal Integration - Validation Engineering Intern",
-   "loc": "Portland, OR",
-   "age": 3,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "Python"
    ],
    "gaps": []
   },
@@ -1539,6 +1758,27 @@
     }
    ],
    "fit": [],
+   "gaps": []
+  },
+  {
+   "url": "https://www.linkedin.com/jobs/view/audio-systems-engineering-intern-at-starkey-hearing-4487778182",
+   "company": "Starkey Hearing",
+   "title": "Audio Systems Engineering Intern",
+   "loc": "Eden Prairie, MN",
+   "age": 3,
+   "lane": "embedded",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "限碩士/博士",
+     "quote": "Pursuing a Maters’s or Phd degree in an Engineering, Audiology or related field"
+    }
+   ],
+   "fit": [
+    "Python",
+    "embedded",
+    "signals"
+   ],
    "gaps": []
   },
   {
@@ -1668,9 +1908,12 @@
    "loc": "Chandler, AZ",
    "age": 4,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C",
+    "Verilog/FPGA"
+   ],
    "gaps": []
   },
   {
@@ -1680,25 +1923,17 @@
    "loc": "Santa Clara, CA",
    "age": 4,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/qa-test-engineer-intern-tucson-az-at-ibm-4456512970",
-   "company": "IBM",
-   "title": "QA/Test Engineer Intern-Tucson, AZ",
-   "loc": "Tucson, AZ",
-   "age": 4,
-   "lane": "embedded",
    "screen": "ok",
    "why": [],
    "fit": [
+    "C",
     "Python",
-    "Git"
+    "PCB",
+    "lab tools"
    ],
-   "gaps": []
+   "gaps": [
+    "RF"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/design-verification-intern-at-quadric-4487529314",
@@ -1756,10 +1991,17 @@
    "loc": "San Jose, CA",
    "age": 4,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "C++",
+    "embedded",
+    "firmware"
+   ],
+   "gaps": [
+    "Rust"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/embedded-software-engineer-internship-summer-2027-at-vermeer-corporation-4460246263",
@@ -1768,10 +2010,20 @@
    "loc": "Pella, IA",
    "age": 4,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "C++",
+    "embedded",
+    "CAN",
+    "Git"
+   ],
+   "gaps": [
+    "RTOS",
+    "MATLAB/Simulink",
+    "LabVIEW"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/power-firmware-developer-intern-rochester-mn-austin-tx-2027-at-ibm-4459531205",
@@ -1780,9 +2032,18 @@
    "loc": "Rochester, MN",
    "age": 4,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "firmware",
+    "UART/I2C/SPI",
+    "ML/PyTorch",
+    "Git"
+   ],
    "gaps": []
   },
   {
@@ -1924,31 +2185,19 @@
    ]
   },
   {
-   "url": "https://www.linkedin.com/jobs/view/robotics-hardware-engineer-internship-at-syncere-4486504993",
-   "company": "Syncere",
-   "title": "Robotics Hardware Engineer Internship",
-   "loc": "Palo Alto, CA",
-   "age": 4,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "embedded",
-    "firmware",
-    "PCB",
-    "lab tools"
-   ],
-   "gaps": []
-  },
-  {
    "url": "https://www.linkedin.com/jobs/view/electrical-engineering-intern-nuclear-summer-2027-at-sargent-lundy-4460087693",
    "company": "Sargent & Lundy",
    "title": "Electrical Engineering Intern - Nuclear (Summer 2027)",
    "loc": "Minneapolis, MN",
    "age": 4,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "We do not sponsor employees for work authorization in the U.S."
+    }
+   ],
    "fit": [],
    "gaps": []
   },
@@ -2102,25 +2351,6 @@
    ]
   },
   {
-   "url": "https://www.linkedin.com/jobs/view/intern-system-verification-at-smith%2Bnephew-4486509550",
-   "company": "Smith+Nephew",
-   "title": "Intern System Verification",
-   "loc": "Pittsburgh, PA",
-   "age": 4,
-   "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "不提供簽證擔保",
-     "quote": "**This position does not offer visa transfer or sponsorship now or in the future**"
-    }
-   ],
-   "fit": [
-    "Python"
-   ],
-   "gaps": []
-  },
-  {
    "url": "https://www.linkedin.com/jobs/view/intern-laser-control-validation-engineering-at-ayar-labs-4486507488",
    "company": "Ayar Labs",
    "title": "Intern, Laser Control & Validation Engineering",
@@ -2150,6 +2380,40 @@
    "screen": "unread",
    "why": [],
    "fit": [],
+   "gaps": []
+  },
+  {
+   "url": "https://www.linkedin.com/jobs/view/qa-test-engineer-intern-tucson-az-at-ibm-4456512970",
+   "company": "IBM",
+   "title": "QA/Test Engineer Intern-Tucson, AZ",
+   "loc": "Tucson, AZ",
+   "age": 4,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "Python",
+    "Git"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://www.linkedin.com/jobs/view/intern-system-verification-at-smith%2Bnephew-4486509550",
+   "company": "Smith+Nephew",
+   "title": "Intern System Verification",
+   "loc": "Pittsburgh, PA",
+   "age": 4,
+   "lane": "embedded",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "**This position does not offer visa transfer or sponsorship now or in the future**"
+    }
+   ],
+   "fit": [
+    "Python"
+   ],
    "gaps": []
   },
   {
@@ -2200,23 +2464,6 @@
    "lane": "embedded",
    "screen": "unread",
    "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/electrical-instrumentation-engineering-intern-at-gradiant-4487218029",
-   "company": "Gradiant",
-   "title": "Electrical & Instrumentation Engineering Intern",
-   "loc": "Boise, ID",
-   "age": 4,
-   "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "不是暑期 / 長期",
-     "quote": "Duration: Internship (3-6 Months)"
-    }
-   ],
    "fit": [],
    "gaps": []
   },
@@ -2298,10 +2545,16 @@
    "loc": "Detroit, MI",
    "age": 4,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "Python",
+    "embedded",
+    "CAN"
+   ],
+   "gaps": [
+    "MATLAB/Simulink"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/automotive-energy-systems-engineering-intern-at-forvia-hella-4484205642",
@@ -2547,6 +2800,18 @@
    ]
   },
   {
+   "url": "https://www.linkedin.com/jobs/view/2027-summer-intern-digital-product-embedded-and-systems-engineering-at-general-motors-4468168706",
+   "company": "General Motors",
+   "title": "2027 Summer Intern - Digital Product: Embedded and Systems Engineering",
+   "loc": "Mountain View, CA",
+   "age": 5,
+   "lane": "embedded",
+   "screen": "unread",
+   "why": [],
+   "fit": [],
+   "gaps": []
+  },
+  {
    "url": "https://www.linkedin.com/jobs/view/summer-2027-intern-embedded-firmware-5810-at-shield-4486478762",
    "company": "Shield",
    "title": "Summer 2027 Intern - Embedded Firmware - 5810",
@@ -2563,18 +2828,6 @@
     "Verilog/FPGA",
     "Git"
    ],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/2027-summer-intern-digital-product-embedded-and-systems-engineering-at-general-motors-4468168706",
-   "company": "General Motors",
-   "title": "2027 Summer Intern - Digital Product: Embedded and Systems Engineering",
-   "loc": "Mountain View, CA",
-   "age": 5,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
    "gaps": []
   },
   {
@@ -2796,9 +3049,18 @@
    "loc": "Wilmington, MA",
    "age": 5,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C++",
+    "Python",
+    "embedded",
+    "CAN",
+    "UART/I2C/SPI",
+    "ML/PyTorch",
+    "Git",
+    "Arduino/RPi"
+   ],
    "gaps": []
   },
   {
@@ -3207,18 +3469,6 @@
    "gaps": []
   },
   {
-   "url": "https://www.linkedin.com/jobs/view/intern-co-op-refining-electrical-engineering-summer-2027-at-marathon-petroleum-corporation-4460384044",
-   "company": "Marathon Petroleum Corporation",
-   "title": "Intern/Co-op - Refining Electrical Engineering (Summer 2027)",
-   "loc": "Findlay, OH",
-   "age": 7,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
    "url": "https://www.linkedin.com/jobs/view/systems-engineering-intern-at-kostal-group-4441661654",
    "company": "KOSTAL Group",
    "title": "Systems Engineering Intern",
@@ -3279,7 +3529,7 @@
    "loc": "Vista, CA",
    "age": 8,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -3313,8 +3563,13 @@
    "loc": "Portland, OR",
    "age": 8,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "Legally authorized to work in the United States without current or future sponsorship requirements."
+    }
+   ],
    "fit": [],
    "gaps": []
   },
@@ -3377,10 +3632,24 @@
    "loc": "Framingham, MA",
    "age": 8,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不是暑期 / 長期",
+     "quote": "During the six-month co-op, students will have the chance to apply classroom learning in a hands-on work environment."
+    }
+   ],
+   "fit": [
+    "firmware",
+    "UART/I2C/SPI",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools"
+   ],
+   "gaps": [
+    "Cadence/Synopsys",
+    "RF"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/intern-systems-engineer-%E2%80%93-new-kensington-pa-%E2%80%93-summer-2027-at-philips-4485119788",
@@ -3413,34 +3682,6 @@
      "quote": "Must be pursuing a Master's Degree (enrolled student)"
     }
    ],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://jobs.lever.co/tri/33c33641-756d-4cd1-8238-0100af2224b8/apply",
-   "company": "Toyota Research Institute",
-   "title": "Human Interactive Driving Research Intern - Perception for Driving at the Limits",
-   "loc": "Los Altos, CA",
-   "age": 9,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C++",
-    "Python",
-    "ML/PyTorch"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://careers.gov2x.com/jobs/63854?icims=1",
-   "company": "V2X",
-   "title": "Electrical Engineer Intern",
-   "loc": "Indianapolis, IN",
-   "age": 9,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
    "fit": [],
    "gaps": []
   },
@@ -3538,26 +3779,6 @@
    ]
   },
   {
-   "url": "https://www.linkedin.com/jobs/view/embedded-software-engineering-intern-at-aptiv-4477661182",
-   "company": "Aptiv",
-   "title": "Embedded Software - Engineering Intern",
-   "loc": "Walnut Creek, CA",
-   "age": 9,
-   "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "不提供簽證擔保",
-     "quote": "Visa sponsorship is not available for this position."
-    }
-   ],
-   "fit": [
-    "embedded",
-    "MCU"
-   ],
-   "gaps": []
-  },
-  {
    "url": "https://www.linkedin.com/jobs/view/electrical-engineering-intern-at-nucleon-4485612132",
    "company": "Nucleon",
    "title": "Electrical Engineering Intern",
@@ -3603,6 +3824,26 @@
    "gaps": [
     "MATLAB/Simulink"
    ]
+  },
+  {
+   "url": "https://www.linkedin.com/jobs/view/embedded-software-engineering-intern-at-aptiv-4477661182",
+   "company": "Aptiv",
+   "title": "Embedded Software - Engineering Intern",
+   "loc": "Walnut Creek, CA",
+   "age": 9,
+   "lane": "embedded",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "Visa sponsorship is not available for this position."
+    }
+   ],
+   "fit": [
+    "embedded",
+    "MCU"
+   ],
+   "gaps": []
   },
   {
    "url": "https://www.linkedin.com/jobs/view/embedded-software-intern-communications-summer-2027-at-otto-engineering-inc-4485611508",
@@ -3687,9 +3928,11 @@
    "loc": "San Jose, CA",
    "age": 9,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "PCB"
+   ],
    "gaps": []
   },
   {
@@ -3806,8 +4049,13 @@
    "loc": "Acton, MA",
    "age": 9,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "without current or future sponsorship needs."
+    }
+   ],
    "fit": [],
    "gaps": []
   },
@@ -3832,7 +4080,7 @@
    "loc": "New Holland, PA",
    "age": 9,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -3873,7 +4121,7 @@
    "loc": "Ridgway, PA",
    "age": 9,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -3986,10 +4234,10 @@
    "gaps": []
   },
   {
-   "url": "https://amazon.jobs/en/jobs/10591833/2027-applied-science-internship-robotics-united-states",
-   "company": "Amazon",
-   "title": "Robotics Applied Scientist 2 Intern",
-   "loc": "Seattle, WA; North Reading, MA; NYC; Bellevue, WA; Sunnyvale",
+   "url": "https://jobs.lever.co/tri/33c33641-756d-4cd1-8238-0100af2224b8/apply",
+   "company": "Toyota Research Institute",
+   "title": "Human Interactive Driving Research Intern - Perception for Driving at the Limits",
+   "loc": "Los Altos, CA",
    "age": 10,
    "lane": "embedded",
    "screen": "ok",
@@ -3997,9 +4245,20 @@
    "fit": [
     "C++",
     "Python",
-    "MCU",
     "ML/PyTorch"
    ],
+   "gaps": []
+  },
+  {
+   "url": "https://careers.gov2x.com/jobs/63854?icims=1",
+   "company": "V2X",
+   "title": "Electrical Engineer Intern",
+   "loc": "Indianapolis, IN",
+   "age": 10,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [],
    "gaps": []
   },
   {
@@ -4039,7 +4298,7 @@
    "loc": "South San Francisco, California, USA",
    "age": 10,
    "lane": "embedded",
-   "screen": "ok",
+   "screen": "unread",
    "why": [],
    "fit": [],
    "gaps": []
@@ -4051,7 +4310,7 @@
    "loc": "South San Francisco, California, USA",
    "age": 10,
    "lane": "embedded",
-   "screen": "ok",
+   "screen": "unread",
    "why": [],
    "fit": [],
    "gaps": []
@@ -4063,11 +4322,9 @@
    "loc": "South San Francisco, California, USA",
    "age": 10,
    "lane": "embedded",
-   "screen": "ok",
+   "screen": "unread",
    "why": [],
-   "fit": [
-    "firmware"
-   ],
+   "fit": [],
    "gaps": []
   },
   {
@@ -4077,7 +4334,7 @@
    "loc": "South San Francisco, California, USA",
    "age": 10,
    "lane": "embedded",
-   "screen": "ok",
+   "screen": "unread",
    "why": [],
    "fit": [],
    "gaps": []
@@ -4089,7 +4346,7 @@
    "loc": "South San Francisco, California, USA",
    "age": 10,
    "lane": "embedded",
-   "screen": "ok",
+   "screen": "unread",
    "why": [],
    "fit": [],
    "gaps": []
@@ -4101,7 +4358,7 @@
    "loc": "South San Francisco, California, USA",
    "age": 10,
    "lane": "embedded",
-   "screen": "ok",
+   "screen": "unread",
    "why": [],
    "fit": [],
    "gaps": []
@@ -4937,10 +5194,27 @@
    "loc": "Delaware, OH",
    "age": 10,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "Individuals with temporary visas such as E, F-1, H-1, H-2, L, B, J, or TN or who need sponsorship for work authorization now or in the future, are not eligible for hire."
+    }
+   ],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "firmware",
+    "MCU",
+    "lab tools",
+    "Git",
+    "signals"
+   ],
+   "gaps": [
+    "MATLAB/Simulink"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/firmware-engineering-co-op-at-entrust-4476765466",
@@ -5005,9 +5279,16 @@
    "loc": "San Francisco, CA",
    "age": 10,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "Python",
+    "embedded",
+    "CAN",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools"
+   ],
    "gaps": []
   },
   {
@@ -5017,10 +5298,19 @@
    "loc": "Denver Metropolitan Area",
    "age": 10,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools"
+   ],
+   "gaps": [
+    "RF"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/electrical-engineer-intern-implant-embedded-systems-at-neuralink-4457640633",
@@ -5029,10 +5319,24 @@
    "loc": "Austin, TX",
    "age": 10,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "firmware",
+    "UART/I2C/SPI",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools",
+    "Verilog/FPGA"
+   ],
+   "gaps": [
+    "RF",
+    "analog IC"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/electrical-engineering-intern-data-center-infrastructure-at-hut-8-4483063834",
@@ -5100,26 +5404,28 @@
    ]
   },
   {
-   "url": "https://www.linkedin.com/jobs/view/intern-firmware-and-software-test-development-at-rockwell-automation-4484582379",
-   "company": "Rockwell Automation",
-   "title": "Intern, Firmware and Software Test Development",
-   "loc": "Mequon, WI",
+   "url": "https://www.linkedin.com/jobs/view/internship-test-engineer-at-infineon-technologies-4464607386",
+   "company": "Infineon Technologies",
+   "title": "Internship - Test Engineer",
+   "loc": "Leominster, MA",
    "age": 10,
    "lane": "embedded",
    "screen": "no",
    "why": [
     {
-     "rule": "不提供簽證擔保",
-     "quote": "We will not sponsor individuals for employment visas, now or in the future."
+     "rule": "限美國公民/綠卡/US person",
+     "quote": "US citizen or green card holder: This position requires access to documentation that is controlled by the export laws of the United States."
     }
    ],
    "fit": [
+    "C",
     "C++",
-    "Python",
-    "firmware",
-    "KiCad/EDA"
+    "PCB",
+    "lab tools"
    ],
-   "gaps": []
+   "gaps": [
+    "Cadence/Synopsys"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/internship-validation-engineer-at-infineon-technologies-4477178573",
@@ -5144,27 +5450,19 @@
    ]
   },
   {
-   "url": "https://www.linkedin.com/jobs/view/internship-test-engineer-at-infineon-technologies-4464607386",
-   "company": "Infineon Technologies",
-   "title": "Internship - Test Engineer",
-   "loc": "Leominster, MA",
-   "age": 10,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
    "url": "https://www.linkedin.com/jobs/view/robotics-intern-learning-kits-curriculum-at-studyfetch-4475738500",
    "company": "StudyFetch",
    "title": "Robotics Intern, Learning Kits & Curriculum",
    "loc": "Beverly Hills, CA",
    "age": 10,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "Python",
+    "lab tools",
+    "Arduino/RPi"
+   ],
    "gaps": []
   },
   {
@@ -5208,22 +5506,6 @@
    "gaps": [
     "LabVIEW"
    ]
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/human-interactive-driving-research-intern-perception-for-driving-at-the-limits-at-toyota-research-institute-4485225558",
-   "company": "Toyota Research Institute",
-   "title": "Human Interactive Driving Research Intern, Perception for Driving at the Limits",
-   "loc": "Los Altos, CA",
-   "age": 10,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C++",
-    "Python",
-    "ML/PyTorch"
-   ],
-   "gaps": []
   },
   {
    "url": "https://www.linkedin.com/jobs/view/instrumentation-controls-i-c-engineering-intern-summer-2027-at-jacobs-4477104412",
@@ -5371,6 +5653,23 @@
    "gaps": []
   },
   {
+   "url": "https://amazon.jobs/en/jobs/10591833/2027-applied-science-internship-robotics-united-states",
+   "company": "Amazon",
+   "title": "Robotics Applied Scientist 2 Intern",
+   "loc": "Seattle, WA; North Reading, MA; NYC; Bellevue, WA; Sunnyvale",
+   "age": 11,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C++",
+    "Python",
+    "MCU",
+    "ML/PyTorch"
+   ],
+   "gaps": []
+  },
+  {
    "url": "https://www.amazon.jobs/en/jobs/10591833/2027-applied-science-internship-robotics-united-states",
    "company": "Amazon.com Services LLC",
    "title": "2027 Applied Science Internship - Robotics - United States",
@@ -5394,10 +5693,15 @@
    "loc": "Austin, TX",
    "age": 11,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "Python"
+   ],
+   "gaps": [
+    "SystemVerilog/UVM"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/intern-rtl-power-macromodeling-engineer-at-samsung-semiconductor-4483835981",
@@ -5476,9 +5780,11 @@
    "loc": "Cranberry Township, PA",
    "age": 11,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "KiCad/EDA"
+   ],
    "gaps": []
   },
   {
@@ -5488,9 +5794,15 @@
    "loc": "Austin, TX",
    "age": 11,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C",
+    "C++",
+    "embedded",
+    "MCU",
+    "KiCad/EDA"
+   ],
    "gaps": []
   },
   {
@@ -5575,9 +5887,12 @@
    "loc": "Denver, CO",
    "age": 11,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "KiCad/EDA",
+    "lab tools"
+   ],
    "gaps": []
   },
   {
@@ -5623,7 +5938,7 @@
    "loc": "Fort Worth, TX",
    "age": 11,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -5649,9 +5964,14 @@
    "loc": "Santa Clara, CA",
    "age": 11,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "Verilog/FPGA"
+   ],
    "gaps": []
   },
   {
@@ -5699,7 +6019,7 @@
    "loc": "Boise, ID",
    "age": 11,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -5719,18 +6039,6 @@
    "gaps": [
     "Cadence/Synopsys"
    ]
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/aviation-systems-engineer-intern-at-garmin-4462032074",
-   "company": "Garmin",
-   "title": "Aviation Systems Engineer Intern",
-   "loc": "Olathe, KS",
-   "age": 11,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
   },
   {
    "url": "https://www.linkedin.com/jobs/view/systems-test-engineer-skillbridge-intern-26005-at-mission-technologies-a-division-of-hii-4439904005",
@@ -5756,6 +6064,18 @@
    "fit": [
     "Python"
    ],
+   "gaps": []
+  },
+  {
+   "url": "https://www.linkedin.com/jobs/view/aviation-systems-engineer-intern-at-garmin-4462032074",
+   "company": "Garmin",
+   "title": "Aviation Systems Engineer Intern",
+   "loc": "Olathe, KS",
+   "age": 11,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [],
    "gaps": []
   },
   {
@@ -5847,7 +6167,7 @@
    "loc": "Olathe, KS",
    "age": 11,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -5881,33 +6201,6 @@
    "fit": [
     "Python"
    ],
-   "gaps": []
-  },
-  {
-   "url": "https://jobs.lever.co/tri/016bbb58-857a-4367-b1aa-0cdc9f818478/apply",
-   "company": "Toyota Research Institute",
-   "title": "Robotics Intern - World Foundation Models",
-   "loc": "Los Altos, CA",
-   "age": 12,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "Python",
-    "ML/PyTorch"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://boards.greenhouse.io/parallel/jobs/5275660007",
-   "company": "Parallel Systems",
-   "title": "Hardware Engineering Intern - Mechanical and Electrical",
-   "loc": "LA",
-   "age": 12,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [],
    "gaps": []
   },
   {
@@ -6048,9 +6341,12 @@
    "loc": "Columbia, MO",
    "age": 12,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "embedded",
+    "firmware"
+   ],
    "gaps": []
   },
   {
@@ -6112,9 +6408,16 @@
    "loc": "Hennepin County, MN",
    "age": 12,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "We are unable to sponsor or take over sponsorship of a school/employment or any other visa, regardless of expiration date, now or in the future."
+    }
+   ],
+   "fit": [
+    "KiCad/EDA"
+   ],
    "gaps": []
   },
   {
@@ -6136,10 +6439,19 @@
    "loc": "St. Petersburg, FL",
    "age": 12,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "Python",
+    "embedded",
+    "firmware",
+    "KiCad/EDA",
+    "Verilog/FPGA",
+    "signals"
+   ],
+   "gaps": [
+    "RF"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/electrical-engineering-intern-%E2%80%93-r-d-design-validation-test-automation-at-keysight-technologies-4482238826",
@@ -6261,10 +6573,21 @@
    "loc": "Acton, MA",
    "age": 12,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "without current or future sponsorship needs."
+    }
+   ],
+   "fit": [
+    "PCB",
+    "KiCad/EDA",
+    "lab tools"
+   ],
+   "gaps": [
+    "Cadence/Synopsys"
+   ]
   },
   {
    "url": "https://jabil.wd5.myworkdayjobs.com/Jabil_Careers/job/Austin-TX/Validation-Engineer-Intern_J2469310",
@@ -6299,6 +6622,21 @@
    "gaps": []
   },
   {
+   "url": "https://jobs.lever.co/tri/016bbb58-857a-4367-b1aa-0cdc9f818478/apply",
+   "company": "Toyota Research Institute",
+   "title": "Robotics Intern - World Foundation Models",
+   "loc": "Los Altos, CA",
+   "age": 13,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "Python",
+    "ML/PyTorch"
+   ],
+   "gaps": []
+  },
+  {
    "url": "https://marvell.wd1.myworkdayjobs.com/MarvellCareers2/job/Santa-Clara-CA/Signal-and-Power-Integrity-Intern--MS---Summer-2027_2603858-1",
    "company": "Marvell",
    "title": "Signal and Power Integrity Intern",
@@ -6314,6 +6652,18 @@
    "gaps": [
     "Cadence/Synopsys"
    ]
+  },
+  {
+   "url": "https://boards.greenhouse.io/parallel/jobs/5275660007",
+   "company": "Parallel Systems",
+   "title": "Hardware Engineering Intern - Mechanical and Electrical",
+   "loc": "LA",
+   "age": 13,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [],
+   "gaps": []
   },
   {
    "url": "https://jobs.ashbyhq.com/skydio/6f5caf41-fa1d-4208-9bdc-82c72e5d3f17/application?embed=true",
@@ -6412,7 +6762,7 @@
    "loc": "San Diego, CA",
    "age": 13,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -6518,10 +6868,22 @@
    "loc": "San Jose, CA",
    "age": 14,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "firmware",
+    "PCB",
+    "Verilog/FPGA",
+    "Git"
+   ],
+   "gaps": [
+    "SystemVerilog/UVM",
+    "RTOS"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/electrical-engineer-intern-robotics-and-surgery-engineering-at-neuralink-4456278315",
@@ -6530,10 +6892,23 @@
    "loc": "South San Francisco, CA",
    "age": 14,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "firmware",
+    "UART/I2C/SPI",
+    "KiCad/EDA",
+    "lab tools",
+    "Verilog/FPGA"
+   ],
+   "gaps": [
+    "Rust",
+    "RF"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/test-engineer-intern-exmark-at-the-toro-company-4466441638",
@@ -6542,10 +6917,17 @@
    "loc": "Gage County, NE",
    "age": 14,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "We are unable to sponsor or take over sponsorship of a school/employment or any other visa, regardless of expiration date, now or in the future."
+    }
+   ],
    "fit": [],
-   "gaps": []
+   "gaps": [
+    "LabVIEW"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/future-opportunities-electrical-controls-co-op-summer-2027-at-the-hershey-company-4473391210",
@@ -6599,43 +6981,9 @@
    "loc": "New Holland, PA",
    "age": 14,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://jobs.lever.co/upscale-ai/2bad3e47-6c00-4ec2-94b5-feb4009619c9/apply",
-   "company": "Upscale AI",
-   "title": "Advanced SerDes & Analog/Mixed-Signal IC Design Intern",
-   "loc": "United States",
-   "age": 15,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "Python",
-    "ML/PyTorch",
-    "signals"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://jobs.lever.co/SimbeRobotics/d91f42b9-50b8-4b5f-8daf-00281d7dd61c/apply",
-   "company": "Simbe Robotics",
-   "title": "Robot Software Engineer Intern",
-   "loc": "Burlingame, CA",
-   "age": 15,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C++",
-    "Python",
-    "embedded",
-    "ML/PyTorch",
-    "Git"
-   ],
    "gaps": []
   },
   {
@@ -6727,6 +7075,26 @@
    "gaps": []
   },
   {
+   "url": "https://zapply.jobs/l/d/workday-moog-moog-external-career-site-R-26-19824?s=gh-internships-2027",
+   "company": "Moog",
+   "title": "Intern, Electrical Engineering",
+   "loc": "Torrance, CA",
+   "age": 15,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C",
+    "C++",
+    "embedded",
+    "PCB",
+    "Verilog/FPGA"
+   ],
+   "gaps": [
+    "Cadence/Synopsys"
+   ]
+  },
+  {
    "url": "https://zapply.jobs/l/d/workday-danaher-danaherjobs-R1321509?s=gh-internships-2027",
    "company": "Danaher",
    "title": "Firmware Engineer Co-op",
@@ -6748,26 +7116,6 @@
    ],
    "gaps": [
     "RTOS"
-   ]
-  },
-  {
-   "url": "https://zapply.jobs/l/d/workday-moog-moog-external-career-site-R-26-19824?s=gh-internships-2027",
-   "company": "Moog",
-   "title": "Intern, Electrical Engineering",
-   "loc": "Torrance, CA",
-   "age": 15,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C",
-    "C++",
-    "embedded",
-    "PCB",
-    "Verilog/FPGA"
-   ],
-   "gaps": [
-    "Cadence/Synopsys"
    ]
   },
   {
@@ -6809,34 +7157,6 @@
    "gaps": []
   },
   {
-   "url": "https://zapply.jobs/l/d/lever-tri-8955d154-acfc-4e6b-a68c-14f1438034c9?s=gh-internships-2027",
-   "company": "Toyota Research Institute",
-   "title": "Robotics Intern, Mechanical Engineering",
-   "loc": "Cambridge, MA",
-   "age": 15,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C++",
-    "Python",
-    "lab tools"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://zapply.jobs/l/d/workday-hpe-jobsathpe-1213393?s=gh-internships-2027",
-   "company": "HPE (University)",
-   "title": "Electrical Engineering Intern",
-   "loc": "Spring, Texas, United States of...",
-   "age": 15,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
    "url": "https://zapply.jobs/l/d/workday-asml-asmlext1-J-00355801?s=gh-internships-2027",
    "company": "ASML",
    "title": "Internship - Electrical Engineer",
@@ -6866,6 +7186,22 @@
    "why": [],
    "fit": [
     "KiCad/EDA"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://zapply.jobs/l/d/lever-tri-8955d154-acfc-4e6b-a68c-14f1438034c9?s=gh-internships-2027",
+   "company": "Toyota Research Institute",
+   "title": "Robotics Intern, Mechanical Engineering",
+   "loc": "Cambridge, MA",
+   "age": 15,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C++",
+    "Python",
+    "lab tools"
    ],
    "gaps": []
   },
@@ -6919,6 +7255,27 @@
    ]
   },
   {
+   "url": "https://zapply.jobs/l/d/workday-boseallaboutme-bose-careers-R29366?s=gh-internships-2027",
+   "company": "Bose",
+   "title": "Electrical Engineering Co-op — FPGA and Audio Research Platforms",
+   "loc": "US, MA - Framingham",
+   "age": 15,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "embedded",
+    "UART/I2C/SPI",
+    "PCB",
+    "lab tools",
+    "Verilog/FPGA",
+    "signals"
+   ],
+   "gaps": [
+    "MATLAB/Simulink"
+   ]
+  },
+  {
    "url": "https://zapply.jobs/l/d/workday-gevernova-vernova-externalsite-R5057782?s=gh-internships-2027",
    "company": "GE Vernova",
    "title": "GE Vernova Power Conversion & Storage Engineering Intern/Co-Op - Summer 2027-2",
@@ -6955,31 +7312,44 @@
    "gaps": []
   },
   {
-   "url": "https://zapply.jobs/l/d/workday-boseallaboutme-bose-careers-R29366?s=gh-internships-2027",
-   "company": "Bose",
-   "title": "Electrical Engineering Co-op — FPGA and Audio Research Platforms",
-   "loc": "US, MA - Framingham",
-   "age": 15,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "embedded",
-    "UART/I2C/SPI",
-    "PCB",
-    "lab tools",
-    "Verilog/FPGA",
-    "signals"
-   ],
-   "gaps": [
-    "MATLAB/Simulink"
-   ]
-  },
-  {
    "url": "https://zapply.jobs/l/d/oracle-dell-technologies-298216?s=gh-internships-2027",
    "company": "Dell Technologies",
    "title": "CSG Hardware Engineering Intern",
    "loc": "TX, United States",
+   "age": 15,
+   "lane": "embedded",
+   "screen": "unread",
+   "why": [],
+   "fit": [],
+   "gaps": []
+  },
+  {
+   "url": "https://zapply.jobs/l/d/workday-asml-asmlext1-J-00356208?s=gh-internships-2027",
+   "company": "ASML",
+   "title": "CoOp - Electrical Engineer (Internship)",
+   "loc": "Wilton, CT, USA",
+   "age": 15,
+   "lane": "embedded",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不是暑期 / 長期",
+     "quote": "We are looking for a college junior or senior pursuing a bachelor's degree in Electrical Engineering, Electromechanical Engineering, Mechatronics, or a related engineering field , who is available for a 6-month co-op ass"
+    }
+   ],
+   "fit": [
+    "C",
+    "Python",
+    "KiCad/EDA",
+    "lab tools"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://zapply.jobs/l/d/workday-cisco-cisco-careers-2024757?s=gh-internships-2027",
+   "company": "Cisco",
+   "title": "Hardware Engineer II Intern - United States",
+   "loc": "San Jose California US",
    "age": 15,
    "lane": "embedded",
    "screen": "unread",
@@ -7053,54 +7423,6 @@
     "ML/PyTorch"
    ],
    "gaps": []
-  },
-  {
-   "url": "https://zapply.jobs/l/d/workday-asml-asmlext1-J-00356208?s=gh-internships-2027",
-   "company": "ASML",
-   "title": "CoOp - Electrical Engineer (Internship)",
-   "loc": "Wilton, CT, USA",
-   "age": 15,
-   "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "不是暑期 / 長期",
-     "quote": "We are looking for a college junior or senior pursuing a bachelor's degree in Electrical Engineering, Electromechanical Engineering, Mechatronics, or a related engineering field , who is available for a 6-month co-op ass"
-    }
-   ],
-   "fit": [
-    "C",
-    "Python",
-    "KiCad/EDA",
-    "lab tools"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://zapply.jobs/l/d/workday-cisco-cisco-careers-2024757?s=gh-internships-2027",
-   "company": "Cisco",
-   "title": "Hardware Engineer II Intern - United States",
-   "loc": "San Jose California US",
-   "age": 15,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://zapply.jobs/l/d/eightfold-eaton-687239817114?s=gh-internships-2027",
-   "company": "Eaton",
-   "title": "Power Electronics Engineering Intern",
-   "loc": "Menomonee Falls, Wisconsin,...",
-   "age": 15,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [],
-   "gaps": [
-    "MATLAB/Simulink"
-   ]
   },
   {
    "url": "https://zapply.jobs/l/d/workday-kiongroup-kiongroup-JR-0094002?s=gh-internships-2027",
@@ -7260,64 +7582,6 @@
    ]
   },
   {
-   "url": "https://zapply.jobs/l/d/workday-generalmotors-careers-gm-JR-202621993?s=gh-internships-2027",
-   "company": "General Motors",
-   "title": "2027 Summer Intern – AV Sensor Design, Release and Integration",
-   "loc": "Warren, Michigan, United States...",
-   "age": 15,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "Python",
-    "embedded",
-    "MCU",
-    "CAN"
-   ],
-   "gaps": [
-    "RF",
-    "MATLAB/Simulink"
-   ]
-  },
-  {
-   "url": "https://zapply.jobs/l/d/workday-globalfoundries-external-JR-2604260?s=gh-internships-2027",
-   "company": "GlobalFoundries",
-   "title": "Silicon Photonics Test Development Intern (Summer 2027)",
-   "loc": "USA - Vermont - Essex Junction",
-   "age": 15,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://zapply.jobs/l/d/workday-globalfoundries-external-JR-2604266?s=gh-internships-2027",
-   "company": "GlobalFoundries",
-   "title": "Silicon Photonics Process Integration Intern (Summer 2027)",
-   "loc": "USA - New York - Malta",
-   "age": 15,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "Python"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://zapply.jobs/l/d/workday-globalfoundries-external-JR-2605132?s=gh-internships-2027",
-   "company": "GlobalFoundries",
-   "title": "Program Management Intern, Silicon Photonics (Summer 2027)",
-   "loc": "USA - New York - Malta",
-   "age": 15,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
    "url": "https://zapply.jobs/l/d/workday-asml-asmlext1-J-00356548?s=gh-internships-2027",
    "company": "ASML",
    "title": "Internship – Mechatronics Engineer",
@@ -7359,6 +7623,44 @@
    "fit": [
     "C"
    ],
+   "gaps": []
+  },
+  {
+   "url": "https://zapply.jobs/l/d/workday-globalfoundries-external-JR-2604266?s=gh-internships-2027",
+   "company": "GlobalFoundries",
+   "title": "Silicon Photonics Process Integration Intern (Summer 2027)",
+   "loc": "USA - New York - Malta",
+   "age": 15,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "Python"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://zapply.jobs/l/d/workday-globalfoundries-external-JR-2605132?s=gh-internships-2027",
+   "company": "GlobalFoundries",
+   "title": "Program Management Intern, Silicon Photonics (Summer 2027)",
+   "loc": "USA - New York - Malta",
+   "age": 15,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [],
+   "gaps": []
+  },
+  {
+   "url": "https://zapply.jobs/l/d/workday-globalfoundries-external-JR-2604260?s=gh-internships-2027",
+   "company": "GlobalFoundries",
+   "title": "Silicon Photonics Test Development Intern (Summer 2027)",
+   "loc": "USA - Vermont - Essex Junction",
+   "age": 15,
+   "lane": "embedded",
+   "screen": "unread",
+   "why": [],
+   "fit": [],
    "gaps": []
   },
   {
@@ -7423,10 +7725,21 @@
    "loc": "Plantation, FL",
    "age": 15,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "ML/PyTorch",
+    "Git",
+    "signals"
+   ],
+   "gaps": [
+    "Linux kernel/drivers",
+    "RF"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/electrical-engineering-internship-at-ttm-technologies-4466354393",
@@ -7435,10 +7748,19 @@
    "loc": "Farmingdale, NY",
    "age": 15,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "screen": "no",
+   "why": [
+    {
+     "rule": "ITAR / 出口管制",
+     "quote": "Must comply with TTM Export Control Policies and Procedures and all applicable laws including ITAR, EAR and OFAC including but not limited to: a) being able to identify ITAR product on the manufacturing floor and underst"
+    }
+   ],
+   "fit": [
+    "PCB"
+   ],
+   "gaps": [
+    "RF"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/electrical-engineer-intern-summer-2027-at-shimmick-corporation-4464589511",
@@ -7447,7 +7769,7 @@
    "loc": "Bellevue, WA",
    "age": 15,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -7487,7 +7809,7 @@
    "loc": "Albany, NY",
    "age": 15,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -7511,7 +7833,7 @@
    "loc": "Fargo, ND",
    "age": 15,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -7599,9 +7921,12 @@
    "loc": "Danville, IL",
    "age": 15,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "embedded",
+    "lab tools"
+   ],
    "gaps": []
   },
   {
@@ -7611,21 +7936,11 @@
    "loc": "Seattle, WA",
    "age": 15,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://peakenergy.com/get-in-touch/careers/jobs?job_id=5272567007&gh_jid=5272567007",
-   "company": "Peak Energy",
-   "title": "Systems Integration and Test Engineer Intern",
-   "loc": "Burlingame, CA",
-   "age": 16,
-   "lane": "embedded",
    "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "Python"
+   ],
    "gaps": []
   },
   {
@@ -7674,6 +7989,22 @@
    "gaps": []
   },
   {
+   "url": "https://jobs.lever.co/upscale-ai/2bad3e47-6c00-4ec2-94b5-feb4009619c9/apply",
+   "company": "Upscale AI",
+   "title": "Advanced SerDes & Analog/Mixed-Signal IC Design Intern",
+   "loc": "United States",
+   "age": 16,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "Python",
+    "ML/PyTorch",
+    "signals"
+   ],
+   "gaps": []
+  },
+  {
    "url": "https://globalfoundries.wd1.myworkdayjobs.com/External/job/USA---Texas---Richardson/New-Product-Development-Test-Engineer-Intern--Summer-2027-_JR-2603957",
    "company": "GlobalFoundries",
    "title": "New Product Development Test Engineer Intern",
@@ -7711,13 +8042,31 @@
    ]
   },
   {
+   "url": "https://jobs.lever.co/SimbeRobotics/d91f42b9-50b8-4b5f-8daf-00281d7dd61c/apply",
+   "company": "Simbe Robotics",
+   "title": "Robot Software Engineer Intern",
+   "loc": "Burlingame, CA",
+   "age": 16,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C++",
+    "Python",
+    "embedded",
+    "ML/PyTorch",
+    "Git"
+   ],
+   "gaps": []
+  },
+  {
    "url": "https://www.linkedin.com/jobs/view/hardware-development-engineer-intern-co-op-robotics-2027-at-amazon-4465375181",
    "company": "Amazon",
    "title": "Hardware Development Engineer Intern/Co-Op, ROBOTICS - 2027",
    "loc": "North Reading, MA",
    "age": 16,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -7763,10 +8112,21 @@
    "loc": "Syracuse, NY",
    "age": 16,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "screen": "no",
+   "why": [
+    {
+     "rule": "ITAR / 出口管制",
+     "quote": "Must comply with TTM Export Control Policies and Procedures and all applicable laws including ITAR, EAR and OFAC including but not limited to: a) being able to identify ITAR product on the manufacturing floor and underst"
+    }
+   ],
+   "fit": [
+    "PCB",
+    "KiCad/EDA",
+    "Verilog/FPGA"
+   ],
+   "gaps": [
+    "RF"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/student-intern-software-hardware-engineer-at-celestica-4481910544",
@@ -7834,9 +8194,12 @@
    "loc": "Oak Brook, IL",
    "age": 16,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "embedded",
+    "KiCad/EDA"
+   ],
    "gaps": []
   },
   {
@@ -7873,7 +8236,7 @@
    "loc": "St Paul, MN",
    "age": 16,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -7885,7 +8248,7 @@
    "loc": "Minneapolis, MN",
    "age": 16,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -7897,7 +8260,7 @@
    "loc": "St Louis Park, MN",
    "age": 16,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -7909,7 +8272,7 @@
    "loc": "Port Neches, TX",
    "age": 16,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -7948,34 +8311,16 @@
    "loc": "San Jose, CA",
    "age": 16,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/physical-design-engineer-intern-at-vislab-an-ambarella-inc-company-4482813555",
-   "company": "VisLab (an Ambarella Inc. company)",
-   "title": "Physical Design Engineer Intern",
-   "loc": "Headquarters, KY",
-   "age": 16,
-   "lane": "embedded",
    "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/co-op-embedded-software-test-engineering-january-june-2027-onsite-at-insulet-corporation-4464814106",
-   "company": "Insulet Corporation",
-   "title": "Co-op, Embedded Software Test Engineering: January-June 2027 (Onsite)",
-   "loc": "Acton, MA",
-   "age": 16,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "Python",
+    "firmware",
+    "Verilog/FPGA"
+   ],
+   "gaps": [
+    "SystemVerilog/UVM"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/robotics-software-intern-at-multiply-labs-4483163828",
@@ -8015,9 +8360,11 @@
    "loc": "New Holland, PA",
    "age": 16,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "MCU"
+   ],
    "gaps": []
   },
   {
@@ -8102,10 +8449,19 @@
    "loc": "Farmingdale, NY",
    "age": 16,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "screen": "no",
+   "why": [
+    {
+     "rule": "ITAR / 出口管制",
+     "quote": "Must comply with TTM Export Control Policies and Procedures and all applicable laws including ITAR, EAR and OFAC including but not limited to: a) being able to identify ITAR product on the manufacturing floor and underst"
+    }
+   ],
+   "fit": [
+    "PCB"
+   ],
+   "gaps": [
+    "RF"
+   ]
   },
   {
    "url": "https://jobs.ashbyhq.com/skydio/36d75e36-eeb2-4399-8887-37c4a5ff5800/application?embed=true",
@@ -8119,6 +8475,18 @@
    "fit": [
     "Python"
    ],
+   "gaps": []
+  },
+  {
+   "url": "https://peakenergy.com/get-in-touch/careers/jobs?job_id=5272567007&gh_jid=5272567007",
+   "company": "Peak Energy",
+   "title": "Systems Integration and Test Engineer Intern",
+   "loc": "Burlingame, CA",
+   "age": 17,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [],
    "gaps": []
   },
   {
@@ -8207,10 +8575,22 @@
    "loc": "Schaumburg, IL",
    "age": 17,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "screen": "no",
+   "why": [
+    {
+     "rule": "限美國公民/綠卡/US person",
+     "quote": "Must be a US Citizen, permanent resident, or an MS student with work authorization (F1 Visa on CPT accepted only for master 's-level students)"
+    }
+   ],
+   "fit": [
+    "C",
+    "Python",
+    "lab tools",
+    "Verilog/FPGA"
+   ],
+   "gaps": [
+    "RF"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/embedded-software-engineering-intern-%E2%80%93-summer-2027-at-hidden-level-4473965215",
@@ -8239,9 +8619,17 @@
    "loc": "East Hartford, CT",
    "age": 17,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "UART/I2C/SPI",
+    "lab tools",
+    "Git"
+   ],
    "gaps": []
   },
   {
@@ -8268,9 +8656,12 @@
    "loc": "Austin, TX",
    "age": 17,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "embedded",
+    "lab tools"
+   ],
    "gaps": []
   },
   {
@@ -8280,10 +8671,29 @@
    "loc": "Los Angeles, CA",
    "age": 17,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "screen": "no",
+   "why": [
+    {
+     "rule": "ITAR / 出口管制",
+     "quote": "ITAR Requirements"
+    },
+    {
+     "rule": "限美國公民/綠卡/US person",
+     "quote": "lawful, permanent resident (aka green card holder), (iii) Refugee under 8 U.S.C."
+    }
+   ],
+   "fit": [
+    "C",
+    "Python",
+    "embedded",
+    "MCU",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools"
+   ],
+   "gaps": [
+    "LabVIEW"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/electronics-electrical-engineering-internship-at-badger-meter-4482792166",
@@ -8331,7 +8741,7 @@
    "loc": "Greater Philadelphia",
    "age": 17,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -8380,18 +8790,6 @@
    "age": 17,
    "lane": "embedded",
    "screen": "ok",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/software-test-engineer-intern-at-cnh-4465055466",
-   "company": "CNH",
-   "title": "Software Test Engineer Intern",
-   "loc": "Oak Brook, IL",
-   "age": 17,
-   "lane": "embedded",
-   "screen": "unread",
    "why": [],
    "fit": [],
    "gaps": []
@@ -8551,22 +8949,6 @@
    "gaps": []
   },
   {
-   "url": "https://jobs.ashbyhq.com/skydio/1ac972b1-8094-4765-8869-63e1c4d50dea/application?embed=true",
-   "company": "Skydio",
-   "title": "Wireless Hardware Engineer Intern",
-   "loc": "San Mateo, CA",
-   "age": 18,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "Python"
-   ],
-   "gaps": [
-    "RF"
-   ]
-  },
-  {
    "url": "https://marvell.wd1.myworkdayjobs.com/MarvellCareers/job/Santa-Clara-CA/Silicon-Validation-Intern--BS---Summer-2027_2603850-1",
    "company": "Marvell",
    "title": "Silicon Validation Intern",
@@ -8661,9 +9043,18 @@
    "loc": "Santa Clara, CA",
    "age": 18,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "firmware",
+    "MCU",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools"
+   ],
    "gaps": []
   },
   {
@@ -8685,13 +9076,25 @@
    "loc": "Santa Clara, CA",
    "age": 18,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不是暑期 / 長期",
+     "quote": "We are ideally looking for an intern who can start during the Fall 2026 semester."
+    }
+   ],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "firmware",
+    "ML/PyTorch"
+   ],
    "gaps": []
   },
   {
-   "url": "https://www.linkedin.com/jobs/view/intern-ssd-firmware-at-micron-technology-4481115333",
+   "url": "https://www.linkedin.com/jobs/view/intern-ssd-firmware-at-micron-technology-4481107723",
    "company": "Micron Technology",
    "title": "Intern - SSD Firmware",
    "loc": "San Jose, CA",
@@ -8721,9 +9124,27 @@
    "loc": "El Segundo, CA",
    "age": 18,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "畢業時間不含 2028",
+     "quote": "Returning to school in Fall 2027, or graduating in Spring 2027 and interested in a full-time role."
+    },
+    {
+     "rule": "ITAR / 出口管制",
+     "quote": "This position requires use of information which is subject to the International Traffic in Arms Regulations (ITAR)."
+    },
+    {
+     "rule": "限美國公民/綠卡/US person",
+     "quote": "permanent residence (\"Green Card\" holder);"
+    }
+   ],
+   "fit": [
+    "C",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools"
+   ],
    "gaps": []
   },
   {
@@ -8864,6 +9285,22 @@
    "gaps": []
   },
   {
+   "url": "https://www.linkedin.com/jobs/view/co-op-engineering-controls-starting-summer-2027-at-altec-4473708474",
+   "company": "Altec",
+   "title": "Co-op Engineering - Controls, starting Summer 2027",
+   "loc": "Creedmoor, NC",
+   "age": 18,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "KiCad/EDA"
+   ],
+   "gaps": [
+    "MATLAB/Simulink"
+   ]
+  },
+  {
    "url": "https://www.linkedin.com/jobs/view/wireless-hardware-engineer-intern-summer-2027-at-skydio-4482002943",
    "company": "Skydio",
    "title": "Wireless Hardware Engineer Intern - Summer 2027",
@@ -8886,24 +9323,35 @@
    "loc": "Santa Clara, CA",
    "age": 18,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "firmware",
+    "MCU",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools"
+   ],
    "gaps": []
   },
   {
-   "url": "https://job-boards.greenhouse.io/thealleninstitute/jobs/8293641",
-   "company": "The Allen Institute for AI",
-   "title": "Research Intern - Robotics",
-   "loc": "Seattle, WA",
+   "url": "https://jobs.ashbyhq.com/skydio/1ac972b1-8094-4765-8869-63e1c4d50dea/application?embed=true",
+   "company": "Skydio",
+   "title": "Wireless Hardware Engineer Intern",
+   "loc": "San Mateo, CA",
    "age": 19,
    "lane": "embedded",
    "screen": "ok",
    "why": [],
    "fit": [
-    "ML/PyTorch"
+    "Python"
    ],
-   "gaps": []
+   "gaps": [
+    "RF"
+   ]
   },
   {
    "url": "https://rockwellautomation.wd1.myworkdayjobs.com/External-Rockwell-Automation-Early-Careers/job/Mayfield-Heights-Ohio-United-States/Intern--Hardware-Development-Engineer--May---Aug-2027-_R26-6892-2",
@@ -8949,18 +9397,6 @@
    "gaps": [
     "Cadence/Synopsys"
    ]
-  },
-  {
-   "url": "https://microsoft.eightfold.ai/careers/job/1970393557043754",
-   "company": "Microsoft",
-   "title": "Research Intern - Extended Perception Interaction Cognition (EPIC)",
-   "loc": "United States, Washington, Redmond",
-   "age": 19,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [],
-   "gaps": []
   },
   {
    "url": "https://www.linkedin.com/jobs/view/presales-systems-engineer-2027-internship-at-motorola-solutions-4472793730",
@@ -9161,22 +9597,14 @@
    "loc": "Troy, MI",
    "age": 19,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/software-engineer-intern-tiktok-generalized-arch-code-intelligence-quality-validation-2027-summer-at-tiktok-4447903398",
-   "company": "TikTok",
-   "title": "Software Engineer Intern (TikTok-Generalized Arch-Code Intelligence & Quality Validation) - 2027 Summer",
-   "loc": "San Jose, CA",
-   "age": 19,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "Python"
+   ],
+   "gaps": [
+    "LabVIEW"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/ai-autonomous-driving-verification-validation-intern-summer-2027-santa-clara-ca-at-nissan-motor-corporation-4481591230",
@@ -9205,9 +9633,11 @@
    "loc": "Fort Smith, AR",
    "age": 19,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "KiCad/EDA"
+   ],
    "gaps": []
   },
   {
@@ -9249,9 +9679,28 @@
    "loc": "Montgomery, AL",
    "age": 19,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "Python"
+   ],
+   "gaps": [
+    "MATLAB/Simulink",
+    "LabVIEW"
+   ]
+  },
+  {
+   "url": "https://job-boards.greenhouse.io/thealleninstitute/jobs/8293641",
+   "company": "The Allen Institute for AI",
+   "title": "Research Intern - Robotics",
+   "loc": "Seattle, WA",
+   "age": 20,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "ML/PyTorch"
+   ],
    "gaps": []
   },
   {
@@ -9327,16 +9776,40 @@
    "gaps": []
   },
   {
+   "url": "https://microsoft.eightfold.ai/careers/job/1970393557043754",
+   "company": "Microsoft",
+   "title": "Research Intern - Extended Perception Interaction Cognition (EPIC)",
+   "loc": "United States, Washington, Redmond",
+   "age": 20,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [],
+   "gaps": []
+  },
+  {
    "url": "https://www.linkedin.com/jobs/view/embedded-software-engineer-intern-implant-embedded-systems-at-neuralink-4416594316",
    "company": "Neuralink",
    "title": "Embedded Software Engineer Intern, Implant Embedded Systems",
    "loc": "South San Francisco, CA",
    "age": 20,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "firmware",
+    "MCU",
+    "KiCad/EDA",
+    "Verilog/FPGA",
+    "signals"
+   ],
+   "gaps": [
+    "RF"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/intern-firmware-engineering-at-heron-power-4481278106",
@@ -9370,9 +9843,13 @@
    "loc": "Anderson, SC",
    "age": 20,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "embedded",
+    "firmware",
+    "KiCad/EDA"
+   ],
    "gaps": []
   },
   {
@@ -9493,39 +9970,23 @@
    "gaps": []
   },
   {
-   "url": "https://www.linkedin.com/jobs/view/firmware-engineer-intern-robotics-and-surgery-engineering-at-neuralink-4416739152",
-   "company": "Neuralink",
-   "title": "Firmware Engineer Intern, Robotics and Surgery Engineering",
-   "loc": "South San Francisco, CA",
-   "age": 20,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C",
-    "C++",
-    "embedded",
-    "firmware",
-    "MCU",
-    "UART/I2C/SPI",
-    "KiCad/EDA",
-    "signals"
-   ],
-   "gaps": [
-    "Linux kernel/drivers",
-    "Rust"
-   ]
-  },
-  {
    "url": "https://www.linkedin.com/jobs/view/functional-validation-intern-bs-summer-2027-at-marvell-technology-4461444171",
    "company": "Marvell Technology",
    "title": "Functional Validation Intern, BS - Summer 2027",
    "loc": "Boise, ID",
    "age": 21,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C",
+    "Python",
+    "embedded",
+    "firmware",
+    "lab tools",
+    "Verilog/FPGA",
+    "Git"
+   ],
    "gaps": []
   },
   {
@@ -9535,22 +9996,19 @@
    "loc": "Austin, TX",
    "age": 21,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/physical-design-engineer-intern-bs-summer-2027-at-marvell-technology-4461450062",
-   "company": "Marvell Technology",
-   "title": "Physical Design Engineer Intern, BS - Summer 2027",
-   "loc": "Burlington, VT",
-   "age": 21,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "Verilog/FPGA",
+    "signals"
+   ],
+   "gaps": [
+    "SystemVerilog/UVM",
+    "Cadence/Synopsys"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/electrical-engineer-intern-kiewit-power-engineering-summer-2027-at-kiewit-4461997537",
@@ -9594,67 +10052,6 @@
    "gaps": []
   },
   {
-   "url": "https://careers.agcocorp.com/job/Hesston-Embedded-Software-Engineering-Intern-Summer-2027-KS-67062/1440993300/?ats=successfactors",
-   "company": "AGCO",
-   "title": "Embedded Software Engineer Intern",
-   "loc": "Hesston, KS; Jackson, MN",
-   "age": 22,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C",
-    "C++",
-    "embedded"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://fa-erqb-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/3022475",
-   "company": "ADT",
-   "title": "Hardware Engineering & Connected Devices Intern",
-   "loc": "Boca Raton, FL",
-   "age": 22,
-   "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "不提供簽證擔保",
-     "quote": "We are unable to support or sponsor any U.S."
-    }
-   ],
-   "fit": [
-    "embedded"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/design-verification-intern-ms-summer-2027-at-marvell-technology-4461438578",
-   "company": "Marvell Technology",
-   "title": "Design Verification Intern, MS - Summer 2027",
-   "loc": "Boise, ID",
-   "age": 22,
-   "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "限碩士/博士",
-     "quote": "Currently enrolled in a Master's Degree in Electrical Engineering, Computer Engineering, or a related field with an expected graduation date between Fall 2027 – Summer 2028"
-    }
-   ],
-   "fit": [
-    "C",
-    "C++",
-    "Python",
-    "Verilog/FPGA",
-    "signals"
-   ],
-   "gaps": [
-    "SystemVerilog/UVM",
-    "Cadence/Synopsys"
-   ]
-  },
-  {
    "url": "https://www.linkedin.com/jobs/view/hardware-engineering-connected-devices-internship-at-adt-4480810296",
    "company": "ADT",
    "title": "Hardware Engineering & Connected Devices Internship",
@@ -9674,20 +10071,6 @@
    "gaps": []
   },
   {
-   "url": "https://hctz.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/2506970",
-   "company": "onsemi",
-   "title": "Device Characterization Engineer Intern",
-   "loc": "Hopewell Junction, NY",
-   "age": 23,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "Python"
-   ],
-   "gaps": []
-  },
-  {
    "url": "https://globalfoundries.wd1.myworkdayjobs.com/External/job/USA---California---Santa-Clara/Foundation-IP-Design-Verification-Intern--Summer-2027-_JR-2604356",
    "company": "GlobalFoundries",
    "title": "Foundation IP Design Verification Intern",
@@ -9699,6 +10082,41 @@
    "fit": [
     "Python",
     "Verilog/FPGA"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://careers.agcocorp.com/job/Hesston-Embedded-Software-Engineering-Intern-Summer-2027-KS-67062/1440993300/?ats=successfactors",
+   "company": "AGCO",
+   "title": "Embedded Software Engineer Intern",
+   "loc": "Hesston, KS; Jackson, MN",
+   "age": 23,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C",
+    "C++",
+    "embedded"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://fa-erqb-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/3022475",
+   "company": "ADT",
+   "title": "Hardware Engineering & Connected Devices Intern",
+   "loc": "Boca Raton, FL",
+   "age": 23,
+   "lane": "embedded",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "We are unable to support or sponsor any U.S."
+    }
+   ],
+   "fit": [
+    "embedded"
    ],
    "gaps": []
   },
@@ -9746,18 +10164,16 @@
    "gaps": []
   },
   {
-   "url": "https://careers.formlabs.com/job/8212683/apply/?gh_jid=8212683",
-   "company": "Formlabs",
-   "title": "Hardware Systems Integration Intern",
-   "loc": "Somerville, MA",
+   "url": "https://hctz.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/2506970",
+   "company": "onsemi",
+   "title": "Device Characterization Engineer Intern",
+   "loc": "Hopewell Junction, NY",
    "age": 24,
    "lane": "embedded",
    "screen": "ok",
    "why": [],
    "fit": [
-    "Python",
-    "embedded",
-    "firmware"
+    "Python"
    ],
    "gaps": []
   },
@@ -9826,18 +10242,6 @@
    "gaps": [
     "MATLAB/Simulink"
    ]
-  },
-  {
-   "url": "https://amazon.jobs/en/jobs/10535282/hardware-development-engineer-intern-co-op-robotics-2027",
-   "company": "Amazon",
-   "title": "Hardware Development Engineer Intern Co-op - Robotics",
-   "loc": "North Reading, MA; Westborough, MA",
-   "age": 25,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [],
-   "gaps": []
   },
   {
    "url": "https://amazon.jobs/en/jobs/10578090/hardware-development-engineer-intern-summer-2027",
@@ -9939,6 +10343,22 @@
    "gaps": []
   },
   {
+   "url": "https://careers.formlabs.com/job/8212683/apply/?gh_jid=8212683",
+   "company": "Formlabs",
+   "title": "Hardware Systems Integration Intern",
+   "loc": "Somerville, MA",
+   "age": 25,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "Python",
+    "embedded",
+    "firmware"
+   ],
+   "gaps": []
+  },
+  {
    "url": "https://alliance.wd3.myworkdayjobs.com/en-US/nissanjobs/job/Santa-Clara-California---United-States-of-America/AI-Robotics-Research-Intern---Summer-2027---Santa-Clara--CA_R00214267",
    "company": "Nissan Global",
    "title": "AI Robotics Research Intern",
@@ -10017,7 +10437,34 @@
    "loc": "San Jose, CA",
    "age": 25,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不是暑期 / 長期",
+     "quote": "Internship Duration: 6 months"
+    }
+   ],
+   "fit": [
+    "C",
+    "C++",
+    "embedded",
+    "firmware",
+    "MCU",
+    "Verilog/FPGA",
+    "ML/PyTorch"
+   ],
+   "gaps": [
+    "Linux kernel/drivers"
+   ]
+  },
+  {
+   "url": "https://amazon.jobs/en/jobs/10535282/hardware-development-engineer-intern-co-op-robotics-2027",
+   "company": "Amazon",
+   "title": "Hardware Development Engineer Intern Co-op - Robotics",
+   "loc": "North Reading, MA; Westborough, MA",
+   "age": 26,
+   "lane": "embedded",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -10352,11 +10799,9 @@
    "loc": "South SF",
    "age": 29,
    "lane": "embedded",
-   "screen": "ok",
+   "screen": "unread",
    "why": [],
-   "fit": [
-    "firmware"
-   ],
+   "fit": [],
    "gaps": []
   },
   {
@@ -10430,9 +10875,15 @@
    "loc": "Lafayette, LA",
    "age": 30,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C++",
+    "Python",
+    "embedded",
+    "MCU",
+    "lab tools"
+   ],
    "gaps": []
   },
   {
@@ -10447,39 +10898,6 @@
    "fit": [
     "C++",
     "Python"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://careers.withwaymo.com/jobs?gh_jid=8227633",
-   "company": "Waymo",
-   "title": "Perception Intern - Robotics",
-   "loc": "Mountain View, CA",
-   "age": 31,
-   "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "限碩士/博士",
-     "quote": "Enrolled in a MS/PhD program in Computer Science, Robotics, or a similar technical field of study"
-    }
-   ],
-   "fit": [
-    "C++"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://careers.garmin.com/jobs/19836?icims=1",
-   "company": "Garmin",
-   "title": "FPGA Engineer Intern",
-   "loc": "Olathe, KS",
-   "age": 31,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "Verilog/FPGA"
    ],
    "gaps": []
   },
@@ -10544,9 +10962,12 @@
    "loc": "Oak Creek, WI",
    "age": 31,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C++",
+    "KiCad/EDA"
+   ],
    "gaps": []
   },
   {
@@ -10556,10 +10977,18 @@
    "loc": "Lafayette, LA",
    "age": 31,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "C",
+    "C++",
+    "embedded",
+    "firmware",
+    "Arduino/RPi"
+   ],
+   "gaps": [
+    "RTOS"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/summer-intern-hardware-engineering-at-allegion-4475048100",
@@ -10568,9 +10997,14 @@
    "loc": "Greater Indianapolis",
    "age": 31,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C",
+    "Python",
+    "PCB",
+    "KiCad/EDA"
+   ],
    "gaps": []
   },
   {
@@ -10580,9 +11014,14 @@
    "loc": "Lafayette, LA",
    "age": 31,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "firmware",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools"
+   ],
    "gaps": []
   },
   {
@@ -10592,9 +11031,12 @@
    "loc": "Sunnyvale, CA",
    "age": 31,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C++",
+    "Python"
+   ],
    "gaps": []
   },
   {
@@ -10651,43 +11093,6 @@
    ]
   },
   {
-   "url": "https://fa-evmr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/41122",
-   "company": "Nokia",
-   "title": "ASIC Physical Design Co-op",
-   "loc": "San Jose, CA",
-   "age": 32,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C++",
-    "Python"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://uscareeropenings-alliancelaundry.icims.com/jobs/13348/job?mobile=true&needsRedirect=false",
-   "company": "Alliance Laundry Systems",
-   "title": "Embedded Firmware Co-op",
-   "loc": "Ripon, WI",
-   "age": 32,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C",
-    "C++",
-    "Python",
-    "embedded",
-    "firmware",
-    "MCU",
-    "UART/I2C/SPI",
-    "lab tools",
-    "Git"
-   ],
-   "gaps": []
-  },
-  {
    "url": "https://amazon.jobs/en/jobs/10571374/software-development-engineer-embedded-systems-intern-amazon-leo-summer-2027-usa",
    "company": "Amazon",
    "title": "Software Engineer Intern - Embedded Systems",
@@ -10722,6 +11127,39 @@
    "fit": [
     "Python",
     "ML/PyTorch"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://careers.withwaymo.com/jobs?gh_jid=8227633",
+   "company": "Waymo",
+   "title": "Perception Intern - Robotics",
+   "loc": "Mountain View, CA",
+   "age": 32,
+   "lane": "embedded",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "限碩士/博士",
+     "quote": "Enrolled in a MS/PhD program in Computer Science, Robotics, or a similar technical field of study"
+    }
+   ],
+   "fit": [
+    "C++"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://careers.garmin.com/jobs/19836?icims=1",
+   "company": "Garmin",
+   "title": "FPGA Engineer Intern",
+   "loc": "Olathe, KS",
+   "age": 32,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "Verilog/FPGA"
    ],
    "gaps": []
   },
@@ -10908,121 +11346,6 @@
    "gaps": []
   },
   {
-   "url": "https://jobs.eu.lever.co/cirrus/46a841b3-e3ce-4c78-b010-0e9cfe9e0f8e/apply",
-   "company": "Cirrus Logic",
-   "title": "Product Test Engineer Intern",
-   "loc": "Austin, TX",
-   "age": 33,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C"
-   ],
-   "gaps": [
-    "Rust"
-   ]
-  },
-  {
-   "url": "https://job-boards.greenhouse.io/cssmerge/jobs/8869098002",
-   "company": "Atoms",
-   "title": "Electrical Engineer Intern",
-   "loc": "SF",
-   "age": 33,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "embedded",
-    "CAN",
-    "UART/I2C/SPI",
-    "PCB",
-    "KiCad/EDA",
-    "lab tools"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://jobs.eu.lever.co/cirrus/2ca7b254-5c91-4a4e-9ba8-d05c8604eca2/apply",
-   "company": "Cirrus Logic",
-   "title": "Mixed Signal Products Applications Engineer Intern",
-   "loc": "Austin, TX",
-   "age": 33,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C"
-   ],
-   "gaps": [
-    "Rust"
-   ]
-  },
-  {
-   "url": "https://jobs.eu.lever.co/cirrus/c71a6365-31c7-4ba1-bdc4-9f2df1fc483e/apply",
-   "company": "Cirrus Logic",
-   "title": "Design Verification Engineer Intern",
-   "loc": "Austin, TX",
-   "age": 33,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C"
-   ],
-   "gaps": [
-    "Rust"
-   ]
-  },
-  {
-   "url": "https://jobs.eu.lever.co/cirrus/0310fbd1-a2a8-4c0f-a842-86e05ae7d98e/apply",
-   "company": "Cirrus Logic",
-   "title": "Digital Design Engineer Intern",
-   "loc": "Austin, TX",
-   "age": 33,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C"
-   ],
-   "gaps": [
-    "Rust"
-   ]
-  },
-  {
-   "url": "https://jobs.eu.lever.co/cirrus/89813bb2-94fb-42f6-aec2-03154cfde027/apply",
-   "company": "Cirrus Logic",
-   "title": "Validation Engineer Intern",
-   "loc": "Austin, TX",
-   "age": 33,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C"
-   ],
-   "gaps": [
-    "Rust"
-   ]
-  },
-  {
-   "url": "https://jobs.eu.lever.co/cirrus/df033a94-155f-427f-a178-88bd18c3d5ec/apply",
-   "company": "Cirrus Logic",
-   "title": "Analog Design Engineer Intern",
-   "loc": "Austin, TX",
-   "age": 33,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C"
-   ],
-   "gaps": [
-    "Rust"
-   ]
-  },
-  {
    "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/US-TX-Austin/PCIe-Design-Verification-Intern---Summer-2027_JR2026708",
    "company": "NVIDIA",
    "title": "PCIe Design Verification Intern",
@@ -11038,6 +11361,43 @@
    "gaps": [
     "SystemVerilog/UVM"
    ]
+  },
+  {
+   "url": "https://fa-evmr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/41122",
+   "company": "Nokia",
+   "title": "ASIC Physical Design Co-op",
+   "loc": "San Jose, CA",
+   "age": 33,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C++",
+    "Python"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://uscareeropenings-alliancelaundry.icims.com/jobs/13348/job?mobile=true&needsRedirect=false",
+   "company": "Alliance Laundry Systems",
+   "title": "Embedded Firmware Co-op",
+   "loc": "Ripon, WI",
+   "age": 33,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "firmware",
+    "MCU",
+    "UART/I2C/SPI",
+    "lab tools",
+    "Git"
+   ],
+   "gaps": []
   },
   {
    "url": "https://www.linkedin.com/jobs/view/platform-design-electrical-engineering-intern-at-mahle-4473513179",
@@ -11071,6 +11431,22 @@
    "gaps": []
   },
   {
+   "url": "https://jobs.eu.lever.co/cirrus/46a841b3-e3ce-4c78-b010-0e9cfe9e0f8e/apply",
+   "company": "Cirrus Logic",
+   "title": "Product Test Engineer Intern",
+   "loc": "Austin, TX",
+   "age": 34,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C"
+   ],
+   "gaps": [
+    "Rust"
+   ]
+  },
+  {
    "url": "https://generalmotors.wd5.myworkdayjobs.com/Careers_GM/job/Warren-Michigan-United-States-of-America/XMLNAME-2027-Summer-Intern---AI---Hardware-Analytics--ADPT_JR-202621756",
    "company": "General Motors",
    "title": "Summer Intern - AI & Hardware Analytics - Adpt",
@@ -11084,6 +11460,117 @@
     "embedded",
     "ML/PyTorch"
    ],
+   "gaps": []
+  },
+  {
+   "url": "https://job-boards.greenhouse.io/cssmerge/jobs/8869098002",
+   "company": "Atoms",
+   "title": "Electrical Engineer Intern",
+   "loc": "SF",
+   "age": 34,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "embedded",
+    "CAN",
+    "UART/I2C/SPI",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://jobs.eu.lever.co/cirrus/2ca7b254-5c91-4a4e-9ba8-d05c8604eca2/apply",
+   "company": "Cirrus Logic",
+   "title": "Mixed Signal Products Applications Engineer Intern",
+   "loc": "Austin, TX",
+   "age": 34,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C"
+   ],
+   "gaps": [
+    "Rust"
+   ]
+  },
+  {
+   "url": "https://jobs.eu.lever.co/cirrus/c71a6365-31c7-4ba1-bdc4-9f2df1fc483e/apply",
+   "company": "Cirrus Logic",
+   "title": "Design Verification Engineer Intern",
+   "loc": "Austin, TX",
+   "age": 34,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C"
+   ],
+   "gaps": [
+    "Rust"
+   ]
+  },
+  {
+   "url": "https://jobs.eu.lever.co/cirrus/0310fbd1-a2a8-4c0f-a842-86e05ae7d98e/apply",
+   "company": "Cirrus Logic",
+   "title": "Digital Design Engineer Intern",
+   "loc": "Austin, TX",
+   "age": 34,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C"
+   ],
+   "gaps": [
+    "Rust"
+   ]
+  },
+  {
+   "url": "https://jobs.eu.lever.co/cirrus/89813bb2-94fb-42f6-aec2-03154cfde027/apply",
+   "company": "Cirrus Logic",
+   "title": "Validation Engineer Intern",
+   "loc": "Austin, TX",
+   "age": 34,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C"
+   ],
+   "gaps": [
+    "Rust"
+   ]
+  },
+  {
+   "url": "https://jobs.eu.lever.co/cirrus/df033a94-155f-427f-a178-88bd18c3d5ec/apply",
+   "company": "Cirrus Logic",
+   "title": "Analog Design Engineer Intern",
+   "loc": "Austin, TX",
+   "age": 34,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C"
+   ],
+   "gaps": [
+    "Rust"
+   ]
+  },
+  {
+   "url": "https://www.linkedin.com/jobs/view/2027-internship-analog-design-engineer-at-cirrus-logic-4474618302",
+   "company": "Cirrus Logic",
+   "title": "2027 Internship - Analog Design Engineer",
+   "loc": "Chandler, AZ",
+   "age": 34,
+   "lane": "embedded",
+   "screen": "unread",
+   "why": [],
+   "fit": [],
    "gaps": []
   },
   {
@@ -11116,16 +11603,20 @@
    "loc": "Nashua, NH",
    "age": 34,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "PCB",
+    "KiCad/EDA",
+    "Verilog/FPGA"
+   ],
    "gaps": []
   },
   {
    "url": "https://www.linkedin.com/jobs/view/2027-internship-design-verification-engineer-at-cirrus-logic-4474619303",
    "company": "Cirrus Logic",
    "title": "2027 Internship - Design Verification Engineer",
-   "loc": "Chandler, AZ",
+   "loc": "Austin, TX",
    "age": 34,
    "lane": "embedded",
    "screen": "no",
@@ -11141,28 +11632,6 @@
    ],
    "gaps": [
     "SystemVerilog/UVM"
-   ]
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/2027-internship-analog-design-engineer-at-cirrus-logic-4474618302",
-   "company": "Cirrus Logic",
-   "title": "2027 Internship - Analog Design Engineer",
-   "loc": "Greensboro, NC",
-   "age": 34,
-   "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "不提供簽證擔保",
-     "quote": "We are unable to sponsor or obtain export licenses for this role."
-    }
-   ],
-   "fit": [
-    "lab tools",
-    "signals"
-   ],
-   "gaps": [
-    "Cadence/Synopsys"
    ]
   },
   {
@@ -11248,22 +11717,6 @@
    "gaps": []
   },
   {
-   "url": "https://job-boards.greenhouse.io/arcboatcompany/jobs/5442853008",
-   "company": "Arc",
-   "title": "Electrical Hardware Engineering Intern",
-   "loc": "Torrance, CA",
-   "age": 36,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "PCB",
-    "KiCad/EDA",
-    "lab tools"
-   ],
-   "gaps": []
-  },
-  {
    "url": "https://www.linkedin.com/jobs/view/intern-electrical-engineering-i-e-at-subsidiaries-of-energy-transfer-equity-lp-4484472182",
    "company": "SUBSIDIARIES OF ENERGY TRANSFER EQUITY LP",
    "title": "Intern - Electrical Engineering / I&E",
@@ -11276,22 +11729,31 @@
    "gaps": []
   },
   {
+   "url": "https://job-boards.greenhouse.io/arcboatcompany/jobs/5442853008",
+   "company": "Arc",
+   "title": "Electrical Hardware Engineering Intern",
+   "loc": "Torrance, CA",
+   "age": 37,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "PCB",
+    "KiCad/EDA",
+    "lab tools"
+   ],
+   "gaps": []
+  },
+  {
    "url": "https://generalmotors.wd5.myworkdayjobs.com/Careers_GM/job/Warren-Michigan-United-States-of-America/XMLNAME-2027-Summer-Intern---Software-Verification-Engineer--AV-AI-Platform_JR-202621697",
    "company": "General Motors",
    "title": "2027 Summer Intern – Software Verification Engineer, AV/AI Platform",
    "loc": "Warren, Michigan, United States of America",
    "age": 37,
    "lane": "embedded",
-   "screen": "ok",
+   "screen": "unread",
    "why": [],
-   "fit": [
-    "C",
-    "C++",
-    "Python",
-    "embedded",
-    "MCU",
-    "CAN"
-   ],
+   "fit": [],
    "gaps": []
   },
   {
@@ -11349,9 +11811,16 @@
    "loc": "Boulder, CO",
    "age": 37,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "MCU",
+    "ML/PyTorch"
+   ],
    "gaps": []
   },
   {
@@ -11415,21 +11884,6 @@
    ]
   },
   {
-   "url": "https://job-boards.greenhouse.io/astronicscorporation/jobs/4420383009",
-   "company": "Astronics",
-   "title": "Electrical Test Engineer Intern",
-   "loc": "Redmond, WA",
-   "age": 38,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "PCB",
-    "KiCad/EDA"
-   ],
-   "gaps": []
-  },
-  {
    "url": "https://www.linkedin.com/jobs/view/analog-mixed-signal-ic-design-engineering-intern-at-omni-design-technologies-inc-4483517400",
    "company": "Omni Design Technologies, Inc.",
    "title": "Analog/Mixed-Signal IC Design Engineering Intern",
@@ -11488,38 +11942,27 @@
    "loc": "Austin, TX",
    "age": 38,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "Python",
+    "KiCad/EDA",
+    "lab tools"
+   ],
    "gaps": []
   },
   {
-   "url": "https://job-boards.greenhouse.io/amca/jobs/4396690009",
-   "company": "AMCA",
-   "title": "Electrical Engineering Internship - Summer 2027",
-   "loc": "El Segundo, CA",
+   "url": "https://job-boards.greenhouse.io/astronicscorporation/jobs/4420383009",
+   "company": "Astronics",
+   "title": "Electrical Test Engineer Intern",
+   "loc": "Redmond, WA",
    "age": 39,
    "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "畢業時間不含 2028",
-     "quote": "Returning to school in Fall 2027, or graduating in Spring 2027 and interested in a full-time role."
-    },
-    {
-     "rule": "ITAR / 出口管制",
-     "quote": "This position requires use of information which is subject to the International Traffic in Arms Regulations (ITAR)."
-    },
-    {
-     "rule": "限美國公民/綠卡/US person",
-     "quote": "permanent residence (\"Green Card\" holder);"
-    }
-   ],
+   "screen": "ok",
+   "why": [],
    "fit": [
-    "C",
     "PCB",
-    "KiCad/EDA",
-    "lab tools"
+    "KiCad/EDA"
    ],
    "gaps": []
   },
@@ -11602,6 +12045,36 @@
     }
    ],
    "fit": [],
+   "gaps": []
+  },
+  {
+   "url": "https://job-boards.greenhouse.io/amca/jobs/4396690009",
+   "company": "AMCA",
+   "title": "Electrical Engineering Internship - Summer 2027",
+   "loc": "El Segundo, CA",
+   "age": 40,
+   "lane": "embedded",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "畢業時間不含 2028",
+     "quote": "Returning to school in Fall 2027, or graduating in Spring 2027 and interested in a full-time role."
+    },
+    {
+     "rule": "ITAR / 出口管制",
+     "quote": "This position requires use of information which is subject to the International Traffic in Arms Regulations (ITAR)."
+    },
+    {
+     "rule": "限美國公民/綠卡/US person",
+     "quote": "permanent residence (\"Green Card\" holder);"
+    }
+   ],
+   "fit": [
+    "C",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools"
+   ],
    "gaps": []
   },
   {
@@ -11733,9 +12206,18 @@
    "loc": "Long Beach, CA",
    "age": 41,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "ITAR / 出口管制",
+     "quote": "Government space technology export regulations, including the International Traffic in Arms Regulations (ITAR) you must be a U.S."
+    }
+   ],
+   "fit": [
+    "C",
+    "C++",
+    "Python"
+   ],
    "gaps": []
   },
   {
@@ -11756,74 +12238,6 @@
     "C",
     "C++",
     "Python"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://jobs.lever.co/CesiumAstro/ab7dd1c4-7196-4cae-8fbd-cddec993b9b8/apply",
-   "company": "CesiumAstro",
-   "title": "Test Engineer Intern",
-   "loc": "Westminster, CO",
-   "age": 43,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C",
-    "Python",
-    "embedded",
-    "lab tools"
-   ],
-   "gaps": [
-    "RF",
-    "LabVIEW"
-   ]
-  },
-  {
-   "url": "https://hctz.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/2506604",
-   "company": "onsemi",
-   "title": "Test Engineer Intern - Intelligent Sensor Group - Test Engineering",
-   "loc": "Nampa, ID",
-   "age": 43,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C",
-    "C++",
-    "Python"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://hctz.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/2506611",
-   "company": "onsemi",
-   "title": "Validation Engineer Intern",
-   "loc": "Nampa, ID",
-   "age": 43,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C",
-    "Python",
-    "lab tools"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://careers.withwaymo.com/jobs?gh_jid=8231711",
-   "company": "Waymo",
-   "title": "Systems Engineer Intern - Autonomous Vehicle Networks & Diagnostics",
-   "loc": "Mountain View, CA",
-   "age": 43,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "Python",
-    "embedded",
-    "CAN"
    ],
    "gaps": []
   },
@@ -11886,23 +12300,6 @@
    "gaps": []
   },
   {
-   "url": "https://job-boards.greenhouse.io/astranis/jobs/4716499006",
-   "company": "Astranis",
-   "title": "RF Validation Intern - Summer 2027",
-   "loc": "SF",
-   "age": 44,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C",
-    "Python"
-   ],
-   "gaps": [
-    "RF"
-   ]
-  },
-  {
    "url": "https://careers.jhuapl.edu/jobs/60223?icims=1",
    "company": "Johns Hopkins Applied Physics Laboratory",
    "title": "Space Exploration Software Engineer Intern - Embedded Applications",
@@ -11926,6 +12323,74 @@
    "screen": "ok",
    "why": [],
    "fit": [],
+   "gaps": []
+  },
+  {
+   "url": "https://jobs.lever.co/CesiumAstro/ab7dd1c4-7196-4cae-8fbd-cddec993b9b8/apply",
+   "company": "CesiumAstro",
+   "title": "Test Engineer Intern",
+   "loc": "Westminster, CO",
+   "age": 44,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C",
+    "Python",
+    "embedded",
+    "lab tools"
+   ],
+   "gaps": [
+    "RF",
+    "LabVIEW"
+   ]
+  },
+  {
+   "url": "https://hctz.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/2506604",
+   "company": "onsemi",
+   "title": "Test Engineer Intern - Intelligent Sensor Group - Test Engineering",
+   "loc": "Nampa, ID",
+   "age": 44,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C",
+    "C++",
+    "Python"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://hctz.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/2506611",
+   "company": "onsemi",
+   "title": "Validation Engineer Intern",
+   "loc": "Nampa, ID",
+   "age": 44,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C",
+    "Python",
+    "lab tools"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://careers.withwaymo.com/jobs?gh_jid=8231711",
+   "company": "Waymo",
+   "title": "Systems Engineer Intern - Autonomous Vehicle Networks & Diagnostics",
+   "loc": "Mountain View, CA",
+   "age": 44,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "Python",
+    "embedded",
+    "CAN"
+   ],
    "gaps": []
   },
   {
@@ -12081,6 +12546,23 @@
    ]
   },
   {
+   "url": "https://job-boards.greenhouse.io/astranis/jobs/4716499006",
+   "company": "Astranis",
+   "title": "RF Validation Intern - Summer 2027",
+   "loc": "SF",
+   "age": 45,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C",
+    "Python"
+   ],
+   "gaps": [
+    "RF"
+   ]
+  },
+  {
    "url": "https://job-boards.greenhouse.io/astranis/jobs/4715983006",
    "company": "Astranis",
    "title": "Software Defined Radio Hardware Associate Intern",
@@ -12107,47 +12589,18 @@
    "loc": "Lexington, MA",
    "age": 45,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://eaton.eightfold.ai/careers/job/687238597770",
-   "company": "Eaton",
-   "title": "Electrical Engineer Intern/Co-op - Engineering",
-   "loc": "Peachtree City, GA",
-   "age": 46,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "embedded",
-    "firmware"
+   "screen": "no",
+   "why": [
+    {
+     "rule": "需要安全許可 (clearance)",
+     "quote": "Selected candidate will be subject to a pre-employment background investigation and must be able to obtain and maintain a Secret level DoD security clearance."
+    }
    ],
-   "gaps": []
-  },
-  {
-   "url": "https://twosigma.avature.net/careers/JobDetail/14289",
-   "company": "Two Sigma",
-   "title": "Hardware Engineering Intern",
-   "loc": "NYC",
-   "age": 46,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
    "fit": [
-    "C",
     "C++",
-    "Python",
-    "embedded",
-    "Verilog/FPGA",
-    "ML/PyTorch",
-    "Git"
+    "signals"
    ],
-   "gaps": [
-    "SystemVerilog/UVM"
-   ]
+   "gaps": []
   },
   {
    "url": "https://job-boards.greenhouse.io/astranis/jobs/4704784006",
@@ -12221,14 +12674,9 @@
    "loc": "Troy, MI",
    "age": 46,
    "lane": "embedded",
-   "screen": "ok",
+   "screen": "unread",
    "why": [],
-   "fit": [
-    "PCB",
-    "KiCad/EDA",
-    "lab tools",
-    "Git"
-   ],
+   "fit": [],
    "gaps": []
   },
   {
@@ -12238,10 +12686,52 @@
    "loc": "Denver, CO",
    "age": 46,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "限美國公民/綠卡/US person",
+     "quote": "permanent resident (current Green Card holder), or lawfully admitted into the U.S."
+    }
+   ],
    "fit": [],
    "gaps": []
+  },
+  {
+   "url": "https://eaton.eightfold.ai/careers/job/687238597770",
+   "company": "Eaton",
+   "title": "Electrical Engineer Intern/Co-op - Engineering",
+   "loc": "Peachtree City, GA",
+   "age": 47,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "embedded",
+    "firmware"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://twosigma.avature.net/careers/JobDetail/14289",
+   "company": "Two Sigma",
+   "title": "Hardware Engineering Intern",
+   "loc": "NYC",
+   "age": 47,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "Verilog/FPGA",
+    "ML/PyTorch",
+    "Git"
+   ],
+   "gaps": [
+    "SystemVerilog/UVM"
+   ]
   },
   {
    "url": "https://marvell.wd1.myworkdayjobs.com/MarvellCareers/job/Santa-Clara-CA/Electrical-Validation-Intern--BS---Summer-2027_2603795-1",
@@ -12269,7 +12759,7 @@
    "loc": "Muscatine, IA",
    "age": 47,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -12377,27 +12867,10 @@
    "company": "Together AI",
    "title": "Systems Research Engineer Intern - GPU Programming",
    "loc": "SF",
-   "age": 50,
+   "age": 51,
    "lane": "embedded",
    "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://careers.rivian.com/jobs/33725?icims=1",
-   "company": "Rivian",
-   "title": "Engineering Intern/Co-op - Test and Validation - Charging Products",
-   "loc": "Torrance, CA",
-   "age": 51,
-   "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "不是暑期 / 長期",
-     "quote": "Engineering Intern - Test and Validation, Charging Products (Spring 2027 Co-Op) in Torrance, California | Rivian"
-    }
-   ],
    "fit": [],
    "gaps": []
   },
@@ -12496,37 +12969,38 @@
    "gaps": []
   },
   {
-   "url": "https://job-boards.greenhouse.io/relaypro/jobs/8180836",
-   "company": "Relay",
-   "title": "Software Engineer Intern - Device Team",
-   "loc": "Raleigh, NC",
-   "age": 52,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C",
-    "C++",
-    "Python",
-    "embedded",
-    "firmware",
-    "MCU"
-   ],
-   "gaps": [
-    "RTOS",
-    "Linux kernel/drivers",
-    "Rust"
-   ]
-  },
-  {
    "url": "https://smithnephew.wd5.myworkdayjobs.com/External/job/US---Pittsburgh-PA/Intern-Robotics-Software-Engineering_R92482",
    "company": "Smith+Nephew",
    "title": "Robotics Software Engineer Intern",
    "loc": "Pittsburgh, PA",
    "age": 52,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "**This position does not offer visa transfer or sponsorship now or in the future**"
+    }
+   ],
+   "fit": [
+    "C++"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://careers.rivian.com/jobs/33725?icims=1",
+   "company": "Rivian",
+   "title": "Engineering Intern/Co-op - Test and Validation - Charging Products",
+   "loc": "Torrance, CA",
+   "age": 52,
+   "lane": "embedded",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不是暑期 / 長期",
+     "quote": "Engineering Intern - Test and Validation, Charging Products (Spring 2027 Co-Op) in Torrance, California | Rivian"
+    }
+   ],
    "fit": [],
    "gaps": []
   },
@@ -12537,9 +13011,16 @@
    "loc": "US - Pittsburgh, PA",
    "age": 52,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "**This position does not offer visa transfer or sponsorship now or in the future**"
+    }
+   ],
+   "fit": [
+    "C++"
+   ],
    "gaps": []
   },
   {
@@ -12586,51 +13067,6 @@
    ]
   },
   {
-   "url": "https://lunaroutpost.bamboohr.com/careers/391/",
-   "company": "Lunar Outpost",
-   "title": "Robotics Engineer Intern",
-   "loc": "Golden, CO",
-   "age": 53,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://lunaroutpost.bamboohr.com/careers/392/",
-   "company": "Lunar Outpost",
-   "title": "Embedded Software Engineer Intern - Summer 2027",
-   "loc": "Golden, CO",
-   "age": 53,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://jobs.ashbyhq.com/gecko-robotics/24561868-f075-4edf-a991-59ff0174e92a/application?embed=true",
-   "company": "Gecko Robotics",
-   "title": "Embedded Software Engineer Intern - RoboSPLAT - Field Infra",
-   "loc": "Pittsburgh, PA",
-   "age": 53,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C",
-    "C++",
-    "Python",
-    "embedded",
-    "MCU",
-    "KiCad/EDA",
-    "lab tools",
-    "Git"
-   ],
-   "gaps": []
-  },
-  {
    "url": "https://jobs.lever.co/CesiumAstro/ccb0f99f-0cc7-4517-8d1c-faeca53b5e5c/apply",
    "company": "CesiumAstro",
    "title": "Electrical Engineer Intern - Hardware",
@@ -12668,6 +13104,29 @@
     "KiCad/EDA"
    ],
    "gaps": []
+  },
+  {
+   "url": "https://job-boards.greenhouse.io/relaypro/jobs/8180836",
+   "company": "Relay",
+   "title": "Software Engineer Intern - Device Team",
+   "loc": "Raleigh, NC",
+   "age": 53,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "firmware",
+    "MCU"
+   ],
+   "gaps": [
+    "RTOS",
+    "Linux kernel/drivers",
+    "Rust"
+   ]
   },
   {
    "url": "https://flir.wd1.myworkdayjobs.com/flircareers/job/US---Huntsville-AL/EADSIM-MBSE-Intern--Summer-2027-_REQ36670-1",
@@ -12724,121 +13183,48 @@
    "gaps": []
   },
   {
-   "url": "https://www.google.com/about/careers/applications/jobs/results/136529930677560006",
-   "company": "Google",
-   "title": "Silicon Engineering Intern",
-   "loc": "Madison, WI; Austin, TX; Sunnyvale, CA",
+   "url": "https://lunaroutpost.bamboohr.com/careers/391/",
+   "company": "Lunar Outpost",
+   "title": "Robotics Engineer Intern",
+   "loc": "Golden, CO",
    "age": 54,
    "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "限碩士/博士",
-     "quote": "This internship is intended for students in their penultimate academic year, who are pursuing a PhD degree program in Electrical Engineering, Computer Engineering, Computer Science, or a related technical field."
-    }
-   ],
-   "fit": [
-    "C++",
-    "Python"
-   ],
-   "gaps": [
-    "Cadence/Synopsys"
-   ]
-  },
-  {
-   "url": "https://www.equipmentshare.com/careers/openings/?gh_jid=8189297",
-   "company": "EquipmentShare",
-   "title": "Engineering Intern - Embedded",
-   "loc": "Columbia, MO",
-   "age": 54,
-   "lane": "embedded",
-   "screen": "ok",
+   "screen": "unread",
    "why": [],
    "fit": [],
    "gaps": []
   },
   {
-   "url": "https://www.equipmentshare.com/careers/openings/?gh_jid=8142763",
-   "company": "EquipmentShare",
-   "title": "Electrical Engineering Intern - Embedded",
-   "loc": "Columbia, MO",
+   "url": "https://lunaroutpost.bamboohr.com/careers/392/",
+   "company": "Lunar Outpost",
+   "title": "Embedded Software Engineer Intern - Summer 2027",
+   "loc": "Golden, CO",
    "age": 54,
    "lane": "embedded",
-   "screen": "ok",
+   "screen": "unread",
    "why": [],
    "fit": [],
    "gaps": []
   },
   {
-   "url": "https://jobs.ashbyhq.com/bedrock-robotics/c9c08251-6a42-4f9c-be4d-2621995cc8f9/application?embed=true",
-   "company": "Bedrock Robotics",
-   "title": "Hardware Engineer Intern - Machine Integration & Test",
-   "loc": "SF",
+   "url": "https://jobs.ashbyhq.com/gecko-robotics/24561868-f075-4edf-a991-59ff0174e92a/application?embed=true",
+   "company": "Gecko Robotics",
+   "title": "Embedded Software Engineer Intern - RoboSPLAT - Field Infra",
+   "loc": "Pittsburgh, PA",
    "age": 54,
    "lane": "embedded",
    "screen": "ok",
    "why": [],
    "fit": [
     "C",
-    "KiCad/EDA",
-    "lab tools"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://recruiting.paylocity.com/Recruiting/Jobs/Details/4501298",
-   "company": "North Atlantic Industries",
-   "title": "Test Engineer Intern",
-   "loc": "Bohemia, NY",
-   "age": 54,
-   "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "限美國公民/綠卡/US person",
-     "quote": "citizen or a lawful permanent resident (Green Card holder), and must be able to provide appropriate documentation upon hire to verify this status."
-    }
-   ],
-   "fit": [
-    "C",
     "C++",
+    "Python",
     "embedded",
-    "lab tools"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://recruiting.paylocity.com/Recruiting/Jobs/Details/4501330",
-   "company": "North Atlantic Industries",
-   "title": "Electrical Design Engineer Intern",
-   "loc": "Bohemia, NY",
-   "age": 54,
-   "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "限美國公民/綠卡/US person",
-     "quote": "citizen or a lawful permanent resident (Green Card holder), and must be able to provide appropriate documentation upon hire to verify this status."
-    }
-   ],
-   "fit": [
-    "embedded",
+    "MCU",
     "KiCad/EDA",
     "lab tools",
-    "Verilog/FPGA"
+    "Git"
    ],
-   "gaps": []
-  },
-  {
-   "url": "https://jobs.keysight.com/jobs/54226?icims=1",
-   "company": "Keysight Technologies",
-   "title": "Compound Semiconductor Device Characterization Intern",
-   "loc": "Santa Rosa, CA",
-   "age": 54,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [],
    "gaps": []
   },
   {
@@ -12877,7 +13263,7 @@
    "loc": "St Louis, MO",
    "age": 54,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
    "fit": [],
    "gaps": []
@@ -12936,27 +13322,134 @@
    ]
   },
   {
-   "url": "https://www.linkedin.com/jobs/view/firmware-engineering-intern-at-base-power-company-4467240658",
-   "company": "Base Power Company",
-   "title": "Firmware Engineering Intern",
-   "loc": "Austin, TX",
+   "url": "https://www.google.com/about/careers/applications/jobs/results/136529930677560006",
+   "company": "Google",
+   "title": "Silicon Engineering Intern",
+   "loc": "Madison, WI; Austin, TX; Sunnyvale, CA",
+   "age": 55,
+   "lane": "embedded",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "限碩士/博士",
+     "quote": "This internship is intended for students in their penultimate academic year, who are pursuing a PhD degree program in Electrical Engineering, Computer Engineering, Computer Science, or a related technical field."
+    }
+   ],
+   "fit": [
+    "C++",
+    "Python"
+   ],
+   "gaps": [
+    "Cadence/Synopsys"
+   ]
+  },
+  {
+   "url": "https://www.equipmentshare.com/careers/openings/?gh_jid=8189297",
+   "company": "EquipmentShare",
+   "title": "Engineering Intern - Embedded",
+   "loc": "Columbia, MO",
+   "age": 55,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [],
+   "gaps": []
+  },
+  {
+   "url": "https://www.equipmentshare.com/careers/openings/?gh_jid=8142763",
+   "company": "EquipmentShare",
+   "title": "Electrical Engineering Intern - Embedded",
+   "loc": "Columbia, MO",
+   "age": 55,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [],
+   "gaps": []
+  },
+  {
+   "url": "https://jobs.ashbyhq.com/bedrock-robotics/c9c08251-6a42-4f9c-be4d-2621995cc8f9/application?embed=true",
+   "company": "Bedrock Robotics",
+   "title": "Hardware Engineer Intern - Machine Integration & Test",
+   "loc": "SF",
    "age": 55,
    "lane": "embedded",
    "screen": "ok",
    "why": [],
    "fit": [
     "C",
-    "C++",
-    "embedded",
-    "firmware",
-    "MCU",
     "KiCad/EDA",
     "lab tools"
    ],
-   "gaps": [
-    "RTOS",
-    "Linux kernel/drivers"
-   ]
+   "gaps": []
+  },
+  {
+   "url": "https://recruiting.paylocity.com/Recruiting/Jobs/Details/4501298",
+   "company": "North Atlantic Industries",
+   "title": "Test Engineer Intern",
+   "loc": "Bohemia, NY",
+   "age": 55,
+   "lane": "embedded",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "限美國公民/綠卡/US person",
+     "quote": "citizen or a lawful permanent resident (Green Card holder), and must be able to provide appropriate documentation upon hire to verify this status."
+    }
+   ],
+   "fit": [
+    "C",
+    "C++",
+    "embedded",
+    "lab tools"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://recruiting.paylocity.com/Recruiting/Jobs/Details/4501330",
+   "company": "North Atlantic Industries",
+   "title": "Electrical Design Engineer Intern",
+   "loc": "Bohemia, NY",
+   "age": 55,
+   "lane": "embedded",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "限美國公民/綠卡/US person",
+     "quote": "citizen or a lawful permanent resident (Green Card holder), and must be able to provide appropriate documentation upon hire to verify this status."
+    }
+   ],
+   "fit": [
+    "embedded",
+    "KiCad/EDA",
+    "lab tools",
+    "Verilog/FPGA"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://jobs.keysight.com/jobs/54226?icims=1",
+   "company": "Keysight Technologies",
+   "title": "Compound Semiconductor Device Characterization Intern",
+   "loc": "Santa Rosa, CA",
+   "age": 55,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [],
+   "gaps": []
+  },
+  {
+   "url": "https://www.linkedin.com/jobs/view/firmware-engineering-intern-at-base-power-company-4467240658",
+   "company": "Base Power Company",
+   "title": "Firmware Engineering Intern",
+   "loc": "Austin, TX",
+   "age": 55,
+   "lane": "embedded",
+   "screen": "unread",
+   "why": [],
+   "fit": [],
+   "gaps": []
   },
   {
    "url": "https://www.linkedin.com/jobs/view/intern-electrical-design-engineer-summer-2027-at-north-atlantic-industries-4465211880",
@@ -12965,9 +13458,19 @@
    "loc": "Bohemia, NY",
    "age": 55,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "限美國公民/綠卡/US person",
+     "quote": "citizen or a lawful permanent resident (Green Card holder), and must be able to provide appropriate documentation upon hire to verify this status."
+    }
+   ],
+   "fit": [
+    "embedded",
+    "KiCad/EDA",
+    "lab tools",
+    "Verilog/FPGA"
+   ],
    "gaps": []
   },
   {
@@ -13073,46 +13576,11 @@
    "gaps": []
   },
   {
-   "url": "https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/26010801",
-   "company": "Emerson Electric",
-   "title": "Hardware Design Engineer Intern",
-   "loc": "Round Rock, TX",
-   "age": 57,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C",
-    "C++",
-    "Python",
-    "PCB",
-    "KiCad/EDA",
-    "lab tools",
-    "Verilog/FPGA"
-   ],
-   "gaps": [
-    "Cadence/Synopsys",
-    "analog IC"
-   ]
-  },
-  {
    "url": "https://www.linkedin.com/jobs/view/intern-%E2%80%93-electrical-engineering-i-e-at-energy-transfer-4464265637",
    "company": "Energy Transfer",
    "title": "Intern – Electrical Engineering / I&E",
    "loc": "Houston, TX",
    "age": 57,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://careers.garmin.com/jobs/19896?icims=1",
-   "company": "Garmin",
-   "title": "Electrical Design Engineer Intern",
-   "loc": "Tulsa, OK",
-   "age": 58,
    "lane": "embedded",
    "screen": "ok",
    "why": [],
@@ -13146,6 +13614,29 @@
    ]
   },
   {
+   "url": "https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/26010801",
+   "company": "Emerson Electric",
+   "title": "Hardware Design Engineer Intern",
+   "loc": "Round Rock, TX",
+   "age": 58,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools",
+    "Verilog/FPGA"
+   ],
+   "gaps": [
+    "Cadence/Synopsys",
+    "analog IC"
+   ]
+  },
+  {
    "url": "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Plantation-FL/DSP--Digital-Signal-Processing--Software-Engineering-Intern---Summer-2027_R68734",
    "company": "Motorola",
    "title": "Digital Signal Processing Software Engineering Intern - Digital Signal Processing",
@@ -13167,21 +13658,6 @@
     "Linux kernel/drivers",
     "RF"
    ]
-  },
-  {
-   "url": "https://jobs.ashbyhq.com/bedrock-robotics/d7da851b-55c2-45d4-bf8b-aa879282f25c/application?embed=true",
-   "company": "Bedrock Robotics",
-   "title": "Sensor Systems Engineer Intern",
-   "loc": "SF",
-   "age": 58,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C",
-    "Python"
-   ],
-   "gaps": []
   },
   {
    "url": "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Plantation-FL/DSP--Digital-Signal-Processing--Software-Engineering-Intern---Summer-2027_R68734",
@@ -13225,10 +13701,20 @@
    "loc": "Mossville, IL",
    "age": 58,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "Visa Sponsorship is not available for this position."
+    }
+   ],
+   "fit": [
+    "C++",
+    "ML/PyTorch"
+   ],
+   "gaps": [
+    "MATLAB/Simulink"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/summer-intern-systems-engineer-at-allegion-4465606193",
@@ -13236,18 +13722,6 @@
    "title": "Summer Intern - Systems Engineer",
    "loc": "Greater Indianapolis",
    "age": 58,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://careers.jhuapl.edu/jobs/59993?icims=1",
-   "company": "Johns Hopkins Applied Physics Laboratory",
-   "title": "Electrical and Computer Engineer Intern - Miniature Device Technologies",
-   "loc": "Laurel, MD",
-   "age": 59,
    "lane": "embedded",
    "screen": "ok",
    "why": [],
@@ -13266,6 +13740,18 @@
    "fit": [
     "KiCad/EDA"
    ],
+   "gaps": []
+  },
+  {
+   "url": "https://careers.garmin.com/jobs/19896?icims=1",
+   "company": "Garmin",
+   "title": "Electrical Design Engineer Intern",
+   "loc": "Tulsa, OK",
+   "age": 59,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [],
    "gaps": []
   },
   {
@@ -13324,6 +13810,21 @@
    "gaps": [
     "LabVIEW"
    ]
+  },
+  {
+   "url": "https://jobs.ashbyhq.com/bedrock-robotics/d7da851b-55c2-45d4-bf8b-aa879282f25c/application?embed=true",
+   "company": "Bedrock Robotics",
+   "title": "Sensor Systems Engineer Intern",
+   "loc": "SF",
+   "age": 59,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C",
+    "Python"
+   ],
+   "gaps": []
   },
   {
    "url": "https://avav.wd1.myworkdayjobs.com/avav/job/Simi-Valley-CA/Summer-2027-Embedded-Software-Engineering-Intern_8549",
@@ -13475,55 +13976,6 @@
    "gaps": []
   },
   {
-   "url": "https://jobs.ashbyhq.com/bedrock-robotics/1f413f83-b897-4938-a19e-ab91bd326c51/application?embed=true",
-   "company": "Bedrock Robotics",
-   "title": "Sensor Hardware Test Engineer Intern",
-   "loc": "SF",
-   "age": 60,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C",
-    "Python",
-    "lab tools",
-    "Git"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://jobs.ashbyhq.com/revel/f8eec1fd-da28-47ce-bca4-2fbe9c48a889/application?embed=true",
-   "company": "Revel",
-   "title": "Embedded Software Engineer Intern",
-   "loc": "SF; LA",
-   "age": 60,
-   "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "ITAR / 出口管制",
-     "quote": "US citizen, lawful permanent resident, refugee, or asylee (ITAR requirement)"
-    },
-    {
-     "rule": "限美國公民/綠卡/US person",
-     "quote": "lawful, permanent resident (aka green card holder), (iii) Refugee under 8 U.S.C."
-    }
-   ],
-   "fit": [
-    "C",
-    "C++",
-    "embedded",
-    "firmware",
-    "MCU",
-    "CAN",
-    "UART/I2C/SPI",
-    "lab tools"
-   ],
-   "gaps": [
-    "Rust"
-   ]
-  },
-  {
    "url": "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Schaumburg-IL/FPGA-Design-Engineering-Intern---Summer-2027_R68401",
    "company": "Motorola",
    "title": "FPGA Design Engineering Intern",
@@ -13546,6 +13998,18 @@
    "gaps": [
     "RF"
    ]
+  },
+  {
+   "url": "https://careers.jhuapl.edu/jobs/59993?icims=1",
+   "company": "Johns Hopkins Applied Physics Laboratory",
+   "title": "Electrical and Computer Engineer Intern - Miniature Device Technologies",
+   "loc": "Laurel, MD",
+   "age": 60,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [],
+   "gaps": []
   },
   {
    "url": "https://www.amazon.jobs/en/jobs/10535282/hardware-development-engineer-intern-co-op-robotics-2027",
@@ -13629,6 +14093,55 @@
    "gaps": []
   },
   {
+   "url": "https://jobs.ashbyhq.com/bedrock-robotics/1f413f83-b897-4938-a19e-ab91bd326c51/application?embed=true",
+   "company": "Bedrock Robotics",
+   "title": "Sensor Hardware Test Engineer Intern",
+   "loc": "SF",
+   "age": 61,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C",
+    "Python",
+    "lab tools",
+    "Git"
+   ],
+   "gaps": []
+  },
+  {
+   "url": "https://jobs.ashbyhq.com/revel/f8eec1fd-da28-47ce-bca4-2fbe9c48a889/application?embed=true",
+   "company": "Revel",
+   "title": "Embedded Software Engineer Intern",
+   "loc": "SF; LA",
+   "age": 61,
+   "lane": "embedded",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "ITAR / 出口管制",
+     "quote": "US citizen, lawful permanent resident, refugee, or asylee (ITAR requirement)"
+    },
+    {
+     "rule": "限美國公民/綠卡/US person",
+     "quote": "lawful, permanent resident (aka green card holder), (iii) Refugee under 8 U.S.C."
+    }
+   ],
+   "fit": [
+    "C",
+    "C++",
+    "embedded",
+    "firmware",
+    "MCU",
+    "CAN",
+    "UART/I2C/SPI",
+    "lab tools"
+   ],
+   "gaps": [
+    "Rust"
+   ]
+  },
+  {
    "url": "https://trimble.wd1.myworkdayjobs.com/en-US/TrimbleCareers/job/US---CO-Westminster/Hardware-Software-Testing-Intern_R57677-1",
    "company": "Trimble",
    "title": "Hardware/Software Testing Intern",
@@ -13678,9 +14191,16 @@
    "loc": "Dallas, TX",
    "age": 61,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "Texas Instruments will not sponsor job applicants for visas or work authorization for this position."
+    }
+   ],
+   "fit": [
+    "embedded"
+   ],
    "gaps": []
   },
   {
@@ -13770,23 +14290,9 @@
    "loc": "Vernon Hills, IL",
    "age": 61,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://jobs.ashbyhq.com/fab2/aec19ef8-2257-4295-abc2-87afd05224ae/application?embed=true",
-   "company": "Fab2",
-   "title": "Electrical Engineer Intern",
-   "loc": "SF; Austin, TX",
-   "age": 63,
-   "lane": "embedded",
    "screen": "ok",
    "why": [],
    "fit": [
-    "embedded",
-    "MCU",
     "KiCad/EDA"
    ],
    "gaps": []
@@ -13868,6 +14374,22 @@
    ]
   },
   {
+   "url": "https://jobs.ashbyhq.com/fab2/aec19ef8-2257-4295-abc2-87afd05224ae/application?embed=true",
+   "company": "Fab2",
+   "title": "Electrical Engineer Intern",
+   "loc": "SF; Austin, TX",
+   "age": 64,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "embedded",
+    "MCU",
+    "KiCad/EDA"
+   ],
+   "gaps": []
+  },
+  {
    "url": "https://www.linkedin.com/jobs/view/embedded-software-engineering-intern-summer-at-fab2-4463781550",
    "company": "Fab2",
    "title": "Embedded Software Engineering Intern - Summer",
@@ -13937,18 +14459,6 @@
      "quote": "This position requires you to be legally authorized to work for any employer in the United States without visa sponsorship."
     }
    ],
-   "fit": [],
-   "gaps": []
-  },
-  {
-   "url": "https://www.tesla.com/careers/search/job/282340",
-   "company": "Tesla",
-   "title": "Embedded Software Engineer Intern - Optimus",
-   "loc": "Palo Alto, CA",
-   "age": 65,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
    "fit": [],
    "gaps": []
   },
@@ -14404,6 +14914,18 @@
    ]
   },
   {
+   "url": "https://www.tesla.com/careers/search/job/282340",
+   "company": "Tesla",
+   "title": "Embedded Software Engineer Intern - Optimus",
+   "loc": "Palo Alto, CA",
+   "age": 66,
+   "lane": "embedded",
+   "screen": "unread",
+   "why": [],
+   "fit": [],
+   "gaps": []
+  },
+  {
    "url": "https://cat.wd5.myworkdayjobs.com/CaterpillarCareers/job/Mossville-Illinois/XMLNAME-2027-Summer-Corporate-Intern---Autonomy---Intelligent-Systems-Engineering_R0000392394",
    "company": "Caterpillar",
    "title": "Corporate Intern - Autonomy & Intelligent Systems Engineering",
@@ -14513,8 +15035,13 @@
    "loc": "Kennesaw, GA",
    "age": 66,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "ENERCON does not provide sponsorship now or in the future."
+    }
+   ],
    "fit": [],
    "gaps": []
   },
@@ -14870,10 +15397,28 @@
    "loc": "Pottstown, PA",
    "age": 68,
    "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
-   "gaps": []
+   "screen": "no",
+   "why": [
+    {
+     "rule": "ITAR / 出口管制",
+     "quote": "ITAR Requirement"
+    }
+   ],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded",
+    "MCU",
+    "CAN",
+    "UART/I2C/SPI",
+    "lab tools",
+    "Arduino/RPi"
+   ],
+   "gaps": [
+    "RTOS",
+    "Linux kernel/drivers"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/electrical-engineering-internship-data-center-facilities-at-olsson-4461548257",
@@ -14981,9 +15526,21 @@
    "loc": "Pittsburgh, PA",
    "age": 69,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
+   "fit": [
+    "C",
+    "C++",
+    "embedded",
+    "firmware",
+    "MCU",
+    "PCB",
+    "KiCad/EDA",
+    "lab tools",
+    "Verilog/FPGA",
+    "Git",
+    "signals"
+   ],
    "gaps": []
   },
   {
@@ -15000,18 +15557,6 @@
     "C++",
     "KiCad/EDA"
    ],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/analog-and-mixed-signal-ic-design-engineer-intern-at-neurotechx-4460833355",
-   "company": "NeuroTechX",
-   "title": "Analog and Mixed-Signal IC Design Engineer Intern",
-   "loc": "South San Francisco, CA",
-   "age": 71,
-   "lane": "embedded",
-   "screen": "unread",
-   "why": [],
-   "fit": [],
    "gaps": []
   },
   {
@@ -15064,35 +15609,6 @@
    "why": [],
    "fit": [],
    "gaps": []
-  },
-  {
-   "url": "https://egup.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/20278957",
-   "company": "Vertiv",
-   "title": "Firmware Engineer Intern - Summer 2027",
-   "loc": "Delaware, OH",
-   "age": 73,
-   "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "不提供簽證擔保",
-     "quote": "Individuals with temporary visas such as E, F-1, H-1, H-2, L, B, J, or TN or who need sponsorship for work authorization now or in the future, are not eligible for hire."
-    }
-   ],
-   "fit": [
-    "C",
-    "C++",
-    "Python",
-    "embedded",
-    "firmware",
-    "MCU",
-    "lab tools",
-    "Git",
-    "signals"
-   ],
-   "gaps": [
-    "MATLAB/Simulink"
-   ]
   },
   {
    "url": "https://egup.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/20279233",
@@ -15187,48 +15703,32 @@
    "gaps": []
   },
   {
-   "url": "https://job-boards.greenhouse.io/verkada/jobs/5211595007",
-   "company": "Verkada",
-   "title": "Embedded Software Engineer Intern",
-   "loc": "San Mateo, CA",
-   "age": 74,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "C",
-    "C++",
-    "embedded",
-    "firmware",
-    "UART/I2C/SPI"
-   ],
-   "gaps": [
-    "Linux kernel/drivers"
-   ]
-  },
-  {
-   "url": "https://ibqbjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Honeywell/job/155562",
-   "company": "Honeywell",
-   "title": "Embedded Engineer Intern",
-   "loc": "United States",
+   "url": "https://egup.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/20278957",
+   "company": "Vertiv",
+   "title": "Firmware Engineer Intern - Summer 2027",
+   "loc": "Delaware, OH",
    "age": 74,
    "lane": "embedded",
    "screen": "no",
    "why": [
     {
      "rule": "不提供簽證擔保",
-     "quote": "Candidates must be authorized to legally work in the United States without current or future sponsorship requirements."
+     "quote": "Individuals with temporary visas such as E, F-1, H-1, H-2, L, B, J, or TN or who need sponsorship for work authorization now or in the future, are not eligible for hire."
     }
    ],
    "fit": [
     "C",
     "C++",
     "Python",
-    "embedded"
+    "embedded",
+    "firmware",
+    "MCU",
+    "lab tools",
+    "Git",
+    "signals"
    ],
    "gaps": [
-    "MATLAB/Simulink",
-    "LabVIEW"
+    "MATLAB/Simulink"
    ]
   },
   {
@@ -15249,18 +15749,6 @@
    ]
   },
   {
-   "url": "https://careers.westinghousenuclear.com/job/Cranberry-Township-Summer-Intern-Computer-Engineering-Software-Engineering-NC/1422595200/?ats=successfactors",
-   "company": "Westinghouse Electric Company",
-   "title": "Computer Engineering / Software Engineering Intern",
-   "loc": "Cranberry Township, PA",
-   "age": 75,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [],
-   "gaps": []
-  },
-  {
    "url": "https://careers.amd.com/jobs/91466?icims=1",
    "company": "AMD",
    "title": "ASIC Package Engineering Intern Co-op",
@@ -15273,6 +15761,51 @@
     "embedded"
    ],
    "gaps": []
+  },
+  {
+   "url": "https://job-boards.greenhouse.io/verkada/jobs/5211595007",
+   "company": "Verkada",
+   "title": "Embedded Software Engineer Intern",
+   "loc": "San Mateo, CA",
+   "age": 75,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [
+    "C",
+    "C++",
+    "embedded",
+    "firmware",
+    "UART/I2C/SPI"
+   ],
+   "gaps": [
+    "Linux kernel/drivers"
+   ]
+  },
+  {
+   "url": "https://ibqbjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Honeywell/job/155562",
+   "company": "Honeywell",
+   "title": "Embedded Engineer Intern",
+   "loc": "United States",
+   "age": 75,
+   "lane": "embedded",
+   "screen": "no",
+   "why": [
+    {
+     "rule": "不提供簽證擔保",
+     "quote": "Candidates must be authorized to legally work in the United States without current or future sponsorship requirements."
+    }
+   ],
+   "fit": [
+    "C",
+    "C++",
+    "Python",
+    "embedded"
+   ],
+   "gaps": [
+    "MATLAB/Simulink",
+    "LabVIEW"
+   ]
   },
   {
    "url": "https://brunswick.wd1.myworkdayjobs.com/en-US/search/job/Fond-du-Lac-WI/Mercury-Marine---Systems-Software-Engineering-Co-op_JR-051212",
@@ -15317,6 +15850,18 @@
    "gaps": []
   },
   {
+   "url": "https://careers.westinghousenuclear.com/job/Cranberry-Township-Summer-Intern-Computer-Engineering-Software-Engineering-NC/1422595200/?ats=successfactors",
+   "company": "Westinghouse Electric Company",
+   "title": "Computer Engineering / Software Engineering Intern",
+   "loc": "Cranberry Township, PA",
+   "age": 76,
+   "lane": "embedded",
+   "screen": "ok",
+   "why": [],
+   "fit": [],
+   "gaps": []
+  },
+  {
    "url": "https://www.linkedin.com/jobs/view/2027-undergrad-firmware-engineering-intern-co-op-at-amd-4454158480",
    "company": "AMD",
    "title": "2027 Undergrad Firmware Engineering Intern/Co-op",
@@ -15349,20 +15894,9 @@
    "loc": "Longmont, CO",
    "age": 76,
    "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "不提供簽證擔保",
-     "quote": "This role is not eligible for visa sponsorship."
-    }
-   ],
-   "fit": [
-    "C",
-    "C++",
-    "Python",
-    "embedded",
-    "Verilog/FPGA"
-   ],
+   "screen": "unread",
+   "why": [],
+   "fit": [],
    "gaps": []
   },
   {
@@ -15459,18 +15993,6 @@
    "fit": [
     "KiCad/EDA"
    ],
-   "gaps": []
-  },
-  {
-   "url": "https://www.zipline.com/open-roles?gh_jid=7903483003",
-   "company": "Zipline",
-   "title": "Hardware Test Intern - Summer 2027",
-   "loc": "South SF",
-   "age": 80,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [],
    "gaps": []
   },
   {
@@ -15588,6 +16110,18 @@
    ]
   },
   {
+   "url": "https://www.zipline.com/open-roles?gh_jid=7903483003",
+   "company": "Zipline",
+   "title": "Hardware Test Intern - Summer 2027",
+   "loc": "South SF",
+   "age": 81,
+   "lane": "embedded",
+   "screen": "unread",
+   "why": [],
+   "fit": [],
+   "gaps": []
+  },
+  {
    "url": "https://www.linkedin.com/jobs/view/audio-systems-engineering-intern-summer-2027-at-skyworks-solutions-inc-4455994354",
    "company": "Skyworks Solutions, Inc.",
    "title": "Audio Systems Engineering Intern-Summer 2027",
@@ -15678,10 +16212,17 @@
    "loc": "San Francisco, CA",
    "age": 88,
    "lane": "embedded",
-   "screen": "unread",
+   "screen": "ok",
    "why": [],
-   "fit": [],
-   "gaps": []
+   "fit": [
+    "MCU",
+    "UART/I2C/SPI",
+    "PCB",
+    "KiCad/EDA"
+   ],
+   "gaps": [
+    "analog IC"
+   ]
   },
   {
    "url": "https://www.linkedin.com/jobs/view/powertrain-controls-software-engineering-intern-6-months-full-time-at-bosch-usa-4449871650",
@@ -15690,16 +16231,10 @@
    "loc": "Farmington Hills, MI",
    "age": 89,
    "lane": "embedded",
-   "screen": "ok",
+   "screen": "unread",
    "why": [],
-   "fit": [
-    "C",
-    "embedded"
-   ],
-   "gaps": [
-    "MATLAB/Simulink",
-    "LabVIEW"
-   ]
+   "fit": [],
+   "gaps": []
   },
   {
    "url": "https://www.linkedin.com/jobs/view/research-intern-robotic-hardware-simulation-and-data-at-applied-intuition-4423952824",
@@ -15879,11 +16414,9 @@
    "loc": "Los Angeles, CA",
    "age": 95,
    "lane": "embedded",
-   "screen": "ok",
+   "screen": "unread",
    "why": [],
-   "fit": [
-    "Python"
-   ],
+   "fit": [],
    "gaps": []
   },
   {
@@ -15900,21 +16433,6 @@
     "MCU",
     "PCB",
     "KiCad/EDA"
-   ],
-   "gaps": []
-  },
-  {
-   "url": "https://www.linkedin.com/jobs/view/intern-design-verification-infrastructure-engineer-platform-at-sifive-4447799626",
-   "company": "SiFive",
-   "title": "Intern - Design Verification Infrastructure Engineer - Platform",
-   "loc": "Berkeley, CA",
-   "age": 96,
-   "lane": "embedded",
-   "screen": "ok",
-   "why": [],
-   "fit": [
-    "Python",
-    "ML/PyTorch"
    ],
    "gaps": []
   },
@@ -15944,7 +16462,7 @@
    "company": "HPR (Hyannis Port Research)",
    "title": "FPGA Engineer Intern",
    "loc": "Needham, MA",
-   "age": 98,
+   "age": 99,
    "lane": "embedded",
    "screen": "ok",
    "why": [],
@@ -15962,7 +16480,7 @@
    "company": "Virtu Financial",
    "title": "Hardware Engineer Intern - FPGA",
    "loc": "Austin, TX",
-   "age": 99,
+   "age": 100,
    "lane": "embedded",
    "screen": "no",
    "why": [
@@ -15987,21 +16505,10 @@
    "loc": "Austin, TX",
    "age": 100,
    "lane": "embedded",
-   "screen": "no",
-   "why": [
-    {
-     "rule": "限碩士/博士",
-     "quote": "Currently pursuing a Masters Degree in Electrical Engineering or related field"
-    }
-   ],
-   "fit": [
-    "C++",
-    "Python",
-    "Verilog/FPGA"
-   ],
-   "gaps": [
-    "SystemVerilog/UVM"
-   ]
+   "screen": "unread",
+   "why": [],
+   "fit": [],
+   "gaps": []
   },
   {
    "url": "https://www.linkedin.com/jobs/view/electrical-engineer-intern-u-s-energy-at-u-s-energy-4447215500",
@@ -16236,7 +16743,7 @@
   },
   {
    "company": "Google",
-   "found": 50,
+   "found": 49,
    "kept": 1,
    "sources": [
     "community-json",
@@ -16248,7 +16755,7 @@
   },
   {
    "company": "Microsoft",
-   "found": 70,
+   "found": 78,
    "kept": 1,
    "sources": [
     "community-json",
@@ -16283,7 +16790,7 @@
   },
   {
    "company": "NVIDIA",
-   "found": 107,
+   "found": 108,
    "kept": 18,
    "sources": [
     "community-json",
@@ -16310,7 +16817,7 @@
   },
   {
    "company": "AMD",
-   "found": 78,
+   "found": 70,
    "kept": 11,
    "sources": [
     "community-json",
@@ -16321,7 +16828,7 @@
   },
   {
    "company": "Qualcomm",
-   "found": 53,
+   "found": 54,
    "kept": 4,
    "sources": [
     "community-json",
@@ -16362,7 +16869,7 @@
   },
   {
    "company": "Micron",
-   "found": 141,
+   "found": 139,
    "kept": 13,
    "sources": [
     "direct-workday",
@@ -16408,7 +16915,7 @@
   },
   {
    "company": "IBM",
-   "found": 43,
+   "found": 14,
    "kept": 8,
    "sources": [
     "relay-direct-linkedin"
@@ -16417,8 +16924,8 @@
   },
   {
    "company": "Hewlett Packard Enterprise",
-   "found": 95,
-   "kept": 19,
+   "found": 88,
+   "kept": 18,
    "sources": [
     "community-json",
     "relay-direct-linkedin",
@@ -16429,7 +16936,7 @@
   },
   {
    "company": "HP",
-   "found": 22,
+   "found": 27,
    "kept": 0,
    "sources": [
     "community-json",
@@ -16442,7 +16949,7 @@
   },
   {
    "company": "Dell",
-   "found": 25,
+   "found": 24,
    "kept": 3,
    "sources": [
     "community-json",
@@ -16466,7 +16973,7 @@
   },
   {
    "company": "Applied Materials",
-   "found": 69,
+   "found": 70,
    "kept": 6,
    "sources": [
     "community-json",
@@ -16560,11 +17067,10 @@
   },
   {
    "company": "TSMC",
-   "found": 4,
+   "found": 2,
    "kept": 0,
    "sources": [
-    "relay-direct-linkedin",
-    "relay-tsmc"
+    "relay-direct-linkedin"
    ],
    "status": "filtered"
   },
@@ -16598,12 +17104,11 @@
   },
   {
    "company": "Eaton",
-   "found": 32,
-   "kept": 3,
+   "found": 31,
+   "kept": 2,
    "sources": [
     "community-json",
-    "relay-direct-linkedin",
-    "zapplyjobs"
+    "relay-direct-linkedin"
    ],
    "status": "ok"
   }
